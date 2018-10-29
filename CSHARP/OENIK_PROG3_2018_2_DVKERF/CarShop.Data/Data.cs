@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarShop.Data
 {
-    public class Class1
+    public class Data
     {
+
     }
 }
