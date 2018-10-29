@@ -10,6 +10,7 @@ namespace CarShop.Program
     {
         static void Main(string[] args)
         {
+            Menu.StartMenu();
         }
     }
 }
