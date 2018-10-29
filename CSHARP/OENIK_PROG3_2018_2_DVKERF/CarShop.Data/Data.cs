@@ -8,6 +8,5 @@ namespace CarShop.Data
 {
     public class Data
     {
-
     }
 }
