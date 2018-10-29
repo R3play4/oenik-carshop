@@ -42,3 +42,10 @@ create table extras
 
 insert into extras (category_name, name, price, reuseable) values ('Interior', 'Air Conditioning', 100,  0 )
 insert into extras (category_name, name, price, reuseable) values ('Engine', 'Turbo', 250,  0 )
+
+create table model_extra_connection
+(
+	id int identity primary key,
+	model_id int, 
+	extra_id int
+)
