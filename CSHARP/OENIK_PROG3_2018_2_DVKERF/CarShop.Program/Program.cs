@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarShop.Program.Menu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,19 @@ namespace CarShop.Program
     {
         static void Main(string[] args)
         {
-            Menu.StartMenu();
+
+            MainMenu menu = new MainMenu();
+
+            MenuItem create = new MenuItem("Create Item", "C");
+            create.AddMenuAction(new CreateAction());
+
+            MenuItem exit = new Menu.MenuItem("Exit Program", "E");
+            exit.AddMenuAction(new ExitAction());
+
+            menu.AddMenuItem(create);
+            menu.AddMenuItem(exit);
+
+            menu.StartMenu();
         }
     }
 }
