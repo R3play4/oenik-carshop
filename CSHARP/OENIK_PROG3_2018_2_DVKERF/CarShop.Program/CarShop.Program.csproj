@@ -46,10 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Menu\CreateAction.cs" />
+    <Compile Include="Menu\DeleteAction.cs" />
     <Compile Include="Menu\ExitAction.cs" />
     <Compile Include="Menu\IMenuAction.cs" />
+    <Compile Include="Menu\ListAction.cs" />
     <Compile Include="Menu\MainMenu.cs" />
     <Compile Include="Menu\MenuItem.cs" />
+    <Compile Include="Menu\UpdateAction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

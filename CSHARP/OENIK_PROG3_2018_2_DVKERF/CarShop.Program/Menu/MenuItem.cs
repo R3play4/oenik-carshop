@@ -8,22 +8,21 @@ namespace CarShop.Program.Menu
 {
     class MenuItem
     {
-        public IMenuAction MenuAction { get; set; }
-        public string DisplayName { get; private set; }
-        public string Command { get; private set; }
-
-
         public MenuItem(string displayname, string command)
         {
-            DisplayName = displayname;
-            Command = command;
+            this.DisplayName = displayname;
+            this.Command = command;
         }
+
+        public IMenuAction MenuAction { get; set; }
+
+        public string DisplayName { get; private set; }
+
+        public string Command { get; private set; }
 
         public void AddMenuAction(IMenuAction action)
         {
-            MenuAction = action;
+            this.MenuAction = action;
         }
-        
-
     }
 }
