@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Logic", "CarShop.Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Logic.Tests", "CarShop.Logic.Tests\CarShop.Logic.Tests.csproj", "{8380B00A-48B6-4E70-AA88-03732F9D77FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Data", "CarShop.Data\CarShop.Data.csproj", "{DDF9B236-6030-4FCE-B730-81E33495FE17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Data", "CarShop.Data\CarShop.Data.csproj", "{63230503-D34A-4E13-BCC3-5B0F39DC7B90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{8380B00A-48B6-4E70-AA88-03732F9D77FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8380B00A-48B6-4E70-AA88-03732F9D77FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8380B00A-48B6-4E70-AA88-03732F9D77FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDF9B236-6030-4FCE-B730-81E33495FE17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDF9B236-6030-4FCE-B730-81E33495FE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDF9B236-6030-4FCE-B730-81E33495FE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDF9B236-6030-4FCE-B730-81E33495FE17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63230503-D34A-4E13-BCC3-5B0F39DC7B90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63230503-D34A-4E13-BCC3-5B0F39DC7B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63230503-D34A-4E13-BCC3-5B0F39DC7B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63230503-D34A-4E13-BCC3-5B0F39DC7B90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
