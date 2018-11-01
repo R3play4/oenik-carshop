@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarShopDBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="car_brands">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" />
+    <Property Name="country" Type="varchar" MaxLength="20" />
+    <Property Name="url" Type="varchar" MaxLength="100" />
+    <Property Name="founded" Type="date" />
+    <Property Name="yearly_revenue" Type="int" />
+  </EntityType>
+  <EntityType Name="car_models">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="brand_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" />
+    <Property Name="production_start" Type="date" />
+    <Property Name="engine_size" Type="int" />
+    <Property Name="horsepower" Type="int" />
+    <Property Name="starting_price" Type="int" />
+  </EntityType>
+  <EntityType Name="extras">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_name" Type="varchar" MaxLength="20" />
+    <Property Name="name" Type="varchar" MaxLength="20" />
+    <Property Name="price" Type="int" />
+    <Property Name="color" Type="varchar" MaxLength="10" />
+    <Property Name="reuseable" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="model_extra_connection">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="model_id" Type="int" Nullable="false" />
+    <Property Name="extra_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__car_model__brand__25869641">
+    <End Role="car_brands" Type="Self.car_brands" Multiplicity="1" />
+    <End Role="car_models" Type="Self.car_models" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="car_brands">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="car_models">
+        <PropertyRef Name="brand_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__model_ext__extra__2B3F6F97">
+    <End Role="extras" Type="Self.extras" Multiplicity="1" />
+    <End Role="model_extra_connection" Type="Self.model_extra_connection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="extras">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="model_extra_connection">
+        <PropertyRef Name="extra_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__model_ext__model__2A4B4B5E">
+    <End Role="car_models" Type="Self.car_models" Multiplicity="1" />
+    <End Role="model_extra_connection" Type="Self.model_extra_connection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="car_models">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="model_extra_connection">
+        <PropertyRef Name="model_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CarShopDBaseModelStoreContainer">
+    <EntitySet Name="car_brands" EntityType="Self.car_brands" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="car_models" EntityType="Self.car_models" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="extras" EntityType="Self.extras" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="model_extra_connection" EntityType="Self.model_extra_connection" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__car_model__brand__25869641" Association="Self.FK__car_model__brand__25869641">
+      <End Role="car_brands" EntitySet="car_brands" />
+      <End Role="car_models" EntitySet="car_models" />
+    </AssociationSet>
+    <AssociationSet Name="FK__model_ext__extra__2B3F6F97" Association="Self.FK__model_ext__extra__2B3F6F97">
+      <End Role="extras" EntitySet="extras" />
+      <End Role="model_extra_connection" EntitySet="model_extra_connection" />
+    </AssociationSet>
+    <AssociationSet Name="FK__model_ext__model__2A4B4B5E" Association="Self.FK__model_ext__model__2A4B4B5E">
+      <End Role="car_models" EntitySet="car_models" />
+      <End Role="model_extra_connection" EntitySet="model_extra_connection" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

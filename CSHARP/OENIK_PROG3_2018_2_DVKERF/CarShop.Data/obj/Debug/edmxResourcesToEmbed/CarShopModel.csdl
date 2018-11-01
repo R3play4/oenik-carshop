@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarShopDBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="car_brands">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="founded" Type="DateTime" Precision="0" />
+    <Property Name="yearly_revenue" Type="Int32" />
+    <NavigationProperty Name="car_models" Relationship="Self.FK__car_model__brand__25869641" FromRole="car_brands" ToRole="car_models" />
+  </EntityType>
+  <EntityType Name="car_models">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="brand_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="production_start" Type="DateTime" Precision="0" />
+    <Property Name="engine_size" Type="Int32" />
+    <Property Name="horsepower" Type="Int32" />
+    <Property Name="starting_price" Type="Int32" />
+    <NavigationProperty Name="car_brands" Relationship="Self.FK__car_model__brand__25869641" FromRole="car_models" ToRole="car_brands" />
+    <NavigationProperty Name="model_extra_connection" Relationship="Self.FK__model_ext__model__2A4B4B5E" FromRole="car_models" ToRole="model_extra_connection" />
+  </EntityType>
+  <EntityType Name="extra">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="color" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="reuseable" Type="Byte" />
+    <NavigationProperty Name="model_extra_connection" Relationship="Self.FK__model_ext__extra__2B3F6F97" FromRole="extras" ToRole="model_extra_connection" />
+  </EntityType>
+  <EntityType Name="model_extra_connection">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="model_id" Type="Int32" Nullable="false" />
+    <Property Name="extra_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="car_models" Relationship="Self.FK__model_ext__model__2A4B4B5E" FromRole="model_extra_connection" ToRole="car_models" />
+    <NavigationProperty Name="extra" Relationship="Self.FK__model_ext__extra__2B3F6F97" FromRole="model_extra_connection" ToRole="extras" />
+  </EntityType>
+  <Association Name="FK__car_model__brand__25869641">
+    <End Role="car_brands" Type="Self.car_brands" Multiplicity="1" />
+    <End Role="car_models" Type="Self.car_models" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="car_brands">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="car_models">
+        <PropertyRef Name="brand_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__model_ext__model__2A4B4B5E">
+    <End Role="car_models" Type="Self.car_models" Multiplicity="1" />
+    <End Role="model_extra_connection" Type="Self.model_extra_connection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="car_models">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="model_extra_connection">
+        <PropertyRef Name="model_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__model_ext__extra__2B3F6F97">
+    <End Role="extras" Type="Self.extra" Multiplicity="1" />
+    <End Role="model_extra_connection" Type="Self.model_extra_connection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="extras">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="model_extra_connection">
+        <PropertyRef Name="extra_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CarShopDBaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="car_brands" EntityType="Self.car_brands" />
+    <EntitySet Name="car_models" EntityType="Self.car_models" />
+    <EntitySet Name="extras" EntityType="Self.extra" />
+    <EntitySet Name="model_extra_connection" EntityType="Self.model_extra_connection" />
+    <AssociationSet Name="FK__car_model__brand__25869641" Association="Self.FK__car_model__brand__25869641">
+      <End Role="car_brands" EntitySet="car_brands" />
+      <End Role="car_models" EntitySet="car_models" />
+    </AssociationSet>
+    <AssociationSet Name="FK__model_ext__model__2A4B4B5E" Association="Self.FK__model_ext__model__2A4B4B5E">
+      <End Role="car_models" EntitySet="car_models" />
+      <End Role="model_extra_connection" EntitySet="model_extra_connection" />
+    </AssociationSet>
+    <AssociationSet Name="FK__model_ext__extra__2B3F6F97" Association="Self.FK__model_ext__extra__2B3F6F97">
+      <End Role="extras" EntitySet="extras" />
+      <End Role="model_extra_connection" EntitySet="model_extra_connection" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

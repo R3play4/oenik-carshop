@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarShopDBaseModelStoreContainer" CdmEntityContainer="CarShopDBaseEntities">
+    <EntitySetMapping Name="car_brands">
+      <EntityTypeMapping TypeName="CarShopDBaseModel.car_brands">
+        <MappingFragment StoreEntitySet="car_brands">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="founded" ColumnName="founded" />
+          <ScalarProperty Name="yearly_revenue" ColumnName="yearly_revenue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="car_models">
+      <EntityTypeMapping TypeName="CarShopDBaseModel.car_models">
+        <MappingFragment StoreEntitySet="car_models">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="production_start" ColumnName="production_start" />
+          <ScalarProperty Name="engine_size" ColumnName="engine_size" />
+          <ScalarProperty Name="horsepower" ColumnName="horsepower" />
+          <ScalarProperty Name="starting_price" ColumnName="starting_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="extras">
+      <EntityTypeMapping TypeName="CarShopDBaseModel.extra">
+        <MappingFragment StoreEntitySet="extras">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="reuseable" ColumnName="reuseable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="model_extra_connection">
+      <EntityTypeMapping TypeName="CarShopDBaseModel.model_extra_connection">
+        <MappingFragment StoreEntitySet="model_extra_connection">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="model_id" ColumnName="model_id" />
+          <ScalarProperty Name="extra_id" ColumnName="extra_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
