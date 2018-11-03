@@ -4,6 +4,97 @@
         <name>CarShop.Program</name>
     </assembly>
     <members>
+        <member name="T:CarShop.Program.Menu.CreateAction">
+            <summary>
+            Class that will call the Create method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.CreateAction.ExecuteMenuAction">
+            <summary>
+            Executes the Create Action menu. This wil call the Create Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.DeleteAction">
+            <summary>
+            Class that will call the Delete method
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.DeleteAction.ExecuteMenuAction">
+            <summary>
+            Executes the Delete Action menu. This wil call the Delete Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.ExitAction">
+            <summary>
+            This is responsible for exiting the application's menu.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.ExitAction.ExecuteMenuAction">
+            <summary>
+            If this method is called the Main Menu will change ExitMenu property to true.
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.IMenuAction">
+            <summary>
+            Interface that is responsible for the MenuItem's actions.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.IMenuAction.ExecuteMenuAction">
+            <summary>
+            Action to be implemented by a MenuItem.
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.ListAction">
+            <summary>
+            Class that will call the List method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.ListAction.ExecuteMenuAction">
+            <summary>
+            Executes the List Action menu. This wil call the List(Read) Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.MainMenu">
+            <summary>
+            MainMenu will display the Menu Options.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.MainMenu.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Program.Menu.MainMenu"/> class.
+            </summary>
+        </member>
+        <member name="P:CarShop.Program.Menu.MainMenu.ExitMenu">
+            <summary>
+            Gets or sets a value indicating whether the Main Menu can exit. False by default.
+            </summary>
+        </member>
+        <member name="P:CarShop.Program.Menu.MainMenu.MenuItems">
+            <summary>
+            Gets or sets Menu Items. This holdes the available menu options.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.MainMenu.AddMenuItem(CarShop.Program.Menu.MenuItem)">
+            <summary>
+            New Menu items can be added to the already existing ones.
+            </summary>
+            <param name="newMenuItem">The new item to be added to the list</param>
+        </member>
+        <member name="M:CarShop.Program.Menu.MainMenu.DisplayMenu">
+            <summary>
+            Displays the MenuItem's display name and command that are stored in the MenuItmes property.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.MainMenu.SelectMenuItem">
+            <summary>
+            Selects MenuItem based on user input. Checks for valid input.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.MainMenu.StartMenu">
+            <summary>
+            Main Menu loop. Displays the menu. After that it asks for selection. This mehtod will run until the ExitMenu property is set to true.
+            </summary>
+        </member>
         <member name="T:CarShop.Program.Menu.MenuItem">
             <summary>
             A Main Menu will be a collection of Menu Items.
@@ -37,6 +128,27 @@
             Adds new IMenuAction interface
             </summary>
             <param name="action">name of the new action that will be assigend</param>
+        </member>
+        <member name="T:CarShop.Program.Menu.UpdateAction">
+            <summary>
+            Class that will call the List method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.UpdateAction.ExecuteMenuAction">
+            <summary>
+            Executes the List Action menu. This wil call the Update Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Program">
+            <summary>
+            Main Class. Includes Entry point (Main method)
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Program.Main(System.String[])">
+            <summary>
+            Entry point -> Main Method
+            </summary>
+            <param name="args">arguments</param>
         </member>
     </members>
 </doc>
