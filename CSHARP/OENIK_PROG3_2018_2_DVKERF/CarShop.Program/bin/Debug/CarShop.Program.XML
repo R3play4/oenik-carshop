@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CarShop.Program</name>
+    </assembly>
+    <members>
+        <member name="T:CarShop.Program.Menu.MenuItem">
+            <summary>
+            A Main Menu will be a collection of Menu Items.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.MenuItem.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Program.Menu.MenuItem"/> class.
+            Constructor
+            </summary>
+            <param name="displayname">name that will be displayed in the menu</param>
+            <param name="command">character that needs to be pressed to invoke the MenuItem</param>
+        </member>
+        <member name="P:CarShop.Program.Menu.MenuItem.MenuAction">
+            <summary>
+            Gets or sets the MenuItem's action. This property determines what actions can be done with a given MenuItem.
+            </summary>
+        </member>
+        <member name="P:CarShop.Program.Menu.MenuItem.DisplayName">
+            <summary>
+            Gets the DisplayName.
+            </summary>
+        </member>
+        <member name="P:CarShop.Program.Menu.MenuItem.Command">
+            <summary>
+            Gets the Command which invokes the MenuItem.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.MenuItem.AddMenuAction(CarShop.Program.Menu.IMenuAction)">
+            <summary>
+            Adds new IMenuAction interface
+            </summary>
+            <param name="action">name of the new action that will be assigend</param>
+        </member>
+    </members>
+</doc>
