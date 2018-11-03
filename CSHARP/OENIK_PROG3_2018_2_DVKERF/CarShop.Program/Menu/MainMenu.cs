@@ -81,6 +81,96 @@ namespace CarShop.Program.Menu
         }
 
         /// <summary>
+        /// Builds a Menu with MenuItems and Menu Actions.
+        /// </summary>
+        public void MenuBuilder()
+        {
+
+            // CRUD
+            MenuItem createBrand = new MenuItem("Create Brand", "CB");
+            createBrand.AddMenuAction(new CreateBrandAction());
+
+            MenuItem createModel = new MenuItem("Create Model", "CM");
+            createModel.AddMenuAction(new CreateModelAction());
+
+            MenuItem createExtra = new MenuItem("Create Extra", "CE");
+            createExtra.AddMenuAction(new CreateExtraAction());
+
+            MenuItem updateBrand = new MenuItem("Update Brand", "UB");
+            updateBrand.AddMenuAction(new UpdateBrandAction());
+
+            MenuItem updateModel = new MenuItem("Update Model", "UM");
+            updateModel.AddMenuAction(new UpdateModelAction());
+
+            MenuItem updateExtra = new MenuItem("Update Extra", "UE");
+            updateExtra.AddMenuAction(new UpdateExtraAction());
+
+            MenuItem deleteBrand = new MenuItem("Delte Brand", "DB");
+            deleteBrand.AddMenuAction(new DeleteBrandAction());
+
+            MenuItem deleteModel = new MenuItem("Delete Model", "DM");
+            deleteModel.AddMenuAction(new DeleteModelAction());
+
+            MenuItem deleteExtra = new MenuItem("Delte Extra", "DE");
+            deleteExtra.AddMenuAction(new DeleteExtraAction());
+
+            MenuItem listBrand= new MenuItem("List Brand", "LB");
+            listBrand.AddMenuAction(new ListBrandAction());
+
+            MenuItem listModel = new MenuItem("List Model", "LM");
+            listModel.AddMenuAction(new ListModelAction());
+
+            MenuItem listExtra = new MenuItem("List Extra", "LE");
+            listExtra.AddMenuAction(new ListExtraAction());
+
+            // Java
+            MenuItem javaEndPoint = new MenuItem("Get Data from Java End Point", "J");
+            javaEndPoint.AddMenuAction(new JavaGetDataAction());
+
+            // Non CRUD
+
+            // displays brand+model+country
+            MenuItem listBrandsAndModelbyCountry = new MenuItem("List Brands and models by country", "LBM");
+            listBrandsAndModelbyCountry.AddMenuAction(new ListBrandsAndModelsPerCountryAction());
+
+            // counts number of extras/ model
+            MenuItem listExtraModel = new MenuItem("List Extras per model", "LEM");
+            listExtraModel.AddMenuAction(new ListExtraPerModelAction());
+
+            // lists brands + models where the horspower is greater than 200
+            MenuItem listMuscle = new MenuItem("List Muscle Cars", "LMC");
+            listMuscle.AddMenuAction(new ListMuscleCarsAction());
+
+            MenuItem java = new MenuItem("Get Data From Java Endpoint", "J");
+            java.AddMenuAction(new JavaGetDataAction());
+
+            MenuItem exit = new MenuItem("Exit Menu", "E");
+            exit.AddMenuAction(new ExitAction());
+
+            this.AddMenuItem(listBrand);
+            this.AddMenuItem(listModel);
+            this.AddMenuItem(listExtra);
+            this.AddMenuItem(listExtraModel);
+            this.AddMenuItem(listBrandsAndModelbyCountry);
+            this.AddMenuItem(listExtraModel);
+
+            this.AddMenuItem(createBrand);
+            this.AddMenuItem(createModel);
+            this.AddMenuItem(createExtra);
+
+            this.AddMenuItem(updateBrand);
+            this.AddMenuItem(updateModel);
+            this.AddMenuItem(updateExtra);
+
+            this.AddMenuItem(deleteBrand);
+            this.AddMenuItem(deleteModel);
+            this.AddMenuItem(deleteExtra);
+
+            this.AddMenuItem(java);
+            this.AddMenuItem(exit);
+        }
+
+        /// <summary>
         /// Main Menu loop. Displays the menu. After that it asks for selection. This mehtod will run until the ExitMenu property is set to true.
         /// </summary>
         public void StartMenu()

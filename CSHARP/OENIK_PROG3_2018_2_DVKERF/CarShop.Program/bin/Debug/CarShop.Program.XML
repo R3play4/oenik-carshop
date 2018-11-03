@@ -4,24 +4,94 @@
         <name>CarShop.Program</name>
     </assembly>
     <members>
-        <member name="T:CarShop.Program.Menu.CreateAction">
+        <member name="T:CarShop.Program.Menu.JavaGetDataAction">
+            <summary>
+            Class that will call the List method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.JavaGetDataAction.ExecuteMenuAction">
+            <summary>
+            Executes the method that will get Data from the Java End Point. 
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.ListBrandsAndModelsPerCountryAction">
+            <summary>
+            Class that will call the List method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.ListBrandsAndModelsPerCountryAction.ExecuteMenuAction">
+            <summary>
+            Executes the List Brands and Models Per Country menu. This wil call the List Extra per Model. Shows brands and makes and country
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.ListExtraPerModelAction">
+            <summary>
+            Class that will call the List method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.ListExtraPerModelAction.ExecuteMenuAction">
+            <summary>
+            Executes the List Extra Per Model menu. This wil call the List Extra per Model. (Counts how many Extras does a model have)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.CreateBrandAction">
             <summary>
             Class that will call the Create method.
             </summary>
         </member>
-        <member name="M:CarShop.Program.Menu.CreateAction.ExecuteMenuAction">
+        <member name="M:CarShop.Program.Menu.CreateBrandAction.ExecuteMenuAction">
             <summary>
-            Executes the Create Action menu. This wil call the Create Method (CRUD)
+            Executes the Create Brand Action menu. This wil call the Create Method (CRUD)
             </summary>
         </member>
-        <member name="T:CarShop.Program.Menu.DeleteAction">
+        <member name="T:CarShop.Program.Menu.CreateExtraAction">
+            <summary>
+            Class that will call the Create method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.CreateExtraAction.ExecuteMenuAction">
+            <summary>
+            Executes the Create Extra Action menu. This wil call the Create Extra Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.CreateModelAction">
+            <summary>
+            Class that will call the Create method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.CreateModelAction.ExecuteMenuAction">
+            <summary>
+            Executes the Create Model Action menu. This wil call the Create Model Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.DeleteBrandAction">
             <summary>
             Class that will call the Delete method
             </summary>
         </member>
-        <member name="M:CarShop.Program.Menu.DeleteAction.ExecuteMenuAction">
+        <member name="M:CarShop.Program.Menu.DeleteBrandAction.ExecuteMenuAction">
             <summary>
-            Executes the Delete Action menu. This wil call the Delete Method (CRUD)
+            Executes the Delete Brand Action menu. This wil call the Delete Brand Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.DeleteExtraAction">
+            <summary>
+            Class that will call the Delete method
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.DeleteExtraAction.ExecuteMenuAction">
+            <summary>
+            Executes the Delete Extra Action menu. This wil call the Delete Model Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.DeleteModelAction">
+            <summary>
+            Class that will call the Delete method
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.DeleteModelAction.ExecuteMenuAction">
+            <summary>
+            Executes the Delete Model Action menu. This wil call the Delete Model Method (CRUD)
             </summary>
         </member>
         <member name="T:CarShop.Program.Menu.ExitAction">
@@ -44,14 +114,14 @@
             Action to be implemented by a MenuItem.
             </summary>
         </member>
-        <member name="T:CarShop.Program.Menu.ListAction">
+        <member name="T:CarShop.Program.Menu.ListBrandAction">
             <summary>
             Class that will call the List method.
             </summary>
         </member>
-        <member name="M:CarShop.Program.Menu.ListAction.ExecuteMenuAction">
+        <member name="M:CarShop.Program.Menu.ListBrandAction.ExecuteMenuAction">
             <summary>
-            Executes the List Action menu. This wil call the List(Read) Method (CRUD)
+            Executes the List Brand Action menu. This wil call the List Brand (Read) Method (CRUD)
             </summary>
         </member>
         <member name="T:CarShop.Program.Menu.MainMenu">
@@ -88,6 +158,11 @@
         <member name="M:CarShop.Program.Menu.MainMenu.SelectMenuItem">
             <summary>
             Selects MenuItem based on user input. Checks for valid input.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.MainMenu.MenuBuilder">
+            <summary>
+            Builds a Menu with MenuItems and Menu Actions.
             </summary>
         </member>
         <member name="M:CarShop.Program.Menu.MainMenu.StartMenu">
@@ -129,14 +204,64 @@
             </summary>
             <param name="action">name of the new action that will be assigend</param>
         </member>
-        <member name="T:CarShop.Program.Menu.UpdateAction">
+        <member name="T:CarShop.Program.Menu.ListExtraAction">
             <summary>
             Class that will call the List method.
             </summary>
         </member>
-        <member name="M:CarShop.Program.Menu.UpdateAction.ExecuteMenuAction">
+        <member name="M:CarShop.Program.Menu.ListExtraAction.ExecuteMenuAction">
             <summary>
-            Executes the List Action menu. This wil call the Update Method (CRUD)
+            Executes the List Extra Action menu. This wil call the List Extra (Read) Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.ListModelAction">
+            <summary>
+            Class that will call the List method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.ListModelAction.ExecuteMenuAction">
+            <summary>
+            Executes the List Model Action menu. This wil call the List Model (Read) Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.ListMuscleCarsAction">
+            <summary>
+            Class that will call the List method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.ListMuscleCarsAction.ExecuteMenuAction">
+            <summary>
+            Executes the List Muscle cars menu. This wil call the List Muscle Cars Method. Displays brand and models where horpower is greater than 200.
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.UpdateBrandAction">
+            <summary>
+            Class that will call the List method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.UpdateBrandAction.ExecuteMenuAction">
+            <summary>
+            Executes the Update Brand menu. This wil call the Update Brand Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.UpdateExtraAction">
+            <summary>
+            Class that will call the List method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.UpdateExtraAction.ExecuteMenuAction">
+            <summary>
+            Executes the Update Extra menu. This wil call the Update Extra Method (CRUD)
+            </summary>
+        </member>
+        <member name="T:CarShop.Program.Menu.UpdateModelAction">
+            <summary>
+            Class that will call the List method.
+            </summary>
+        </member>
+        <member name="M:CarShop.Program.Menu.UpdateModelAction.ExecuteMenuAction">
+            <summary>
+            Executes the Update model menu. This wil call the Update Model Method (CRUD)
             </summary>
         </member>
         <member name="T:CarShop.Program.Program">

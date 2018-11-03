@@ -1,4 +1,4 @@
-﻿// <copyright file="CreateAction.cs" company="PlaceholderCompany">
+﻿// <copyright file="CreateBrandAction.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -16,7 +16,7 @@ namespace CarShop.Program.Menu
     internal class CreateBrandAction : IMenuAction
     {
         /// <summary>
-        /// Executes the Create Action menu. This wil call the Create Method (CRUD)
+        /// Executes the Create Brand Action menu. This wil call the Create Method (CRUD)
         /// </summary>
         public void ExecuteMenuAction()
         {

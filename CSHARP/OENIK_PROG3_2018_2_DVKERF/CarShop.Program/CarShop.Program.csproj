@@ -46,14 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menu\MenuOptions\JavaGetDataAction.cs" />
+    <Compile Include="Menu\MenuOptions\ListBrandsAndModelsPerCountryAction.cs" />
+    <Compile Include="Menu\MenuOptions\ListExtraPerModelAction.cs" />
     <Compile Include="Menu\MenuOptions\CreateBrandAction.cs" />
-    <Compile Include="Menu\MenuOptions\DeleteAction.cs" />
+    <Compile Include="Menu\MenuOptions\CreateExtraAction.cs" />
+    <Compile Include="Menu\MenuOptions\CreateModelAction.cs" />
+    <Compile Include="Menu\MenuOptions\DeleteBrandAction.cs" />
+    <Compile Include="Menu\MenuOptions\DeleteExtraAction.cs" />
+    <Compile Include="Menu\MenuOptions\DeleteModelAction.cs" />
     <Compile Include="Menu\MenuOptions\ExitAction.cs" />
     <Compile Include="Menu\IMenuAction.cs" />
-    <Compile Include="Menu\MenuOptions\ListAction.cs" />
+    <Compile Include="Menu\MenuOptions\ListBrandAction.cs" />
     <Compile Include="Menu\MainMenu.cs" />
     <Compile Include="Menu\MenuItem.cs" />
-    <Compile Include="Menu\MenuOptions\UpdateAction.cs" />
+    <Compile Include="Menu\MenuOptions\ListExtraAction.cs" />
+    <Compile Include="Menu\MenuOptions\ListModelAction.cs" />
+    <Compile Include="Menu\MenuOptions\ListMuscleCarsAction.cs" />
+    <Compile Include="Menu\MenuOptions\UpdateBrandAction.cs" />
+    <Compile Include="Menu\MenuOptions\UpdateExtraAction.cs" />
+    <Compile Include="Menu\MenuOptions\UpdateModelAction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

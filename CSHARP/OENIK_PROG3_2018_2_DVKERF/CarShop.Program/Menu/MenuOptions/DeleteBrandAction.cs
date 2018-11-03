@@ -1,4 +1,4 @@
-﻿// <copyright file="DeleteAction.cs" company="PlaceholderCompany">
+﻿// <copyright file="DeleteBrandAction.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -13,15 +13,15 @@ namespace CarShop.Program.Menu
     /// <summary>
     /// Class that will call the Delete method
     /// </summary>
-    internal class DeleteAction : IMenuAction
+    internal class DeleteBrandAction : IMenuAction
     {
         /// <summary>
-        /// Executes the Delete Action menu. This wil call the Delete Method (CRUD)
+        /// Executes the Delete Brand Action menu. This wil call the Delete Brand Method (CRUD)
         /// </summary>
         public void ExecuteMenuAction()
         {
             Console.Clear();
-            Console.WriteLine("Delete Menu is not ready yet");
+            Console.WriteLine("Delete Brand Menu is not ready yet");
         }
     }
 }

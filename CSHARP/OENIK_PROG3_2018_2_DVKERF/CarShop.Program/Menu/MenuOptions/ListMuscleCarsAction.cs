@@ -1,4 +1,4 @@
-﻿// <copyright file="ListBrandsPerCountryAction.cs" company="PlaceholderCompany">
+﻿// <copyright file="ListMuscleCarsAction.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -13,15 +13,15 @@ namespace CarShop.Program.Menu
     /// <summary>
     /// Class that will call the List method.
     /// </summary>
-    internal class JavaGetDataAction : IMenuAction
+    internal class ListMuscleCarsAction : IMenuAction
     {
         /// <summary>
-        /// Executes the method that will get Data from the Java End Point. 
+        /// Executes the List Muscle cars menu. This wil call the List Muscle Cars Method. Displays brand and models where horpower is greater than 200.
         /// </summary>
         public void ExecuteMenuAction()
         {
             Console.Clear();
-            Console.WriteLine("Get Data From Java End point is not ready yet");
+            Console.WriteLine("List Muscle Cars Menu is not ready yet");
         }
     }
 }

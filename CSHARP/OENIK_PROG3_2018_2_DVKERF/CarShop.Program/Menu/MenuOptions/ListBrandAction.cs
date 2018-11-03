@@ -1,4 +1,4 @@
-﻿// <copyright file="ListAction.cs" company="PlaceholderCompany">
+﻿// <copyright file="ListBrandAction.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -13,15 +13,15 @@ namespace CarShop.Program.Menu
     /// <summary>
     /// Class that will call the List method.
     /// </summary>
-    internal class ListAction : IMenuAction
+    internal class ListBrandAction : IMenuAction
     {
         /// <summary>
-        /// Executes the List Action menu. This wil call the List(Read) Method (CRUD)
+        /// Executes the List Brand Action menu. This wil call the List Brand (Read) Method (CRUD)
         /// </summary>
         public void ExecuteMenuAction()
         {
             Console.Clear();
-            Console.WriteLine("List Menu is not ready yet");
+            Console.WriteLine("List Brand Menu is not ready yet");
         }
     }
 }
