@@ -1,4 +1,8 @@
-﻿namespace CarShop.Console.MenuItems
+﻿// <copyright file="CreateExtra.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace CarShop.Console.MenuItems
 {
     using System;
     using System.Collections.Generic;
