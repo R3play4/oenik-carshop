@@ -4,6 +4,7 @@
 
 namespace CarShop.Program.Menu
 {
+    using Logic;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -15,13 +16,21 @@ namespace CarShop.Program.Menu
     /// </summary>
     internal class ListBrandAction : IMenuAction
     {
+        ILogic method;
         /// <summary>
         /// Executes the List Brand Action menu. This wil call the List Brand (Read) Method (CRUD)
         /// </summary>
+        /// 
+        public ListBrandAction()
+        {
+            method = new Logic();
+        }
         public void ExecuteMenuAction()
         {
             Console.Clear();
-            Console.WriteLine("List Brand Menu is not ready yet");
+            Console.WriteLine("Calling Logic Function");
+            method.ListBrandsLogic();
+
         }
     }
 }

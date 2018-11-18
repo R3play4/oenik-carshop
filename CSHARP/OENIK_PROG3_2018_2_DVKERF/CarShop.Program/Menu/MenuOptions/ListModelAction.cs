@@ -4,6 +4,7 @@
 
 namespace CarShop.Program.Menu
 {
+    using Logic;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -15,13 +16,15 @@ namespace CarShop.Program.Menu
     /// </summary>
     internal class ListModelAction : IMenuAction
     {
+        ILogic method; 
         /// <summary>
         /// Executes the List Model Action menu. This wil call the List Model (Read) Method (CRUD)
         /// </summary>
         public void ExecuteMenuAction()
         {
             Console.Clear();
-            Console.WriteLine("List Model Menu is not ready yet");
+            Console.WriteLine("Executing List Model Logic");
+            method.ListModelsLogic();
         }
     }
 }

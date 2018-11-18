@@ -119,10 +119,11 @@
             Class that will call the List method.
             </summary>
         </member>
-        <member name="M:CarShop.Program.Menu.ListBrandAction.ExecuteMenuAction">
+        <member name="M:CarShop.Program.Menu.ListBrandAction.#ctor">
             <summary>
             Executes the List Brand Action menu. This wil call the List Brand (Read) Method (CRUD)
             </summary>
+            
         </member>
         <member name="T:CarShop.Program.Menu.MainMenu">
             <summary>

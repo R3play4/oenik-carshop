@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace CarShop.Repository
 {
-    interface IRepository
+    public interface IRepository
     {
         //List Muvelet
-        void ListBrands();
+        void ListBrandsRepo();
+        void ListModelsRepo();
     }
 }
