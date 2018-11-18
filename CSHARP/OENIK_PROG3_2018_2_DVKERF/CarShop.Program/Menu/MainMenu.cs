@@ -48,6 +48,7 @@ namespace CarShop.Program.Menu
         /// </summary>
         public void DisplayMenu()
         {
+            // header of the menu
             Console.WriteLine("----------CarShop Menu----------");
             foreach (var mi in this.MenuItems)
             {
