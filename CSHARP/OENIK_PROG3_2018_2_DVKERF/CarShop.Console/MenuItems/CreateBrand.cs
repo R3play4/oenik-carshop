@@ -6,15 +6,27 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Create Brand Menu Action
+    /// </summary>
     internal class CreateBrand : MenuItem
     {
-        public CreateBrand(string name, string command) : base(name, command)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateBrand"/> class.
+        /// </summary>
+        /// <param name="name">name of the item</param>
+        /// <param name="command">command of the item</param>
+        public CreateBrand(string name, string command)
+            : base(name, command)
         {
         }
 
+        /// <summary>
+        /// Executes the menu's action
+        /// </summary>
         public override void ExecuteMenuAction()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Create Brand Action not Ready Yet");
         }
     }
 }

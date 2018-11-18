@@ -44,6 +44,6 @@ namespace CarShop.Console
         /// <summary>
         /// This method will be implemented by the children classes.
         /// </summary>
-        public abstract void ExecuteSubMenuAction();
+        public abstract void ExecuteMenuAction();
     }
 }

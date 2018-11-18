@@ -84,7 +84,7 @@ namespace CarShop.Console
                     this.ParrentMenu.StartMenu();
                 }
 
-                selected.ExecuteSubMenuAction();
+                selected.ExecuteMenuAction();
             }
         }
     }
