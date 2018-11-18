@@ -8,5 +8,7 @@ namespace CarShop.Repository
 {
     interface IRepository
     {
+        //List Muvelet
+        void ListBrands();
     }
 }

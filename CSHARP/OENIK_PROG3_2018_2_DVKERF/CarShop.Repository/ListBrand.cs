@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace CarShop.Repository
 {
-    class ListBrand
+    class ListBrand : IRepository
     {
+        
+        public void ListBrands()
+        {
+            
+        }
     }
 }
