@@ -1,0 +1,11 @@
+C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Console.exe.config
+C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Console.XML
+C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Console.exe
+C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Console.pdb
+C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\EntityFramework.dll
+C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\EntityFramework.xml
+C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\obj\Debug\CarShop.Console.csprojResolveAssemblyReference.cache
+C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\obj\Debug\CarShop.Console.exe
+C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\obj\Debug\CarShop.Console.pdb
