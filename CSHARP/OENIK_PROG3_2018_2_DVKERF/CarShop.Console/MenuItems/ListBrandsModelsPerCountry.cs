@@ -30,7 +30,8 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("List Brands Models Per Country not Ready Yet");
+            Console.WriteLine("\nList Brands Models Per Country not Ready Yet");
+            Console.ReadLine();
         }
     }
 }

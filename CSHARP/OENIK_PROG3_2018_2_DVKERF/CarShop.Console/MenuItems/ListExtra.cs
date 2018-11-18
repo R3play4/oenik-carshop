@@ -30,7 +30,8 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("List Extra not Ready Yet");
+            Console.WriteLine("\nList Extra not Ready Yet");
+            Console.ReadLine();
         }
     }
 }

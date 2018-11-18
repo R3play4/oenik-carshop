@@ -15,6 +15,9 @@ namespace CarShop.Console
     /// </summary>
     internal class SubMenu : MainMenu
     {
+        // this will help the SubMenu to go back to the main Menu
+        private bool goBack;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SubMenu"/> class.
         /// </summary>
@@ -77,14 +80,38 @@ namespace CarShop.Console
             // selects a MenuItem
             var selected = this.SubMenuItems.Find(itm => itm.Command == command);
 
+            // if command is B the program will go back to the main menu
+            if (command == "B")
+            {
+                this.goBack = true;
+                this.ParrentMenu.StartMenu();
+            }
+
             if (selected != null)
             {
-                if (command == "B")
-                {
-                    this.ParrentMenu.StartMenu();
-                }
-
                 selected.ExecuteMenuAction();
+            }
+            else if (selected == null && command != "B")
+            {
+                // If an invalid command was received the method will call itself again.
+                Console.WriteLine("Invalid Command, Press Any key to try again!");
+                Console.ReadLine();
+                this.DisplayMenu();
+                this.SelectMenuItem();
+            }
+        }
+
+        /// <summary>
+        /// Menu loop for SubMenu
+        /// </summary>
+        public void StartSubMenu()
+        {
+            this.goBack = false;
+
+            while (!goBack)
+            {
+                this.DisplayMenu();
+                this.SelectMenuItem();
             }
         }
     }

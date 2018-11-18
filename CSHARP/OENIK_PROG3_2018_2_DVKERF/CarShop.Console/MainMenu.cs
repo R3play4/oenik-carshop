@@ -74,13 +74,14 @@ namespace CarShop.Console
             {
                 // sets the SubMenu's Parrent Item to 'this'. This will help the SubMenu to go Back to the Main Menu.
                 selected.ParrentMenu = this;
-                selected.DisplayMenu();
-                selected.SelectMenuItem();
+                selected.StartMenu();
             }
             else if (selected == null && command != "E")
             {
                 // If an invalid command was received the method will call itself again.
-                Console.WriteLine("Invalid Command");
+                Console.WriteLine("Invalid Command, Press Any key to try again!");
+                Console.ReadLine();
+                this.DisplayMenu();
                 this.SelectMenuItem();
             }
         }

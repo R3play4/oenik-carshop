@@ -4,5 +4,369 @@
         <name>CarShop.Console</name>
     </assembly>
     <members>
+        <member name="T:CarShop.Console.MainMenu">
+            <summary>
+            Main Menu class is responsible for displaying and selecting Menu Items.
+            </summary>
+        </member>
+        <member name="F:CarShop.Console.MainMenu.exit">
+            <summary>
+            This is used by the StartMenu method. If true the Method will break.
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MainMenu.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MainMenu"/> class.
+            Main Menu Konstuktor
+            </summary>
+        </member>
+        <member name="P:CarShop.Console.MainMenu.SubMenus">
+            <summary>
+            Gets or sets property SubMenu
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MainMenu.DisplayMenu">
+            <summary>
+            Displays all of the Sub Menu-s of the Main Menu
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MainMenu.SelectMenuItem">
+            <summary>
+            Selects a Sub Menu from the Sub Menus.
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MainMenu.StartMenu">
+            <summary>
+            Menu Loop. It will display the menu and ask for selection until the private field exit is not set to true by using the E command
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItem">
+            <summary>
+            Abstract class. It's children classes will implement the ExecuteMenuAction method whic will be incontact wih the CarShop.Logic.dll class
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItem.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItem"/> class.
+            </summary>
+            <param name="name">name of the MenuItem</param>
+            <param name="command">name of the Command</param>
+        </member>
+        <member name="P:CarShop.Console.MenuItem.Name">
+            <summary>
+            Gets name of the MenuItem
+            </summary>
+        </member>
+        <member name="P:CarShop.Console.MenuItem.Command">
+            <summary>
+            Gets Command of the MenuItem
+            </summary>
+        </member>
+        <member name="P:CarShop.Console.MenuItem.SubMenu_">
+            <summary>
+            Gets or sets the SubMenu.
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItem.ExecuteMenuAction">
+            <summary>
+            This method will be implemented by the children classes.
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.CreateBrand">
+            <summary>
+            Create Brand Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.CreateBrand.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.CreateBrand"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.CreateBrand.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.CreateExtra">
+            <summary>
+            Create Extra Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.CreateExtra.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.CreateExtra"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.CreateExtra.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.CreateModel">
+            <summary>
+            Create Model Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.CreateModel.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.CreateModel"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.CreateModel.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.DeleteBrand">
+            <summary>
+            DeleteBrand Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.DeleteBrand.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.DeleteBrand"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.DeleteBrand.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.DeleteExtra">
+            <summary>
+            DeleteExtra Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.DeleteExtra.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.DeleteExtra"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.DeleteExtra.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.DeleteModel">
+            <summary>
+            DeleteModel Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.DeleteModel.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.DeleteModel"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.DeleteModel.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.ListBrand">
+            <summary>
+            ListBrand Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.ListBrand.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.ListBrand"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.ListBrand.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.ListBrandsModelsPerCountry">
+            <summary>
+            ListBrandsModelsPerCountry Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.ListBrandsModelsPerCountry.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.ListBrandsModelsPerCountry"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.ListBrandsModelsPerCountry.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.ListExtra">
+            <summary>
+            ListBrand Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.ListExtra.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.ListExtra"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.ListExtra.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.ListExtraPerModel">
+            <summary>
+            ListBrand Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.ListExtraPerModel.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.ListExtraPerModel"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.ListExtraPerModel.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.ListModel">
+            <summary>
+            ListBrand Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.ListModel.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.ListModel"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.ListModel.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.UpdateBrand">
+            <summary>
+            ListBrand Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.UpdateBrand.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.UpdateBrand"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.UpdateBrand.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.UpdateExtra">
+            <summary>
+            UpdateExtra Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.UpdateExtra.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.UpdateExtra"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.UpdateExtra.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.MenuItems.UpdateModel">
+            <summary>
+            UpdateExtra Menu Action
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.UpdateModel.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.UpdateModel"/> class.
+            </summary>
+            <param name="name">name of the item</param>
+            <param name="command">command of the item</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.UpdateModel.ExecuteMenuAction">
+            <summary>
+            Executes the menu's action
+            </summary>
+        </member>
+        <member name="T:CarShop.Console.Program">
+            <summary>
+            Main Class. Includes Entry point (Main method)
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.Program.Main(System.String[])">
+            <summary>
+            Entry point -> Main Method
+            </summary>
+            <param name="args">arguments</param>
+        </member>
+        <member name="T:CarShop.Console.SubMenu">
+            <summary>
+            SubMenu Item will hold the Menu Items that will execute the methods of the .dll Logic
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.SubMenu.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.SubMenu"/> class.
+            </summary>
+            <param name="name">name of the SubMenu</param>
+            <param name="command">command of the SubMenu</param>
+        </member>
+        <member name="P:CarShop.Console.SubMenu.Name">
+            <summary>
+            Gets or sets name of the Sub Menu
+            </summary>
+        </member>
+        <member name="P:CarShop.Console.SubMenu.Command">
+            <summary>
+            Gets or sets command that selects this SubMenu
+            </summary>
+        </member>
+        <member name="P:CarShop.Console.SubMenu.SubMenuItems">
+            <summary>
+            Gets or sets SubMenuItems
+            </summary>
+        </member>
+        <member name="P:CarShop.Console.SubMenu.ParrentMenu">
+            <summary>
+            Gets or sets ParrentMenu. This will make it possible to go back to the main menu.
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.SubMenu.DisplayMenu">
+            <summary>
+            Displays the MenuItmes in stored in the field SubMenuItems
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.SubMenu.SelectMenuItem">
+            <summary>
+            Selects a MenuITtem from the property SubMenuItmes
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.SubMenu.StartSubMenu">
+            <summary>
+            Menu loop for SubMenu
+            </summary>
+        </member>
     </members>
 </doc>

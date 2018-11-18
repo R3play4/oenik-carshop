@@ -30,7 +30,8 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("Create Brand Action not Ready Yet");
+            Console.WriteLine("\nCreate Brand Action not Ready Yet");
+            Console.ReadLine();
         }
     }
 }
