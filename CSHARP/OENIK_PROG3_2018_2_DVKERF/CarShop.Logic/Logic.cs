@@ -18,6 +18,14 @@
         private IRepository repository;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Logic"/> class.
+        /// </summary>
+        public Logic()
+        {
+            this.repository = new Repository();
+        }
+
+        /// <summary>
         /// Calls Repository List Brand
         /// </summary>
         public void ListBrandsLogic()
@@ -28,7 +36,7 @@
         /// <summary>
         /// Calls Repository List Extra
         /// </summary>
-        public void ListExtra()
+        public void ListExtraLogic()
         {
             this.repository.ListExtraRepo();
         }

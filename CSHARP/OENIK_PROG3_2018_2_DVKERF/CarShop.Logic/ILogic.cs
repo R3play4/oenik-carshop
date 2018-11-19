@@ -28,6 +28,6 @@ namespace CarShop.Logic
         /// <summary>
         /// Method will List extras
         /// </summary>
-        void ListExtra();
+        void ListExtraLogic();
     }
 }

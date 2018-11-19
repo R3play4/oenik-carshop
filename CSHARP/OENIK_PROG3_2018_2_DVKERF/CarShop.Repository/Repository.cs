@@ -22,6 +22,14 @@ namespace CarShop.Repository
         private CarShopDBaseEntities database;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Repository"/> class.
+        /// </summary>
+        public Repository()
+        {
+            this.database = new CarShopDBaseEntities();
+        }
+
+        /// <summary>
         /// List Brands
         /// </summary>
         public void ListBrandsRepo()

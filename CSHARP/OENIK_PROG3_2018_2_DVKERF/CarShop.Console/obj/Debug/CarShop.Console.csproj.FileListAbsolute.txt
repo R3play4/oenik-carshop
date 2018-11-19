@@ -9,3 +9,14 @@ C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\
 C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\obj\Debug\CarShop.Console.csprojResolveAssemblyReference.cache
 C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\obj\Debug\CarShop.Console.exe
 C:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\obj\Debug\CarShop.Console.pdb
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShopDBase.mdf
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShopDBase_log.ldf
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Logic.dll
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Repository.dll
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Data.dll
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Logic.pdb
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Logic.xml
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Repository.pdb
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Repository.xml
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Data.pdb
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Data.xml

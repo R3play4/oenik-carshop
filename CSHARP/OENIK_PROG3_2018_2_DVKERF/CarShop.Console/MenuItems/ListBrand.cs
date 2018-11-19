@@ -30,7 +30,7 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("\nList Brand not Ready Yet");
+            this.LogicContact.ListBrandsLogic();
             Console.ReadLine();
         }
     }

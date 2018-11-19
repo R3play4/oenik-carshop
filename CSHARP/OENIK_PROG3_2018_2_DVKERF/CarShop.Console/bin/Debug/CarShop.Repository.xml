@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CarShop.Repository</name>
+    </assembly>
+    <members>
+        <member name="T:CarShop.Repository.IRepository">
+            <summary>
+            Declares CRUD operations. Comunicates with Data Entities.
+            </summary>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.ListBrandsRepo">
+            <summary>
+            List Brands
+            </summary>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.ListModelsRepo">
+            <summary>
+            List Models
+            </summary>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.ListExtraRepo">
+            <summary>
+            List Extras
+            </summary>
+        </member>
+        <member name="T:CarShop.Repository.Repository">
+            <summary>
+            Implements CRUD operations. Comunicates with Data Entities.
+            </summary>
+        </member>
+        <member name="F:CarShop.Repository.Repository.database">
+            <summary>
+            database connection
+            </summary>
+        </member>
+        <member name="M:CarShop.Repository.Repository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Repository.Repository"/> class.
+            </summary>
+        </member>
+        <member name="M:CarShop.Repository.Repository.ListBrandsRepo">
+            <summary>
+            List Brands
+            </summary>
+        </member>
+        <member name="M:CarShop.Repository.Repository.ListExtraRepo">
+            <summary>
+            List Extras
+            </summary>
+        </member>
+        <member name="M:CarShop.Repository.Repository.ListModelsRepo">
+            <summary>
+            List Models
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -19,9 +19,39 @@
             Method will List Models
             </summary>
         </member>
-        <member name="M:CarShop.Logic.ILogic.ListExtra">
+        <member name="M:CarShop.Logic.ILogic.ListExtraLogic">
             <summary>
             Method will List extras
+            </summary>
+        </member>
+        <member name="T:CarShop.Logic.Logic">
+            <summary>
+            Implements ILogic CRUD operations
+            </summary>
+        </member>
+        <member name="F:CarShop.Logic.Logic.repository">
+            <summary>
+            This will enable to communication with the Repository .dll
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.Logic.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Logic.Logic"/> class.
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.Logic.ListBrandsLogic">
+            <summary>
+            Calls Repository List Brand
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.Logic.ListExtraLogic">
+            <summary>
+            Calls Repository List Extra
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.Logic.ListModelsLogic">
+            <summary>
+            Calls Repository List Model
             </summary>
         </member>
     </members>

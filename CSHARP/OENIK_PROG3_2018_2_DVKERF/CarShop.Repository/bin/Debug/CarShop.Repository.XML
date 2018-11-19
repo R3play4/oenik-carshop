@@ -29,6 +29,16 @@
             Implements CRUD operations. Comunicates with Data Entities.
             </summary>
         </member>
+        <member name="F:CarShop.Repository.Repository.database">
+            <summary>
+            database connection
+            </summary>
+        </member>
+        <member name="M:CarShop.Repository.Repository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Repository.Repository"/> class.
+            </summary>
+        </member>
         <member name="M:CarShop.Repository.Repository.ListBrandsRepo">
             <summary>
             List Brands

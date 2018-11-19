@@ -52,6 +52,11 @@
             <param name="name">name of the MenuItem</param>
             <param name="command">name of the Command</param>
         </member>
+        <member name="P:CarShop.Console.MenuItem.LogicContact">
+            <summary>
+            Gets LogicContact which will be used by children MenuItem-s
+            </summary>
+        </member>
         <member name="P:CarShop.Console.MenuItem.Name">
             <summary>
             Gets name of the MenuItem

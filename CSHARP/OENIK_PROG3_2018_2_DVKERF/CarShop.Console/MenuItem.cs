@@ -9,12 +9,14 @@ namespace CarShop.Console
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Logic;
 
     /// <summary>
     /// Abstract class. It's children classes will implement the ExecuteMenuAction method whic will be incontact wih the CarShop.Logic.dll class
     /// </summary>
     internal abstract class MenuItem
     {
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MenuItem"/> class.
         /// </summary>
@@ -24,8 +26,13 @@ namespace CarShop.Console
         {
             this.Name = name;
             this.Command = command;
+            this.LogicContact = new Logic();
         }
 
+        /// <summary>
+        /// Gets LogicContact which will be used by children MenuItem-s
+        /// </summary>
+        public ILogic LogicContact { get; private set; }
         /// <summary>
         /// Gets name of the MenuItem
         /// </summary>
