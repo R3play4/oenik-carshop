@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CarShop.Logic</name>
+    </assembly>
+    <members>
+        <member name="T:CarShop.Logic.ILogic">
+            <summary>
+            Interface for CRUD operations. Communicates with Repository.
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.ILogic.ListBrandsLogic">
+            <summary>
+            Method will list Brands.
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.ILogic.ListModelsLogic">
+            <summary>
+            Method will List Models
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.ILogic.ListExtra">
+            <summary>
+            Method will List extras
+            </summary>
+        </member>
+    </members>
+</doc>

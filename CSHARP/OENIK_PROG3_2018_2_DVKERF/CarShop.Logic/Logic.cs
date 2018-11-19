@@ -1,27 +1,44 @@
-﻿using CarShop.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CarShop.Logic
+﻿namespace CarShop.Logic
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using CarShop.Repository;
+
+    /// <summary>
+    /// Implements ILogic CRUD operations
+    /// </summary>
     public class Logic : ILogic
     {
-        IRepository method;
-        public Logic()
-        {
-            method = new Repository.Repository();
-        }
+        /// <summary>
+        /// This will enable to communication with the Repository .dll
+        /// </summary>
+        private IRepository repository;
+
+        /// <summary>
+        /// Calls Repository List Brand
+        /// </summary>
         public void ListBrandsLogic()
         {
-            method.ListBrandsRepo();
+            this.repository.ListBrandsRepo();
         }
 
+        /// <summary>
+        /// Calls Repository List Extra
+        /// </summary>
+        public void ListExtra()
+        {
+            this.repository.ListExtraRepo();
+        }
+
+        /// <summary>
+        /// Calls Repository List Model
+        /// </summary>
         public void ListModelsLogic()
         {
-            method.ListModelsRepo();
+            this.repository.ListModelsRepo();
         }
     }
 }

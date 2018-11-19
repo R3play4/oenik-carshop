@@ -13,3 +13,4 @@ c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\
 c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Repository\bin\Debug\CarShop.Data.xml
 c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Repository\bin\Debug\EntityFramework.xml
 c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Repository\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Repository\bin\Debug\CarShop.Repository.XML
