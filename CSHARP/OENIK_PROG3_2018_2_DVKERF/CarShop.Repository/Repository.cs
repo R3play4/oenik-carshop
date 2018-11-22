@@ -79,5 +79,28 @@ namespace CarShop.Repository
                 Console.WriteLine(item);
             }
         }
+
+        /// <summary>
+        /// Creates new brand in the Database based on the parameter.
+        /// </summary>
+        /// <param name="brand">new brand parameter.</param>
+        public void CreateBrandRepo(car_brands brand)
+        {
+            this.database.car_brands.Add(brand);
+            this.database.SaveChanges();
+        }
+
+        /// <summary>
+        /// Deltes Brand from DB based on the brands name.
+        /// </summary>
+        /// <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
+        public void DeleteBrandRepo(string name)
+        {
+            var brand = this.database.car_brands
+                .Where(b => b.name == name).First();
+
+            this.database.car_brands.Remove(brand);
+            this.database.SaveChanges();
+        }
     }
 }

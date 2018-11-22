@@ -24,6 +24,18 @@
             List Extras
             </summary>
         </member>
+        <member name="M:CarShop.Repository.IRepository.CreateBrandRepo(CarShop.Data.car_brands)">
+            <summary>
+            Creates new brand in the database
+            </summary>
+            <param name="brand">name of the new brand</param>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.DeleteBrandRepo(System.String)">
+            <summary>
+            Creates Brand from the databse based on the name parameter
+            </summary>
+            <param name="name">name of the brand that needs to be delted.</param>
+        </member>
         <member name="T:CarShop.Repository.Repository">
             <summary>
             Implements CRUD operations. Comunicates with Data Entities.
@@ -53,6 +65,18 @@
             <summary>
             List Models
             </summary>
+        </member>
+        <member name="M:CarShop.Repository.Repository.CreateBrandRepo(CarShop.Data.car_brands)">
+            <summary>
+            Creates new brand in the Database based on the parameter.
+            </summary>
+            <param name="brand">new brand parameter.</param>
+        </member>
+        <member name="M:CarShop.Repository.Repository.DeleteBrandRepo(System.String)">
+            <summary>
+            Deltes Brand from DB based on the brands name.
+            </summary>
+            <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
         </member>
     </members>
 </doc>

@@ -6,6 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using CarShop.Repository;
+    using Data;
 
     /// <summary>
     /// Implements ILogic CRUD operations
@@ -47,6 +48,20 @@
         public void ListModelsLogic()
         {
             this.repository.ListModelsRepo();
+        }
+
+        /// <summary>
+        /// Calls CreateBrand method of the repository
+        /// </summary>
+        /// <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
+        public void CreateBrandLogic(car_brands brand)
+        {
+            this.repository.CreateBrandRepo(brand);
+        }
+
+        public void DeleteBrand(string name)
+        {
+            this.repository.DeleteBrandRepo(name);
         }
     }
 }

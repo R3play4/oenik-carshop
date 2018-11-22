@@ -19,10 +19,58 @@
             Method will List Models
             </summary>
         </member>
-        <member name="M:CarShop.Logic.ILogic.ListExtra">
+        <member name="M:CarShop.Logic.ILogic.ListExtraLogic">
             <summary>
             Method will List extras
             </summary>
+        </member>
+        <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(CarShop.Data.car_brands)">
+            <summary>
+            Method will call the repository method that will create new brand in the database.
+            </summary>
+            <param name="brand">new brand that needs to be created</param>
+        </member>
+        <member name="M:CarShop.Logic.ILogic.DeleteBrand(System.String)">
+            <summary>
+            Method will call the repository method that will delete the brand based on the name.
+            </summary>
+            <param name="name">Name of the brand that needs to be deleted </param>
+        </member>
+        <member name="T:CarShop.Logic.Logic">
+            <summary>
+            Implements ILogic CRUD operations
+            </summary>
+        </member>
+        <member name="F:CarShop.Logic.Logic.repository">
+            <summary>
+            This will enable to communication with the Repository .dll
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.Logic.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Logic.Logic"/> class.
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.Logic.ListBrandsLogic">
+            <summary>
+            Calls Repository List Brand
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.Logic.ListExtraLogic">
+            <summary>
+            Calls Repository List Extra
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.Logic.ListModelsLogic">
+            <summary>
+            Calls Repository List Model
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.Logic.CreateBrandLogic(CarShop.Data.car_brands)">
+            <summary>
+            Calls CreateBrand method of the repository
+            </summary>
+            <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
         </member>
     </members>
 </doc>

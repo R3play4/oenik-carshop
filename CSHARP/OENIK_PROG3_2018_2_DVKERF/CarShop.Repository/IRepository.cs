@@ -9,6 +9,7 @@ namespace CarShop.Repository
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Data;
 
     /// <summary>
     /// Declares CRUD operations. Comunicates with Data Entities.
@@ -29,5 +30,17 @@ namespace CarShop.Repository
         /// List Extras
         /// </summary>
         void ListExtraRepo();
+
+        /// <summary>
+        /// Creates new brand in the database
+        /// </summary>
+        /// <param name="brand">name of the new brand</param>
+        void CreateBrandRepo(car_brands brand);
+
+        /// <summary>
+        /// Creates Brand from the databse based on the name parameter
+        /// </summary>
+        /// <param name="name">name of the brand that needs to be delted.</param>
+        void DeleteBrandRepo(string name);
     }
 }

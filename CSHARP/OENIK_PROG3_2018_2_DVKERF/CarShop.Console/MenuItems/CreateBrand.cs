@@ -4,6 +4,7 @@
 
 namespace CarShop.Console.MenuItems
 {
+    using Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -30,7 +31,29 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("\nCreate Brand Action not Ready Yet");
+            Console.WriteLine("Enter the parameters of the new brand:");
+
+            car_brands newBrand = new car_brands();
+
+            // name property
+            Console.WriteLine("Name:");
+            newBrand.name = Console.ReadLine();
+
+            // country property
+            Console.WriteLine("Country:");
+            newBrand.country = Console.ReadLine();
+
+            // founded
+            Console.WriteLine("Date of foundation in the format of yyyy-MM-dd:");
+            string founded = Console.ReadLine();
+            newBrand.founded = DateTime.Parse(founded);
+
+            // yearly revenue
+            Console.WriteLine("What was last year's revenue:");
+            newBrand.yearly_revenue = int.Parse(Console.ReadLine());
+
+            // calls Logic Method
+            this.LogicContact.CreateBrandLogic(newBrand);
             Console.ReadLine();
         }
     }

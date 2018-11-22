@@ -9,6 +9,7 @@ namespace CarShop.Logic
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Data;
 
     /// <summary>
     /// Interface for CRUD operations. Communicates with Repository.
@@ -29,5 +30,18 @@ namespace CarShop.Logic
         /// Method will List extras
         /// </summary>
         void ListExtraLogic();
+
+        /// <summary>
+        /// Method will call the repository method that will create new brand in the database.
+        /// </summary>
+        /// <param name="brand">new brand that needs to be created</param>
+        void CreateBrandLogic(car_brands brand);
+
+        /// <summary>
+        /// Method will call the repository method that will delete the brand based on the name.
+        /// </summary>
+        /// <param name="name">Name of the brand that needs to be deleted </param>
+        void DeleteBrand(string name);
+
     }
 }
