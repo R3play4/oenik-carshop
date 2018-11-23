@@ -94,6 +94,18 @@
             Executes the menu's action
             </summary>
         </member>
+        <member name="M:CarShop.Console.MenuItems.CreateBrand.SetYear">
+            <summary>
+            Ask the year that is need to create the new Brand.Cannot be blank
+            </summary>
+            <returns>returns the year if it was valid</returns>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.CreateBrand.SetMonth">
+            <summary>
+            Sets the month the foundatin. If no month was given than it will be 01 atumatically.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:CarShop.Console.MenuItems.CreateExtra">
             <summary>
             Create Extra Menu Action

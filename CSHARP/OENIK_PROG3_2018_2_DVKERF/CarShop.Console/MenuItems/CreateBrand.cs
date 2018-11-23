@@ -4,12 +4,12 @@
 
 namespace CarShop.Console.MenuItems
 {
-    using Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Data;
 
     /// <summary>
     /// Create Brand Menu Action
@@ -43,10 +43,18 @@ namespace CarShop.Console.MenuItems
             Console.WriteLine("Country:");
             newBrand.country = Console.ReadLine();
 
-            // founded
-            Console.WriteLine("Date of foundation in the format of yyyy-MM-dd:");
-            string founded = Console.ReadLine();
-            newBrand.founded = DateTime.Parse(founded);
+            // year of foundation
+            string year = this.SetYear();
+
+            // month of foundation
+            string month = this.SetMonth();
+
+            // day of foundation will automatically set ti 01. 
+            string day = "01";
+
+            // sets the date string that will be parsed into DateTime Type.
+            string date = year + "-" + month + "-" + day;
+            newBrand.founded = DateTime.Parse(date);
 
             // yearly revenue
             Console.WriteLine("What was last year's revenue:");
@@ -57,35 +65,70 @@ namespace CarShop.Console.MenuItems
             Console.ReadLine();
         }
 
-        private bool DateFormatCheck(string date)
+        /// <summary>
+        /// Ask the year that is need to create the new Brand.Cannot be blank
+        /// </summary>
+        /// <returns>returns the year if it was valid</returns>
+        private string SetYear()
         {
-            bool formatGood = false;
+            Console.WriteLine("Set the year of the foundation (cannot be blank)");
+            string year = Console.ReadLine();
 
-            // gets first 4 characters of the date string.
-            string year = date.Substring(0, 4);
+            // checks if valid year was typed. Valid year is a number and older than or equals to the curent year (2018 in this case)
+            if (this.IsStringNumber(year) && int.Parse(year) <= DateTime.Now.Year)
+            {
+                return year;
+            }
+            else
+            {
+                Console.WriteLine("Invalid year was typed, please type another year");
+                this.SetYear();
+            }
 
-            // checks if all the first 4 charactes is a year
+            return year;
+        }
+
+        /// <summary>
+        /// Sets the month the foundatin. If no month was given than it will be 01 atumatically.
+        /// </summary>
+        /// <returns></returns>
+        private string SetMonth()
+        {
+            Console.WriteLine("Set the month of the foundation. (If unknown just press Enter)");
+            string month = Console.ReadLine();
+
+            if (this.IsStringNumber(month) && month.Length == 2 && int.Parse(month) <= 12)
+            {
+                return month;
+            }
+            else if (month == string.Empty)
+            {
+                month = "01";
+                return month;
+            }
+            else
+            {
+                Console.WriteLine("Invalid Month was typed Please type another month");
+                this.SetMonth();
+            }
+
+            return month;
+        }
+
+        private bool IsStringNumber(string txt)
+        {
+            bool isNumber = false;
+
             int i = 0;
-
-            while (i < year.Length && char.IsNumber(year[i]))
+            while (i < txt.Length && char.IsNumber(txt[i]))
             {
                 i++;
             }
 
-            // if i is bigger than or equals to 4 than all of the characters are numbers.
-            formatGood = i >= year.Length;
+            // if i is >= the length of txt that means all the chars in txt is a number. 
+            isNumber = i >= txt.Length;
 
-            // checks if the date is older than today.
-            if (formatGood)
-            {
-                formatGood = DateTime.Now.Year >= int.Parse(year);
-            }
-
-
-            string month;
-            string day;
-
-            return formatGood;
+            return isNumber;
         }
     }
 }
