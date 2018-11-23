@@ -4,6 +4,7 @@
 
 namespace CarShop.Console.MenuItems
 {
+    using Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -30,7 +31,24 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("\nCreate Extra Action not Ready Yet");
+            extra newExtra = new extra();
+
+            Console.WriteLine("Category:");
+            newExtra.category_name = Console.ReadLine();
+
+            Console.WriteLine("Name:");
+            newExtra.name = Console.ReadLine();
+
+            Console.WriteLine("Price:");
+            newExtra.price = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Color:");
+            newExtra.color = Console.ReadLine();
+
+            Console.WriteLine("Reuseable: ");
+            newExtra.reuseable = byte.Parse(Console.ReadLine());
+
+            this.LogicContact.CreateExtraLogic(newExtra);
             Console.ReadLine();
         }
     }

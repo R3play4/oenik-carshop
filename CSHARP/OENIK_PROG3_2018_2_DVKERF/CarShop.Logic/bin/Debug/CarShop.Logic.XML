@@ -39,6 +39,12 @@
             </summary>
             <param name="model">new model that will be created.</param>
         </member>
+        <member name="M:CarShop.Logic.ILogic.CreateExtraLogic(CarShop.Data.extra)">
+            <summary>
+            Method will call the repository method that will create new extra in the database.
+            </summary>
+            <param name="extra">new extra that will be created.</param>
+        </member>
         <member name="M:CarShop.Logic.ILogic.DeleteBrand(System.String)">
             <summary>
             Method will call the repository method that will delete the brand based on the name.

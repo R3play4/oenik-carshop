@@ -47,6 +47,12 @@ namespace CarShop.Logic
         void CreateModelLogic(car_models model);
 
         /// <summary>
+        /// Method will call the repository method that will create new extra in the database.
+        /// </summary>
+        /// <param name="extra">new extra that will be created.</param>
+        void CreateExtraLogic(extra extra);
+
+        /// <summary>
         /// Method will call the repository method that will delete the brand based on the name.
         /// </summary>
         /// <param name="name">Name of the brand that needs to be deleted </param>

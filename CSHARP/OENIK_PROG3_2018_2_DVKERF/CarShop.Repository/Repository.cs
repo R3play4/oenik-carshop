@@ -76,6 +76,16 @@ namespace CarShop.Repository
             this.database.SaveChanges();
         }
 
+        /// <summary>
+        /// Creates new extra in the Database based on the parameter.
+        /// </summary>
+        /// <param name="newExtra">new extra that needs to be created.</param>
+        public void CreateExtraRepo(extra newExtra)
+        {
+            this.database.extras.Add(newExtra);
+            this.database.SaveChanges();
+        }
+
         private int SelectBrandForModel()
         {
             var valid_options = this.database.car_models.Select(i => i.id);

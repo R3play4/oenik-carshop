@@ -39,6 +39,12 @@
             </summary>
             <param name="model">the new model that needs to be created.</param>
         </member>
+        <member name="M:CarShop.Repository.IRepository.CreateExtraRepo(CarShop.Data.extra)">
+            <summary>
+            Creates new extra in the database
+            </summary>
+            <param name="newExtra">the new model that needs to be created.</param>
+        </member>
         <member name="M:CarShop.Repository.IRepository.DeleteBrandRepo(System.String)">
             <summary>
             Creates Brand from the databse based on the name parameter
@@ -89,6 +95,12 @@
             Creates new model in the Database based on the parameter.
             </summary>
             <param name="model">new model that needs to be created.</param>
+        </member>
+        <member name="M:CarShop.Repository.Repository.CreateExtraRepo(CarShop.Data.extra)">
+            <summary>
+            Creates new extra in the Database based on the parameter.
+            </summary>
+            <param name="newExtra">new extra that needs to be created.</param>
         </member>
         <member name="M:CarShop.Repository.Repository.DisplayIdAndBrand">
             <summary>

@@ -47,6 +47,12 @@ namespace CarShop.Repository
         void CreateModelRepo(car_models model);
 
         /// <summary>
+        /// Creates new extra in the database
+        /// </summary>
+        /// <param name="newExtra">the new model that needs to be created.</param>
+        void CreateExtraRepo(extra newExtra);
+
+        /// <summary>
         /// Creates Brand from the databse based on the name parameter
         /// </summary>
         /// <param name="name">name of the brand that needs to be delted.</param>

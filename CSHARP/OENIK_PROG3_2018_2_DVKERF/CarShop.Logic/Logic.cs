@@ -78,6 +78,10 @@ namespace CarShop.Logic
             this.repository.CreateModelRepo(model);
         }
 
+        public void CreateExtraLogic(extra newExtra)
+        {
+            this.repository.CreateExtraRepo(newExtra);
+        }
         /// <summary>
         /// Calls DeleteBrand method of repository.
         /// </summary>
