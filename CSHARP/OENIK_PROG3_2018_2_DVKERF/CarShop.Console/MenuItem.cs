@@ -30,7 +30,7 @@ namespace CarShop.Console
         }
 
         /// <summary>
-        /// Gets LogicContact which will be used by children MenuItem-s
+        /// Gets LogicContact which will be used by children MenuItem-s to call logic methods.
         /// </summary>
         public ILogic LogicContact { get; private set; }
 

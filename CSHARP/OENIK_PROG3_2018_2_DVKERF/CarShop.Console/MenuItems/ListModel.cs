@@ -4,6 +4,7 @@
 
 namespace CarShop.Console.MenuItems
 {
+    using Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -30,8 +31,30 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            this.LogicContact.ListModelsLogic();
+            IEnumerable<car_models> models = this.LogicContact.GetModelsLogic();
+            this.DisplayModels(models);
             Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Gets the models from the logic, and displays it.
+        /// </summary>
+        /// <param name="models">models that was received from the logic layer and neds to be displayed</param>
+        private void DisplayModels(IEnumerable<car_models> models)
+        {
+            var result = models.Select(b => new
+            {
+                Id = b.id,
+                Name = b.name,
+                Engine_Size = b.engine_size,
+                Horspower = b.horsepower,
+                Start_Date = b.production_start.ToString().Substring(0, 10)
+            });
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

@@ -17,25 +17,32 @@ namespace CarShop.Repository
     public interface IRepository
     {
         /// <summary>
-        /// List Brands
+        /// Gets an enumerable list from the db that holds car brands
         /// </summary>
-        void ListBrandsRepo();
+        /// <returns>List of car brands</returns>
+        IEnumerable<car_brands> GetBrandsRepo();
 
         /// <summary>
         /// List Models
         /// </summary>
-        void ListModelsRepo();
+        IEnumerable<car_models> GetModelsRepo();
 
         /// <summary>
         /// List Extras
         /// </summary>
-        void ListExtraRepo();
+        IEnumerable<extra> GetExtraRepo();
 
         /// <summary>
         /// Creates new brand in the database
         /// </summary>
         /// <param name="brand">name of the new brand</param>
         void CreateBrandRepo(car_brands brand);
+
+        /// <summary>
+        /// Creates new model in the database
+        /// </summary>
+        /// <param name="model">the new model that needs to be created.</param>
+        void CreateModelRepo(car_models model);
 
         /// <summary>
         /// Creates Brand from the databse based on the name parameter

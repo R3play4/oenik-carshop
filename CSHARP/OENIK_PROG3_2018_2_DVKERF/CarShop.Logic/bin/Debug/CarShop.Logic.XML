@@ -9,17 +9,18 @@
             Interface for CRUD operations. Communicates with Repository.
             </summary>
         </member>
-        <member name="M:CarShop.Logic.ILogic.ListBrandsLogic">
+        <member name="M:CarShop.Logic.ILogic.GetBrandsLogic">
             <summary>
-            Method will list Brands.
+            Gets brand list from Repository
             </summary>
+            <returns>List of Brands</returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.ListModelsLogic">
+        <member name="M:CarShop.Logic.ILogic.GetModelsLogic">
             <summary>
             Method will List Models
             </summary>
         </member>
-        <member name="M:CarShop.Logic.ILogic.ListExtraLogic">
+        <member name="M:CarShop.Logic.ILogic.GetExtraLogic">
             <summary>
             Method will List extras
             </summary>
@@ -29,6 +30,12 @@
             Method will call the repository method that will create new brand in the database.
             </summary>
             <param name="brand">new brand that needs to be created</param>
+        </member>
+        <member name="M:CarShop.Logic.ILogic.CreateModelLogic(CarShop.Data.car_models)">
+            <summary>
+            Method will call the repository method that will create new brand in the database.
+            </summary>
+            <param name="model">new model that will be created.</param>
         </member>
         <member name="M:CarShop.Logic.ILogic.DeleteBrand(System.String)">
             <summary>
@@ -51,17 +58,18 @@
             Initializes a new instance of the <see cref="T:CarShop.Logic.Logic"/> class.
             </summary>
         </member>
-        <member name="M:CarShop.Logic.Logic.ListBrandsLogic">
+        <member name="M:CarShop.Logic.Logic.GetBrandsLogic">
             <summary>
-            Calls Repository List Brand
+            Gets list of car brands from repo
             </summary>
+            <returns>Enumerable list of car brands that was received from the repository </returns>
         </member>
-        <member name="M:CarShop.Logic.Logic.ListExtraLogic">
+        <member name="M:CarShop.Logic.Logic.GetExtraLogic">
             <summary>
             Calls Repository List Extra
             </summary>
         </member>
-        <member name="M:CarShop.Logic.Logic.ListModelsLogic">
+        <member name="M:CarShop.Logic.Logic.GetModelsLogic">
             <summary>
             Calls Repository List Model
             </summary>
@@ -71,6 +79,18 @@
             Calls CreateBrand method of the repository
             </summary>
             <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
+        </member>
+        <member name="M:CarShop.Logic.Logic.CreateModelLogic(CarShop.Data.car_models)">
+            <summary>
+            Calls CreateModel method of the repository
+            </summary>
+            <param name="model">new model parameter. It properties is empty at this point.</param>
+        </member>
+        <member name="M:CarShop.Logic.Logic.DeleteBrand(System.String)">
+            <summary>
+            Calls DeleteBrand method of repository.
+            </summary>
+            <param name="name">name of the brand that needs to be deleted</param>
         </member>
     </members>
 </doc>

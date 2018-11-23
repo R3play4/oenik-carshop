@@ -30,82 +30,27 @@ namespace CarShop.Repository
         }
 
         /// <summary>
-        /// List Brands
+        /// Gets List of Brands
         /// </summary>
-        public void ListBrandsRepo()
+        public IEnumerable<car_brands> GetBrandsRepo()
         {
-            // Linq for brand names
-            var result = this.database.car_brands.Select(b =>
-            new
-            {
-                ID = b.id,
-                Name = b.name,
-                Country = b.country,
-                Founded = b.founded,
-            });
-
-            // blank line
-            Console.WriteLine();
-
-            // prints results
-            int i = 0;
-            foreach (var item in result)
-            {
-                // gets the properties of the first item
-                if (i == 0)
-                {
-                    // headers will store the properties the will provide the header of the table.
-                    string headers = string.Empty;
-                    i++;
-                    var properties = item.GetType().GetProperties();
-
-                    foreach (var prop in properties)
-                    {
-                        if (prop.Name == "ID" || prop.Name == "Name")
-                        {
-                            headers += prop.Name + "\t";
-                        }
-                    }
-
-                    Console.WriteLine(headers);
-                }
-
-                Console.WriteLine(string.Format("{0}\t{1}\t",item.ID,item.Name));
-            }
+            return this.database.car_brands;
         }
 
         /// <summary>
         /// List Extras
         /// </summary>
-        public void ListExtraRepo()
+        public IEnumerable<extra> GetExtraRepo()
         {
-            // Linq for model names
-            var result = this.database.car_models.Select(m => m.name);
-
-            // blank line
-            Console.WriteLine();
-
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            return this.database.extras;
         }
 
         /// <summary>
         /// List Models
         /// </summary>
-        public void ListModelsRepo()
+        public IEnumerable<car_models> GetModelsRepo()
         {
-            // Linq for model names
-            var result = this.database.extras.Select(e => e.name);
-
-            // blank line
-            Console.WriteLine();
-
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            return this.database.car_models;
         }
 
         /// <summary>
@@ -114,15 +59,98 @@ namespace CarShop.Repository
         /// <param name="brand">new brand parameter.</param>
         public void CreateBrandRepo(car_brands brand)
         {
-            try
+               this.database.car_brands.Add(brand);
+               this.database.SaveChanges();
+        }
+
+        /// <summary>
+        /// Creates new model in the Database based on the parameter.
+        /// </summary>
+        /// <param name="model">new model that needs to be created.</param>
+        public void CreateModelRepo(car_models model)
+        {
+            // sets the ID of the brand of the model
+            int brandId = this.SelectBrandForModel();
+            model.brand_id = brandId;
+
+            // name of the model
+            Console.WriteLine("Enter the name of the model");
+            string newName = Console.ReadLine();
+            model.name = newName;
+
+            // DATE !!!!!!!!!!!!!!!!!!!!!!!!! IDE ÁT KELL RAKNI AZ Creat BRAND check fügvényeket.
+
+            // engine size
+            Console.WriteLine("Type the size of the engine");
+            int size = int.Parse(Console.ReadLine());
+            model.engine_size = size;
+
+            // horsepower.
+            Console.WriteLine("Type the amount of HorsePower");
+            int newHorsepower = int.Parse(Console.ReadLine());
+            model.horsepower = newHorsepower;
+
+            // starting price
+            Console.WriteLine("Type the price of the car");
+            int price = int.Parse(Console.ReadLine());
+            model.starting_price = price;
+
+            this.database.car_models.Add(model);
+            this.database.SaveChanges();
+            Console.WriteLine("New Model was created. Press Enter to continue");
+
+        }
+
+        private int SelectBrandForModel()
+        {
+            var valid_options = this.database.car_models.Select(i => i.id);
+            Console.WriteLine("Please type the id of the desired brand");
+            this.DisplayIdAndBrand();
+            int selected = int.Parse(Console.ReadLine());
+
+            if (valid_options.Contains(selected))
             {
-                this.database.car_brands.Add(brand);
-                this.database.SaveChanges();
-                Console.WriteLine("\nNew Brand was created successfully. Press Enter to continue.");
+                return selected;
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Invalid Id was selected. Please choose again");
+                this.SelectBrandForModel();
+            }
+
+            return selected;
+        }
+
+        /// <summary>
+        /// Displays Brands and ID-s so the user can select a brand.
+        /// </summary>
+        private void DisplayIdAndBrand()
+        {
+            var brands = this.database.car_brands.Select(b =>
+            new
+            {
+                Id = b.id,
+                Name = b.name
+            });
+
+            int i = 0;
+            foreach (var brand in brands)
+            {
+                string header = string.Empty;
+                if (i == 0)
+                {
+                    i++;
+                    var properties = brand.GetType().GetProperties();
+
+                    foreach (var prop in properties)
+                    {
+                        header += prop.Name + "\t";
+                    }
+
+                    Console.WriteLine(header);
+                }
+
+                Console.WriteLine("{0}\t{1}\t",brand.Id, brand.Name);
             }
         }
 

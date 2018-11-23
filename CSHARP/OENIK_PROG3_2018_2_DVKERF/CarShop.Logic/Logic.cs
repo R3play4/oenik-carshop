@@ -27,27 +27,31 @@
         }
 
         /// <summary>
-        /// Calls Repository List Brand
+        /// Gets list of car brands from repo
         /// </summary>
-        public void ListBrandsLogic()
+        /// <returns>Enumerable list of car brands that was received from the repository </returns>
+        public IEnumerable<car_brands> GetBrandsLogic()
         {
-            this.repository.ListBrandsRepo();
+            IEnumerable<car_brands> brands = this.repository.GetBrandsRepo();
+            return brands;
         }
 
         /// <summary>
         /// Calls Repository List Extra
         /// </summary>
-        public void ListExtraLogic()
+        public IEnumerable<extra> GetExtraLogic()
         {
-            this.repository.ListExtraRepo();
+            IEnumerable<extra> extras = this.repository.GetExtraRepo();
+            return extras;
         }
 
         /// <summary>
         /// Calls Repository List Model
         /// </summary>
-        public void ListModelsLogic()
+        public IEnumerable<car_models> GetModelsLogic()
         {
-            this.repository.ListModelsRepo();
+            IEnumerable<car_models> models = this.repository.GetModelsRepo();
+            return models;
         }
 
         /// <summary>
@@ -59,6 +63,19 @@
             this.repository.CreateBrandRepo(brand);
         }
 
+        /// <summary>
+        /// Calls CreateModel method of the repository
+        /// </summary>
+        /// <param name="model">new model parameter. It properties is empty at this point.</param>
+        public void CreateModelLogic(car_models model)
+        {
+            this.repository.CreateModelRepo(model);
+        }
+
+        /// <summary>
+        /// Calls DeleteBrand method of repository.
+        /// </summary>
+        /// <param name="name">name of the brand that needs to be deleted</param>
         public void DeleteBrand(string name)
         {
             this.repository.DeleteBrandRepo(name);

@@ -54,7 +54,7 @@
         </member>
         <member name="P:CarShop.Console.MenuItem.LogicContact">
             <summary>
-            Gets LogicContact which will be used by children MenuItem-s
+            Gets LogicContact which will be used by children MenuItem-s to call logic methods.
             </summary>
         </member>
         <member name="P:CarShop.Console.MenuItem.Name">
@@ -104,7 +104,7 @@
             <summary>
             Sets the month the foundatin. If no month was given than it will be 01 atumatically.
             </summary>
-            <returns></returns>
+            <returns>return month if valid or 01 if no month was provided. </returns>
         </member>
         <member name="T:CarShop.Console.MenuItems.CreateExtra">
             <summary>
@@ -208,6 +208,12 @@
             Executes the menu's action
             </summary>
         </member>
+        <member name="M:CarShop.Console.MenuItems.ListBrand.DisplayBrands(System.Collections.Generic.IEnumerable{CarShop.Data.car_brands})">
+            <summary>
+            Gets the brands from the logic, and displays it.
+            </summary>
+            <param name="brands">brands that was received from the logic layer and neds to be displayed</param>
+        </member>
         <member name="T:CarShop.Console.MenuItems.ListBrandsModelsPerCountry">
             <summary>
             ListBrandsModelsPerCountry Menu Action
@@ -275,6 +281,12 @@
             <summary>
             Executes the menu's action
             </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.ListModel.DisplayModels(System.Collections.Generic.IEnumerable{CarShop.Data.car_models})">
+            <summary>
+            Gets the models from the logic, and displays it.
+            </summary>
+            <param name="models">models that was received from the logic layer and neds to be displayed</param>
         </member>
         <member name="T:CarShop.Console.MenuItems.UpdateBrand">
             <summary>

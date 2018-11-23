@@ -91,7 +91,7 @@ namespace CarShop.Console.MenuItems
         /// <summary>
         /// Sets the month the foundatin. If no month was given than it will be 01 atumatically.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>return month if valid or 01 if no month was provided. </returns>
         private string SetMonth()
         {
             Console.WriteLine("Set the month of the foundation. (If unknown just press Enter)");

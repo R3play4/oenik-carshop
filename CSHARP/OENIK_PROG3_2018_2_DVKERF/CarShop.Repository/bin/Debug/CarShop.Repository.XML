@@ -9,17 +9,18 @@
             Declares CRUD operations. Comunicates with Data Entities.
             </summary>
         </member>
-        <member name="M:CarShop.Repository.IRepository.ListBrandsRepo">
+        <member name="M:CarShop.Repository.IRepository.GetBrandsRepo">
             <summary>
-            List Brands
+            Gets an enumerable list from the db that holds car brands
             </summary>
+            <returns>List of car brands</returns>
         </member>
-        <member name="M:CarShop.Repository.IRepository.ListModelsRepo">
+        <member name="M:CarShop.Repository.IRepository.GetModelsRepo">
             <summary>
             List Models
             </summary>
         </member>
-        <member name="M:CarShop.Repository.IRepository.ListExtraRepo">
+        <member name="M:CarShop.Repository.IRepository.GetExtraRepo">
             <summary>
             List Extras
             </summary>
@@ -29,6 +30,12 @@
             Creates new brand in the database
             </summary>
             <param name="brand">name of the new brand</param>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.CreateModelRepo(CarShop.Data.car_models)">
+            <summary>
+            Creates new model in the database
+            </summary>
+            <param name="model">the new model that needs to be created.</param>
         </member>
         <member name="M:CarShop.Repository.IRepository.DeleteBrandRepo(System.String)">
             <summary>
@@ -51,17 +58,17 @@
             Initializes a new instance of the <see cref="T:CarShop.Repository.Repository"/> class.
             </summary>
         </member>
-        <member name="M:CarShop.Repository.Repository.ListBrandsRepo">
+        <member name="M:CarShop.Repository.Repository.GetBrandsRepo">
             <summary>
-            List Brands
+            Gets List of Brands
             </summary>
         </member>
-        <member name="M:CarShop.Repository.Repository.ListExtraRepo">
+        <member name="M:CarShop.Repository.Repository.GetExtraRepo">
             <summary>
             List Extras
             </summary>
         </member>
-        <member name="M:CarShop.Repository.Repository.ListModelsRepo">
+        <member name="M:CarShop.Repository.Repository.GetModelsRepo">
             <summary>
             List Models
             </summary>
@@ -71,6 +78,17 @@
             Creates new brand in the Database based on the parameter.
             </summary>
             <param name="brand">new brand parameter.</param>
+        </member>
+        <member name="M:CarShop.Repository.Repository.CreateModelRepo(CarShop.Data.car_models)">
+            <summary>
+            Creates new model in the Database based on the parameter.
+            </summary>
+            <param name="model">new model that needs to be created.</param>
+        </member>
+        <member name="M:CarShop.Repository.Repository.DisplayIdAndBrand">
+            <summary>
+            Displays Brands and ID-s so the user can select a brand.
+            </summary>
         </member>
         <member name="M:CarShop.Repository.Repository.DeleteBrandRepo(System.String)">
             <summary>

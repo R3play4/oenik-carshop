@@ -4,6 +4,7 @@
 
 namespace CarShop.Console.MenuItems
 {
+    using Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -30,7 +31,9 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("\nCreate Model Action not Ready Yet");
+            car_models model = new car_models();
+
+            this.LogicContact.CreateModelLogic(model);
             Console.ReadLine();
         }
     }

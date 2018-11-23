@@ -4,6 +4,7 @@
 
 namespace CarShop.Console.MenuItems
 {
+    using Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -30,8 +31,25 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            this.LogicContact.ListExtraLogic();
+            IEnumerable<extra> extras = this.LogicContact.GetExtraLogic();
+            this.DisplayExtras(extras);
             Console.ReadLine();
+        }
+
+        private void DisplayExtras(IEnumerable<extra> extras)
+        {
+            var result = extras.Select(b => new
+            {
+                Id = b.id,
+                Name = b.name,
+                Price = b.price,
+                Color = b.color
+            });
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
