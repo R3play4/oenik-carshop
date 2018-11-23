@@ -91,7 +91,7 @@
         </member>
         <member name="M:CarShop.Console.MenuItems.CreateBrand.ExecuteMenuAction">
             <summary>
-            Executes the menu's action
+            Creates new car_brand based on the user's input, passed it to Logic.
             </summary>
         </member>
         <member name="M:CarShop.Console.MenuItems.CreateBrand.SetYear">

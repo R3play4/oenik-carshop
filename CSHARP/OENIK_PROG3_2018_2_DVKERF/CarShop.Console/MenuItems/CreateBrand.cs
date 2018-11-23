@@ -27,42 +27,47 @@ namespace CarShop.Console.MenuItems
         }
 
         /// <summary>
-        /// Executes the menu's action
+        /// Creates new car_brand based on the user's input, passed it to Logic.
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("Enter the parameters of the new brand:");
-
             car_brands newBrand = new car_brands();
-
-            // name property
-            Console.WriteLine("Name:");
-            newBrand.name = Console.ReadLine();
-
-            // country property
-            Console.WriteLine("Country:");
-            newBrand.country = Console.ReadLine();
-
-            // year of foundation
-            string year = this.SetYear();
-
-            // month of foundation
-            string month = this.SetMonth();
-
-            // day of foundation will automatically set ti 01. 
-            string day = "01";
-
-            // sets the date string that will be parsed into DateTime Type.
-            string date = year + "-" + month + "-" + day;
-            newBrand.founded = DateTime.Parse(date);
-
-            // yearly revenue
-            Console.WriteLine("What was last year's revenue:");
-            newBrand.yearly_revenue = int.Parse(Console.ReadLine());
-
-            // calls Logic Method
+            Console.WriteLine("Enter data of the new Brand");
+            newBrand.name = this.SetName();
+            newBrand.country = this.SetCountry();
+            newBrand.founded = this.SetDate(this.SetYear(), this.SetMonth());
+            newBrand.url = this.SetURL();
+            newBrand.yearly_revenue = this.SetRevenue();
             this.LogicContact.CreateBrandLogic(newBrand);
             Console.ReadLine();
+        }
+
+        private string SetName()
+        {
+            Console.WriteLine("Name:");
+            string name = Console.ReadLine();
+
+            if (name == string.Empty)
+            {
+                Console.WriteLine("Name cannot be blank. Please enter a name");
+                this.SetName();
+            }
+
+            return name;
+        }
+
+        private string SetCountry()
+        {
+            Console.WriteLine("Country: ");
+            string country = Console.ReadLine();
+
+            if (country == string.Empty)
+            {
+                Console.WriteLine("Country cannot be blank. Please enter a name");
+                this.SetCountry();
+            }
+
+            return country;
         }
 
         /// <summary>
@@ -71,7 +76,7 @@ namespace CarShop.Console.MenuItems
         /// <returns>returns the year if it was valid</returns>
         private string SetYear()
         {
-            Console.WriteLine("Set the year of the foundation (cannot be blank)");
+            Console.WriteLine("Year:");
             string year = Console.ReadLine();
 
             // checks if valid year was typed. Valid year is a number and older than or equals to the curent year (2018 in this case)
@@ -94,7 +99,7 @@ namespace CarShop.Console.MenuItems
         /// <returns>return month if valid or 01 if no month was provided. </returns>
         private string SetMonth()
         {
-            Console.WriteLine("Set the month of the foundation. (If unknown just press Enter)");
+            Console.WriteLine("Month: ");
             string month = Console.ReadLine();
 
             if (this.IsStringNumber(month) && month.Length == 2 && int.Parse(month) <= 12)
@@ -108,11 +113,37 @@ namespace CarShop.Console.MenuItems
             }
             else
             {
-                Console.WriteLine("Invalid Month was typed Please type another month");
+                Console.WriteLine("Invalid Month was typed. Please type another month");
                 this.SetMonth();
             }
 
             return month;
+        }
+
+        private DateTime SetDate(string year, string month)
+        {
+            return DateTime.Parse(year + "-" + month + "-01");
+        }
+
+        private string SetURL()
+        {
+            Console.WriteLine("URL:");
+            string url = Console.ReadLine();
+            return url;
+        }
+
+        private int SetRevenue()
+        {
+            Console.WriteLine("Revenue:");
+            string revenue = Console.ReadLine();
+
+            if (!this.IsStringNumber(revenue))
+            {
+                Console.WriteLine("Invakid data type. Please enter a number");
+                this.SetRevenue();
+            }
+
+            return int.Parse(revenue);
         }
 
         private bool IsStringNumber(string txt)

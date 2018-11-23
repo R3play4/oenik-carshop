@@ -72,36 +72,8 @@ namespace CarShop.Repository
         /// <param name="model">new model that needs to be created.</param>
         public void CreateModelRepo(car_models model)
         {
-            // sets the ID of the brand of the model
-            int brandId = this.SelectBrandForModel();
-            model.brand_id = brandId;
-
-            // name of the model
-            Console.WriteLine("Enter the name of the model");
-            string newName = Console.ReadLine();
-            model.name = newName;
-
-            // DATE !!!!!!!!!!!!!!!!!!!!!!!!! IDE ÁT KELL RAKNI AZ Creat BRAND check fügvényeket.
-
-            // engine size
-            Console.WriteLine("Type the size of the engine");
-            int size = int.Parse(Console.ReadLine());
-            model.engine_size = size;
-
-            // horsepower.
-            Console.WriteLine("Type the amount of HorsePower");
-            int newHorsepower = int.Parse(Console.ReadLine());
-            model.horsepower = newHorsepower;
-
-            // starting price
-            Console.WriteLine("Type the price of the car");
-            int price = int.Parse(Console.ReadLine());
-            model.starting_price = price;
-
             this.database.car_models.Add(model);
             this.database.SaveChanges();
-            Console.WriteLine("New Model was created. Press Enter to continue");
-
         }
 
         private int SelectBrandForModel()

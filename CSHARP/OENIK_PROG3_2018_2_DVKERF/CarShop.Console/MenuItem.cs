@@ -16,7 +16,6 @@ namespace CarShop.Console
     /// </summary>
     internal abstract class MenuItem
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="MenuItem"/> class.
         /// </summary>
