@@ -33,6 +33,7 @@ namespace CarShop.Console.MenuItems
         {
             car_brands newBrand = new car_brands();
             Console.WriteLine("Enter data of the new Brand");
+            //newBrand.id = this.SetPrimaryKey();
             newBrand.name = this.SetName();
             newBrand.country = this.SetCountry();
             newBrand.founded = this.SetDate(this.SetYear(), this.SetMonth());
@@ -40,6 +41,13 @@ namespace CarShop.Console.MenuItems
             newBrand.yearly_revenue = this.SetRevenue();
             this.LogicContact.CreateBrandLogic(newBrand);
             Console.ReadLine();
+        }
+
+        private int SetPrimaryKey()
+        {
+            Console.WriteLine("ID:");
+            int id = int.Parse(Console.ReadLine());
+            return id;
         }
 
         private string SetName()

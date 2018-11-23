@@ -86,6 +86,31 @@ namespace CarShop.Repository
             this.database.SaveChanges();
         }
 
+        /// <summary>
+        /// Deltes Brand from DB based on the brands name.
+        /// </summary>
+        /// <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
+        public void DeleteBrandRepo(string name)
+        {
+
+            var brand = this.database.car_brands
+                   .Where(b => b.name == name).First();
+            this.database.car_brands.Remove(brand);
+            this.database.SaveChanges();
+
+            //try
+            //{
+            //    var brand = this.database.car_brands
+            //        .Where(b => b.name == name).First();
+            //    this.database.car_brands.Remove(brand);
+            //    this.database.SaveChanges();
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
+        }
+
         private int SelectBrandForModel()
         {
             var valid_options = this.database.car_models.Select(i => i.id);
@@ -137,19 +162,6 @@ namespace CarShop.Repository
 
                 Console.WriteLine("{0}\t{1}\t",brand.Id, brand.Name);
             }
-        }
-
-        /// <summary>
-        /// Deltes Brand from DB based on the brands name.
-        /// </summary>
-        /// <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
-        public void DeleteBrandRepo(string name)
-        {
-            var brand = this.database.car_brands
-                .Where(b => b.name == name).First();
-
-            this.database.car_brands.Remove(brand);
-            this.database.SaveChanges();
         }
     }
 }

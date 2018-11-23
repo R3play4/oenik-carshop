@@ -102,16 +102,16 @@
             </summary>
             <param name="newExtra">new extra that needs to be created.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.DisplayIdAndBrand">
-            <summary>
-            Displays Brands and ID-s so the user can select a brand.
-            </summary>
-        </member>
         <member name="M:CarShop.Repository.Repository.DeleteBrandRepo(System.String)">
             <summary>
             Deltes Brand from DB based on the brands name.
             </summary>
             <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
+        </member>
+        <member name="M:CarShop.Repository.Repository.DisplayIdAndBrand">
+            <summary>
+            Displays Brands and ID-s so the user can select a brand.
+            </summary>
         </member>
     </members>
 </doc>

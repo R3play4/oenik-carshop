@@ -82,6 +82,7 @@ namespace CarShop.Logic
         {
             this.repository.CreateExtraRepo(newExtra);
         }
+
         /// <summary>
         /// Calls DeleteBrand method of repository.
         /// </summary>
