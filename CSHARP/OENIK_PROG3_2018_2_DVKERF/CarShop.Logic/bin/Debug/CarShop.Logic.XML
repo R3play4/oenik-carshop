@@ -17,13 +17,15 @@
         </member>
         <member name="M:CarShop.Logic.ILogic.GetModelsLogic">
             <summary>
-            Method will List Models
+            Gets Models from Repository
             </summary>
+            <returns>Reutrns list of models from the repository.</returns>
         </member>
         <member name="M:CarShop.Logic.ILogic.GetExtraLogic">
             <summary>
-            Method will List extras
+            Gets Extras from the repository
             </summary>
+            <returns>Returns a list of models from the repository </returns>
         </member>
         <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(CarShop.Data.car_brands)">
             <summary>
@@ -66,13 +68,15 @@
         </member>
         <member name="M:CarShop.Logic.Logic.GetExtraLogic">
             <summary>
-            Calls Repository List Extra
+            Gets list of extras from the repo
             </summary>
+            <returns>List of extras from the repo</returns>
         </member>
         <member name="M:CarShop.Logic.Logic.GetModelsLogic">
             <summary>
-            Calls Repository List Model
+            Gets a list of models from the repo
             </summary>
+            <returns>List of models from the repo</returns>
         </member>
         <member name="M:CarShop.Logic.Logic.CreateBrandLogic(CarShop.Data.car_brands)">
             <summary>

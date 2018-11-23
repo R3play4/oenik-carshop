@@ -30,24 +30,27 @@ namespace CarShop.Repository
         }
 
         /// <summary>
-        /// Gets List of Brands
+        /// Gets a list of Brands from the DB
         /// </summary>
+        /// <returns>List of brands</returns>
         public IEnumerable<car_brands> GetBrandsRepo()
         {
             return this.database.car_brands;
         }
 
         /// <summary>
-        /// List Extras
+        /// Gets list of Extras from the db
         /// </summary>
+        /// <returns>List of Extras</returns>
         public IEnumerable<extra> GetExtraRepo()
         {
             return this.database.extras;
         }
 
         /// <summary>
-        /// List Models
+        /// Gets a list of models from the DB
         /// </summary>
+        /// <returns>List of models</returns>
         public IEnumerable<car_models> GetModelsRepo()
         {
             return this.database.car_models;

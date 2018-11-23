@@ -17,13 +17,15 @@
         </member>
         <member name="M:CarShop.Repository.IRepository.GetModelsRepo">
             <summary>
-            List Models
+            Gets all the models from the DB
             </summary>
+            <returns>List of models</returns>
         </member>
         <member name="M:CarShop.Repository.IRepository.GetExtraRepo">
             <summary>
-            List Extras
+            Gets a list of Extras from the DB
             </summary>
+            <returns>List of extras</returns>
         </member>
         <member name="M:CarShop.Repository.IRepository.CreateBrandRepo(CarShop.Data.car_brands)">
             <summary>
@@ -60,18 +62,21 @@
         </member>
         <member name="M:CarShop.Repository.Repository.GetBrandsRepo">
             <summary>
-            Gets List of Brands
+            Gets a list of Brands from the DB
             </summary>
+            <returns>List of brands</returns>
         </member>
         <member name="M:CarShop.Repository.Repository.GetExtraRepo">
             <summary>
-            List Extras
+            Gets list of Extras from the db
             </summary>
+            <returns>List of Extras</returns>
         </member>
         <member name="M:CarShop.Repository.Repository.GetModelsRepo">
             <summary>
-            List Models
+            Gets a list of models from the DB
             </summary>
+            <returns>List of models</returns>
         </member>
         <member name="M:CarShop.Repository.Repository.CreateBrandRepo(CarShop.Data.car_brands)">
             <summary>

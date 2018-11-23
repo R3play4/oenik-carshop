@@ -23,13 +23,15 @@ namespace CarShop.Logic
         IEnumerable<car_brands> GetBrandsLogic();
 
         /// <summary>
-        /// Method will List Models
+        /// Gets Models from Repository
         /// </summary>
+        /// <returns>Reutrns list of models from the repository.</returns>
         IEnumerable<car_models> GetModelsLogic();
 
         /// <summary>
-        /// Method will List extras
+        /// Gets Extras from the repository
         /// </summary>
+        /// <returns>Returns a list of models from the repository </returns>
         IEnumerable<extra> GetExtraLogic();
 
         /// <summary>

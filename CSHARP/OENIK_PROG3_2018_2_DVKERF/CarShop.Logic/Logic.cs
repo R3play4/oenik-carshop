@@ -1,4 +1,8 @@
-﻿namespace CarShop.Logic
+﻿// <copyright file="Logic.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace CarShop.Logic
 {
     using System;
     using System.Collections.Generic;
@@ -37,8 +41,9 @@
         }
 
         /// <summary>
-        /// Calls Repository List Extra
+        /// Gets list of extras from the repo
         /// </summary>
+        /// <returns>List of extras from the repo</returns>
         public IEnumerable<extra> GetExtraLogic()
         {
             IEnumerable<extra> extras = this.repository.GetExtraRepo();
@@ -46,8 +51,9 @@
         }
 
         /// <summary>
-        /// Calls Repository List Model
+        /// Gets a list of models from the repo
         /// </summary>
+        /// <returns>List of models from the repo</returns>
         public IEnumerable<car_models> GetModelsLogic()
         {
             IEnumerable<car_models> models = this.repository.GetModelsRepo();

@@ -23,13 +23,15 @@ namespace CarShop.Repository
         IEnumerable<car_brands> GetBrandsRepo();
 
         /// <summary>
-        /// List Models
+        /// Gets all the models from the DB
         /// </summary>
+        /// <returns>List of models</returns>
         IEnumerable<car_models> GetModelsRepo();
 
         /// <summary>
-        /// List Extras
+        /// Gets a list of Extras from the DB
         /// </summary>
+        /// <returns>List of extras</returns>
         IEnumerable<extra> GetExtraRepo();
 
         /// <summary>
