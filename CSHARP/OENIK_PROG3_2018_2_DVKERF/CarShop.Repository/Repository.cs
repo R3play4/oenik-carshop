@@ -51,8 +51,10 @@ namespace CarShop.Repository
             int i = 0;
             foreach (var item in result)
             {
+                // gets the properties of the first item
                 if (i == 0)
                 {
+                    // headers will store the properties the will provide the header of the table.
                     string headers = string.Empty;
                     i++;
                     var properties = item.GetType().GetProperties();
@@ -112,8 +114,16 @@ namespace CarShop.Repository
         /// <param name="brand">new brand parameter.</param>
         public void CreateBrandRepo(car_brands brand)
         {
-            this.database.car_brands.Add(brand);
-            this.database.SaveChanges();
+            try
+            {
+                this.database.car_brands.Add(brand);
+                this.database.SaveChanges();
+                Console.WriteLine("\nNew Brand was created successfully. Press Enter to continue.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         /// <summary>
