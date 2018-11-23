@@ -66,6 +66,19 @@
             Initializes a new instance of the <see cref="T:CarShop.Logic.Logic"/> class.
             </summary>
         </member>
+        <member name="M:CarShop.Logic.Logic.#ctor(CarShop.Repository.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Logic.Logic"/> class.
+            Alternative constuctor for mocking
+            </summary>
+            <param name="repository">IRepository interface</param>
+        </member>
+        <member name="M:CarShop.Logic.Logic.RegisterRepositoryInterface(CarShop.Repository.IRepository)">
+            <summary>
+            Sets the Repository property of the class. This will be used for mocking.
+            </summary>
+            <param name="intf">Repositary interface</param>
+        </member>
         <member name="M:CarShop.Logic.Logic.GetBrandsLogic">
             <summary>
             Gets list of car brands from repo

@@ -31,6 +31,25 @@ namespace CarShop.Logic
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Logic"/> class.
+        /// Alternative constuctor for mocking
+        /// </summary>
+        /// <param name="repository">IRepository interface</param>
+        public Logic(IRepository repository)
+        {
+            this.repository = repository;
+        }
+
+        /// <summary>
+        /// Sets the Repository property of the class. This will be used for mocking.
+        /// </summary>
+        /// <param name="intf">Repositary interface</param>
+        public void RegisterRepositoryInterface(IRepository intf)
+        {
+            this.repository = intf;
+        }
+
+        /// <summary>
         /// Gets list of car brands from repo
         /// </summary>
         /// <returns>Enumerable list of car brands that was received from the repository </returns>

@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CarShop.Repository</name>
+    </assembly>
+    <members>
+        <member name="T:CarShop.Repository.IRepository">
+            <summary>
+            Declares CRUD operations. Comunicates with Data Entities.
+            </summary>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.GetBrandsRepo">
+            <summary>
+            Gets an enumerable list from the db that holds car brands
+            </summary>
+            <returns>List of car brands</returns>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.GetModelsRepo">
+            <summary>
+            Gets all the models from the DB
+            </summary>
+            <returns>List of models</returns>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.GetExtraRepo">
+            <summary>
+            Gets a list of Extras from the DB
+            </summary>
+            <returns>List of extras</returns>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.CreateBrandRepo(CarShop.Data.car_brands)">
+            <summary>
+            Creates new brand in the database
+            </summary>
+            <param name="brand">name of the new brand</param>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.CreateModelRepo(CarShop.Data.car_models)">
+            <summary>
+            Creates new model in the database
+            </summary>
+            <param name="model">the new model that needs to be created.</param>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.CreateExtraRepo(CarShop.Data.extra)">
+            <summary>
+            Creates new extra in the database
+            </summary>
+            <param name="newExtra">the new model that needs to be created.</param>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.DeleteBrandRepo(System.String)">
+            <summary>
+            Creates Brand from the databse based on the name parameter
+            </summary>
+            <param name="name">name of the brand that needs to be delted.</param>
+        </member>
+        <member name="T:CarShop.Repository.Repository">
+            <summary>
+            Implements CRUD operations. Comunicates with Data Entities.
+            </summary>
+        </member>
+        <member name="F:CarShop.Repository.Repository.database">
+            <summary>
+            database connection
+            </summary>
+        </member>
+        <member name="M:CarShop.Repository.Repository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Repository.Repository"/> class.
+            </summary>
+        </member>
+        <member name="M:CarShop.Repository.Repository.GetBrandsRepo">
+            <summary>
+            Gets a list of Brands from the DB
+            </summary>
+            <returns>List of brands</returns>
+        </member>
+        <member name="M:CarShop.Repository.Repository.GetExtraRepo">
+            <summary>
+            Gets list of Extras from the db
+            </summary>
+            <returns>List of Extras</returns>
+        </member>
+        <member name="M:CarShop.Repository.Repository.GetModelsRepo">
+            <summary>
+            Gets a list of models from the DB
+            </summary>
+            <returns>List of models</returns>
+        </member>
+        <member name="M:CarShop.Repository.Repository.CreateBrandRepo(CarShop.Data.car_brands)">
+            <summary>
+            Creates new brand in the Database based on the parameter.
+            </summary>
+            <param name="brand">new brand parameter.</param>
+        </member>
+        <member name="M:CarShop.Repository.Repository.CreateModelRepo(CarShop.Data.car_models)">
+            <summary>
+            Creates new model in the Database based on the parameter.
+            </summary>
+            <param name="model">new model that needs to be created.</param>
+        </member>
+        <member name="M:CarShop.Repository.Repository.CreateExtraRepo(CarShop.Data.extra)">
+            <summary>
+            Creates new extra in the Database based on the parameter.
+            </summary>
+            <param name="newExtra">new extra that needs to be created.</param>
+        </member>
+        <member name="M:CarShop.Repository.Repository.DeleteBrandRepo(System.String)">
+            <summary>
+            Deltes Brand from DB based on the brands name.
+            </summary>
+            <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
+        </member>
+        <member name="M:CarShop.Repository.Repository.DisplayIdAndBrand">
+            <summary>
+            Displays Brands and ID-s so the user can select a brand.
+            </summary>
+        </member>
+    </members>
+</doc>

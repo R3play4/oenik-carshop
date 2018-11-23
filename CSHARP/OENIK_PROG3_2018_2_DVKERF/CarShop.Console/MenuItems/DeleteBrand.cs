@@ -30,7 +30,7 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("Enter the id of the Brand that you want to delete");
+            Console.WriteLine("Enter the name of the Brand that you want to delete");
             string id = Console.ReadLine();
             this.LogicContact.DeleteBrand(id);
             Console.ReadLine();
