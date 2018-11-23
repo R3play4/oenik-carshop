@@ -44,7 +44,7 @@ namespace CarShop.Console
             update.SubMenuItems.Add(new UpdateExtra("Update Extra", "UE"));
             menu.SubMenus.Add(update);
 
-            SubMenu delete = new SubMenu("Update", "U");
+            SubMenu delete = new SubMenu("Delete", "D");
             delete.SubMenuItems.Add(new DeleteBrand("Delete Brand", "DB"));
             delete.SubMenuItems.Add(new DeleteModel("Delete Model", "DM"));
             delete.SubMenuItems.Add(new DeleteExtra("Delete Extra", "DE"));

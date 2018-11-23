@@ -74,7 +74,7 @@ namespace CarShop.Console
             {
                 // sets the SubMenu's Parrent Item to 'this'. This will help the SubMenu to go Back to the Main Menu.
                 selected.ParrentMenu = this;
-                selected.StartMenu();
+                selected.StartSubMenu();
             }
             else if (selected == null && command != "E")
             {

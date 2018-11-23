@@ -56,5 +56,36 @@ namespace CarShop.Console.MenuItems
             this.LogicContact.CreateBrandLogic(newBrand);
             Console.ReadLine();
         }
+
+        private bool DateFormatCheck(string date)
+        {
+            bool formatGood = false;
+
+            // gets first 4 characters of the date string.
+            string year = date.Substring(0, 4);
+
+            // checks if all the first 4 charactes is a year
+            int i = 0;
+
+            while (i < year.Length && char.IsNumber(year[i]))
+            {
+                i++;
+            }
+
+            // if i is bigger than or equals to 4 than all of the characters are numbers.
+            formatGood = i >= year.Length;
+
+            // checks if the date is older than today.
+            if (formatGood)
+            {
+                formatGood = DateTime.Now.Year >= int.Parse(year);
+            }
+
+
+            string month;
+            string day;
+
+            return formatGood;
+        }
     }
 }
