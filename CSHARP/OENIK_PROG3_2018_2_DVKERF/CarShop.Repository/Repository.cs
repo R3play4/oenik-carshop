@@ -35,14 +35,40 @@ namespace CarShop.Repository
         public void ListBrandsRepo()
         {
             // Linq for brand names
-            var result = this.database.car_brands.Select(b => b.name);
+            var result = this.database.car_brands.Select(b =>
+            new
+            {
+                ID = b.id,
+                Name = b.name,
+                Country = b.country,
+                Founded = b.founded,
+            });
 
             // blank line
             Console.WriteLine();
 
+            // prints results
+            int i = 0;
             foreach (var item in result)
             {
-                Console.WriteLine(item);
+                if (i == 0)
+                {
+                    string headers = string.Empty;
+                    i++;
+                    var properties = item.GetType().GetProperties();
+
+                    foreach (var prop in properties)
+                    {
+                        if (prop.Name == "ID" || prop.Name == "Name")
+                        {
+                            headers += prop.Name + "\t";
+                        }
+                    }
+
+                    Console.WriteLine(headers);
+                }
+
+                Console.WriteLine(string.Format("{0}\t{1}\t",item.ID,item.Name));
             }
         }
 
