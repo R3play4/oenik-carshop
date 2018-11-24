@@ -47,9 +47,15 @@
         </member>
         <member name="M:CarShop.Repository.IRepository.DeleteBrandRepo(System.String)">
             <summary>
-            Creates Brand from the databse based on the name parameter
+            Deletes Brand from the databse based on the name parameter
             </summary>
             <param name="name">name of the brand that needs to be delted.</param>
+        </member>
+        <member name="M:CarShop.Repository.IRepository.DeleteModelRepo(System.String)">
+            <summary>
+            Deletes Model from the databse based on the name parameter
+            </summary>
+            <param name="name">name of the model that needs to be delted.</param>
         </member>
         <member name="T:CarShop.Repository.Repository">
             <summary>
@@ -104,9 +110,15 @@
         </member>
         <member name="M:CarShop.Repository.Repository.DeleteBrandRepo(System.String)">
             <summary>
-            Deltes Brand from DB based on the brands name.
+            Deletes Brand from DB based on the brands name.
             </summary>
             <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
+        </member>
+        <member name="M:CarShop.Repository.Repository.DeleteModelRepo(System.String)">
+            <summary>
+            Deletes Model from DB based on the model name.
+            </summary>
+            <param name="name">Name of the model that needs to be deleted has to be exact.</param>
         </member>
         <member name="M:CarShop.Repository.Repository.DisplayIdAndBrand">
             <summary>

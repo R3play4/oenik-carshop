@@ -30,7 +30,9 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("\nDelete Model not Ready Yet");
+            Console.WriteLine("Enter the name of the model you would like to delete.");
+            string name = Console.ReadLine();
+            this.LogicContact.DeleteModel(name);
             Console.ReadLine();
         }
     }

@@ -53,9 +53,15 @@ namespace CarShop.Repository
         void CreateExtraRepo(extra newExtra);
 
         /// <summary>
-        /// Creates Brand from the databse based on the name parameter
+        /// Deletes Brand from the databse based on the name parameter
         /// </summary>
         /// <param name="name">name of the brand that needs to be delted.</param>
         void DeleteBrandRepo(string name);
+
+        /// <summary>
+        /// Deletes Model from the databse based on the name parameter
+        /// </summary>
+        /// <param name="name">name of the model that needs to be delted.</param>
+        void DeleteModelRepo(string name);
     }
 }

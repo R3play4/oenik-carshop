@@ -87,5 +87,14 @@
             Assert.That(result.Count(), Is.EqualTo(3));
             Assert.That(result.SingleOrDefault(x => x.name == "turbo"), Is.Not.Null);
         }
+
+        [Test]
+        public void WhenCreatingBrand_CorrectBrandCreated()
+        {
+            // Mock
+            Logic logic = new Logic(this.mockedRepository.Object);
+
+            // Act
+            logic.CreateBrandLogic();      }
     }
 }

@@ -87,7 +87,7 @@ namespace CarShop.Repository
         }
 
         /// <summary>
-        /// Deltes Brand from DB based on the brands name.
+        /// Deletes Brand from DB based on the brands name.
         /// </summary>
         /// <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
         public void DeleteBrandRepo(string name)
@@ -109,6 +109,20 @@ namespace CarShop.Repository
             //{
             //    Console.WriteLine(e.Message);
             //}
+        }
+
+        /// <summary>
+        /// Deletes Model from DB based on the model name.
+        /// </summary>
+        /// <param name="name">Name of the model that needs to be deleted has to be exact.</param>
+        public void DeleteModelRepo(string name)
+        {
+            var model = this.database.car_models
+                .Where(b => b.name == name)
+                .First();
+            this.database.car_models.Remove(model);
+            this.database.SaveChanges();
+
         }
 
         private int SelectBrandForModel()

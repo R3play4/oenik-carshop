@@ -58,5 +58,11 @@ namespace CarShop.Logic
         /// <param name="name">Name of the brand that needs to be deleted </param>
         void DeleteBrand(string name);
 
+        /// <summary>
+        /// Method will call the repository method that will delete the model based on the name.
+        /// </summary>
+        /// <param name="name">Name of the model that needs to be deleted</param>
+        void DeleteModel(string name);
+
     }
 }
