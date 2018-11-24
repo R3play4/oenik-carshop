@@ -94,7 +94,9 @@ namespace CarShop.Repository
         {
 
             var brand = this.database.car_brands
-                   .Where(b => b.name == name).First();
+                   .Where(b => b.name == name)
+                   .First();
+
             this.database.car_brands.Remove(brand);
             this.database.SaveChanges();
 
@@ -120,9 +122,23 @@ namespace CarShop.Repository
             var model = this.database.car_models
                 .Where(b => b.name == name)
                 .First();
+
             this.database.car_models.Remove(model);
             this.database.SaveChanges();
 
+        }
+
+        /// <summary>
+        /// Deletes Extra from DB based on the model name.
+        /// </summary>
+        /// <param name="id">Name of the model that needs to be deleted has to be exact.</param>
+        public void DeleteExtraRepo(int id)
+        {
+            var extra = this.database.extras
+                .Where(e => e.id == id).First();
+
+            this.database.extras.Remove(extra);
+            this.database.SaveChanges();
         }
 
         private int SelectBrandForModel()

@@ -45,6 +45,7 @@ namespace CarShop.Console.MenuItems
             var result = models.Select(b => new
             {
                 Id = b.id,
+                Brand_Id = b.brand_id,
                 Name = b.name,
                 Engine_Size = b.engine_size,
                 Horspower = b.horsepower,

@@ -64,5 +64,10 @@ namespace CarShop.Logic
         /// <param name="name">Name of the model that needs to be deleted</param>
         void DeleteModel(string name);
 
+        /// <summary>
+        /// Method will call the repository method that will delete the extra based on the id.
+        /// </summary>
+        /// <param name="id">ID of the extra that needs to be deleted</param>
+        void DeleteExtra(int id);
     }
 }

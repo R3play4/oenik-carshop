@@ -57,6 +57,12 @@
             </summary>
             <param name="name">Name of the model that needs to be deleted</param>
         </member>
+        <member name="M:CarShop.Logic.ILogic.DeleteExtra(System.Int32)">
+            <summary>
+            Method will call the repository method that will delete the extra based on the id.
+            </summary>
+            <param name="id">ID of the extra that needs to be deleted</param>
+        </member>
         <member name="T:CarShop.Logic.Logic">
             <summary>
             Implements ILogic CRUD operations
@@ -123,9 +129,15 @@
         </member>
         <member name="M:CarShop.Logic.Logic.DeleteModel(System.String)">
             <summary>
-            Calls DeleteBrand method of repository.
+            Calls DeleteModel method of repository.
             </summary>
             <param name="name">name of the brand that needs to be deleted</param>
+        </member>
+        <member name="M:CarShop.Logic.Logic.DeleteExtra(System.Int32)">
+            <summary>
+            Calls DeleteExtra method of repository.
+            </summary>
+            <param name="id">id of the extra that needs to be deleted</param>
         </member>
     </members>
 </doc>

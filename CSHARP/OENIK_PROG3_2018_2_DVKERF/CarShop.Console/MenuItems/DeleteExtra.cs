@@ -30,7 +30,10 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("\nDelete Extra not Ready Yet");
+            Console.WriteLine("Enter the id of the extra you would like to delete");
+            int id = int.Parse(Console.ReadLine());
+
+            this.LogicContact.DeleteExtra(id);
             Console.ReadLine();
         }
     }

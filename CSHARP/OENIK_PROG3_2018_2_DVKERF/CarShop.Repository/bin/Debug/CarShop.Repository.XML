@@ -57,6 +57,12 @@
             </summary>
             <param name="name">name of the model that needs to be delted.</param>
         </member>
+        <member name="M:CarShop.Repository.IRepository.DeleteExtraRepo(System.Int32)">
+            <summary>
+            Deletes Extra from the databse based on the name parameter
+            </summary>
+            <param name="id">ID of the extra that needs to be delted.</param>
+        </member>
         <member name="T:CarShop.Repository.Repository">
             <summary>
             Implements CRUD operations. Comunicates with Data Entities.
@@ -119,6 +125,12 @@
             Deletes Model from DB based on the model name.
             </summary>
             <param name="name">Name of the model that needs to be deleted has to be exact.</param>
+        </member>
+        <member name="M:CarShop.Repository.Repository.DeleteExtraRepo(System.Int32)">
+            <summary>
+            Deletes Extra from DB based on the model name.
+            </summary>
+            <param name="id">Name of the model that needs to be deleted has to be exact.</param>
         </member>
         <member name="M:CarShop.Repository.Repository.DisplayIdAndBrand">
             <summary>

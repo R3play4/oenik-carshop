@@ -63,5 +63,11 @@ namespace CarShop.Repository
         /// </summary>
         /// <param name="name">name of the model that needs to be delted.</param>
         void DeleteModelRepo(string name);
+
+        /// <summary>
+        /// Deletes Extra from the databse based on the name parameter
+        /// </summary>
+        /// <param name="id">ID of the extra that needs to be delted.</param>
+        void DeleteExtraRepo(int id);
     }
 }

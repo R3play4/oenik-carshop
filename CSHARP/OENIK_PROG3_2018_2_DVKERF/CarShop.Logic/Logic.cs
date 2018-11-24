@@ -112,12 +112,21 @@ namespace CarShop.Logic
         }
 
         /// <summary>
-        /// Calls DeleteBrand method of repository.
+        /// Calls DeleteModel method of repository.
         /// </summary>
         /// <param name="name">name of the brand that needs to be deleted</param>
         public void DeleteModel(string name)
         {
             this.repository.DeleteModelRepo(name);
+        }
+
+        /// <summary>
+        /// Calls DeleteExtra method of repository.
+        /// </summary>
+        /// <param name="id">id of the extra that needs to be deleted</param>
+        public void DeleteExtra(int id)
+        {
+            this.repository.DeleteExtraRepo(id);
         }
     }
 }
