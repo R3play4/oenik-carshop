@@ -63,7 +63,7 @@ namespace CarShop.Console.MenuItems
             if (selection < 1 || selection > max_id)
             {
                 Console.WriteLine("Invalid ID was picked. Select another one");
-                this.ChooseBrandToDelete();
+                this.ChooseBrand();
             }
 
             return selection;

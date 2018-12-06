@@ -45,11 +45,11 @@
             </summary>
             <param name="newExtra">the new model that needs to be created.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.DeleteBrandRepo(System.String)">
+        <member name="M:CarShop.Repository.IRepository.DeleteBrandRepo(System.Int32)">
             <summary>
             Deletes Brand from the databse based on the name parameter
             </summary>
-            <param name="name">name of the brand that needs to be delted.</param>
+            <param name="id">name of the brand that needs to be delted.</param>
         </member>
         <member name="M:CarShop.Repository.IRepository.DeleteModelRepo(System.String)">
             <summary>
@@ -114,7 +114,7 @@
             </summary>
             <param name="newExtra">new extra that needs to be created.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.DeleteBrandRepo(System.String)">
+        <member name="M:CarShop.Repository.Repository.DeleteBrandRepo(System.Int32)">
             <summary>
             Deletes Brand from DB based on the brands name.
             </summary>

@@ -63,6 +63,16 @@
             </summary>
             <param name="id">ID of the extra that needs to be delted.</param>
         </member>
+        <member name="M:CarShop.Repository.IRepository.UpdateBrandRepo(System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            Calls repository to update selected brand.
+            </summary>
+            <param name="id">id of the brand that needs to be updated </param>
+            <param name="name">updated name</param>
+            <param name="country">updated country</param>
+            <param name="founded">updated foundation date</param>
+            <param name="revenue">updated revenue</param>
+        </member>
         <member name="T:CarShop.Repository.Repository">
             <summary>
             Implements CRUD operations. Comunicates with Data Entities.

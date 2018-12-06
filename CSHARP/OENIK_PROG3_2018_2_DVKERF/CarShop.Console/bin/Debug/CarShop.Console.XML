@@ -164,7 +164,7 @@
             Executes the menu's action
             </summary>
         </member>
-        <member name="M:CarShop.Console.MenuItems.DeleteBrand.ChooseBrandToDelete">
+        <member name="M:CarShop.Console.MenuItems.DeleteBrand.ChooseBrand">
             <summary>
             Lists brand names and ids. User can pick one based on the id.
             </summary>

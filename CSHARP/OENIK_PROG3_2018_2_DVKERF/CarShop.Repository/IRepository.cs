@@ -69,5 +69,15 @@ namespace CarShop.Repository
         /// </summary>
         /// <param name="id">ID of the extra that needs to be delted.</param>
         void DeleteExtraRepo(int id);
+
+        /// <summary>
+        /// Calls repository to update selected brand.
+        /// </summary>
+        /// <param name="id">id of the brand that needs to be updated </param>
+        /// <param name="name">updated name</param>
+        /// <param name="country">updated country</param>
+        /// <param name="founded">updated foundation date</param>
+        /// <param name="revenue">updated revenue</param>
+        void UpdateBrandRepo(int id, string name, string country, string founded, string revenue);
     }
 }

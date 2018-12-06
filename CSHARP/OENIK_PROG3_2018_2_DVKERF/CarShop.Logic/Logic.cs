@@ -147,5 +147,18 @@ namespace CarShop.Logic
         {
             this.repository.DeleteExtraRepo(id);
         }
+
+        /// <summary>
+        ///  Calls the Repository Method to update the database. Tests if any of the parameters are null.
+        /// </summary>
+        /// <param name="name">updated name </param>
+        /// <param name="country">updated country </param>
+        /// <param name="founded">updated foundation date</param>
+        /// <param name="revenue">updated revenue</param>
+        public void UpdateBrandLogic(int id, string name, string country, string founded, string revenue)
+        {
+            this.repository.UpdateBrandRepo(id, name, country, founded, revenue);
+            
+        }
     }
 }

@@ -63,6 +63,11 @@
             </summary>
             <param name="id">ID of the extra that needs to be deleted</param>
         </member>
+        <member name="M:CarShop.Logic.ILogic.UpdateBrandLogic(System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            Method will call respository method that will update the brand.
+            </summary>
+        </member>
         <member name="T:CarShop.Logic.Logic">
             <summary>
             Implements ILogic CRUD operations
@@ -138,6 +143,15 @@
             Calls DeleteExtra method of repository.
             </summary>
             <param name="id">id of the extra that needs to be deleted</param>
+        </member>
+        <member name="M:CarShop.Logic.Logic.UpdateBrandLogic(System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+             Calls the Repository Method to update the database. Tests if any of the parameters are null.
+            </summary>
+            <param name="name">updated name </param>
+            <param name="country">updated country </param>
+            <param name="founded">updated foundation date</param>
+            <param name="revenue">updated revenue</param>
         </member>
     </members>
 </doc>

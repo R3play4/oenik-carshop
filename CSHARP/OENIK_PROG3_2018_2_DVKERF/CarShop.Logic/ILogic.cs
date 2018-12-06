@@ -69,5 +69,10 @@ namespace CarShop.Logic
         /// </summary>
         /// <param name="id">ID of the extra that needs to be deleted</param>
         void DeleteExtra(int id);
+
+        /// <summary>
+        /// Method will call respository method that will update the brand.
+        /// </summary>
+        void UpdateBrandLogic(int id, string name, string country, string founded, string revenue);
     }
 }

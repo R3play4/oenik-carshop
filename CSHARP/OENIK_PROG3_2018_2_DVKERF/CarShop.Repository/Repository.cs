@@ -147,6 +147,35 @@ namespace CarShop.Repository
             this.database.SaveChanges();
         }
 
+        public void UpdateBrandRepo(int id, string name, string country, string founded, string revenue)
+        {
+            // returns the selected brand
+            car_brands brand = this.database.car_brands
+                .Where(b => b.id == id).First();
+
+            if (name != string.Empty)
+            {
+                brand.name = name;
+            }
+
+            if (country != string.Empty)
+            {
+                brand.country = country;
+            }
+
+            if (founded != string.Empty)
+            {
+                brand.founded = DateTime.Parse(founded);
+            }
+
+            if (revenue != string.Empty)
+            {
+                brand.yearly_revenue = int.Parse(revenue);
+            }
+
+            this.database.SaveChanges();
+        }
+
         private int SelectBrandForModel()
         {
             var valid_options = this.database.car_models.Select(i => i.id);
