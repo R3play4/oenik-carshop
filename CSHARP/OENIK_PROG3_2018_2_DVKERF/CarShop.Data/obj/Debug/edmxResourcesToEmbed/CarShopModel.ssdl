@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="None" Nullable="false" />
     <Property Name="name" Type="varchar" MaxLength="20" />
     <Property Name="country" Type="varchar" MaxLength="20" />
     <Property Name="url" Type="varchar" MaxLength="100" />
@@ -15,7 +15,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="None" Nullable="false" />
     <Property Name="brand_id" Type="int" Nullable="false" />
     <Property Name="name" Type="varchar" MaxLength="20" />
     <Property Name="production_start" Type="date" />
@@ -27,7 +27,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="None" Nullable="false" />
     <Property Name="category_name" Type="varchar" MaxLength="20" />
     <Property Name="name" Type="varchar" MaxLength="20" />
     <Property Name="price" Type="int" />
@@ -38,7 +38,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="None" Nullable="false" />
     <Property Name="model_id" Type="int" Nullable="false" />
     <Property Name="extra_id" Type="int" Nullable="false" />
   </EntityType>

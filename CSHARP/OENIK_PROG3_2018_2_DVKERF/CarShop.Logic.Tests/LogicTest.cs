@@ -95,6 +95,7 @@
             Logic logic = new Logic(this.mockedRepository.Object);
 
             // Act
-            logic.CreateBrandLogic();      }
+            //logic.CreateBrandLogic();      
+        }
     }
 }

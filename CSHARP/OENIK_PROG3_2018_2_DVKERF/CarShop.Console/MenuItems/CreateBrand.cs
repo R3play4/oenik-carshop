@@ -31,16 +31,33 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            car_brands newBrand = new car_brands();
-            Console.WriteLine("Enter data of the new Brand");
+            Console.WriteLine("Name:");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Country:");
+            string country = Console.ReadLine();
+
+            Console.WriteLine("URL:");
+            string url = Console.ReadLine();
+
+            Console.WriteLine("Founded: YYYY-MM-DD");
+            DateTime date = DateTime.Parse(Console.ReadLine());
+
+            Console.WriteLine("Revenue:");
+            int revenue = int.Parse(Console.ReadLine());
+
+            this.LogicContact.CreateBrandLogic(name, country, url, date, revenue);
+
+            //car_brands newBrand = new car_brands();
+            //Console.WriteLine("Enter data of the new Brand");
             //newBrand.id = this.SetPrimaryKey();
-            newBrand.name = this.SetName();
-            newBrand.country = this.SetCountry();
-            newBrand.founded = this.SetDate(this.SetYear(), this.SetMonth());
-            newBrand.url = this.SetURL();
-            newBrand.yearly_revenue = this.SetRevenue();
-            this.LogicContact.CreateBrandLogic(newBrand);
-            Console.ReadLine();
+            //newBrand.name = this.SetName();
+            //newBrand.country = this.SetCountry();
+            ////newBrand.founded = this.SetDate(this.SetYear(), this.SetMonth());
+            //newBrand.url = this.SetURL();
+            //newBrand.yearly_revenue = this.SetRevenue();
+            //this.LogicContact.CreateBrandLogic(newBrand);
+            //Console.ReadLine();
         }
 
         private int SetPrimaryKey()

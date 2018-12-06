@@ -27,7 +27,7 @@ namespace CarShop.Logic
         /// </summary>
         public Logic()
         {
-            this.repository = new Repository();
+            this.SetRepositoryInterface(new Repository());
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace CarShop.Logic
         /// Sets the Repository property of the class. This will be used for mocking.
         /// </summary>
         /// <param name="intf">Repositary interface</param>
-        public void RegisterRepositoryInterface(IRepository intf)
+        public void SetRepositoryInterface(IRepository intf)
         {
             this.repository = intf;
         }
@@ -83,18 +83,37 @@ namespace CarShop.Logic
         /// Calls CreateBrand method of the repository
         /// </summary>
         /// <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
-        public void CreateBrandLogic(car_brands brand)
+        public void CreateBrandLogic(string name, string country, string url, DateTime date, int revenue)
         {
-            this.repository.CreateBrandRepo(brand);
+            car_brands newBrand = new car_brands()
+            {
+                name = name,
+                country = country,
+                url = url,
+                founded = date,
+                yearly_revenue = revenue
+            };
+
+            this.repository.CreateBrandRepo(newBrand);
         }
 
         /// <summary>
         /// Calls CreateModel method of the repository
         /// </summary>
         /// <param name="model">new model parameter. It properties is empty at this point.</param>
-        public void CreateModelLogic(car_models model)
+        public void CreateModelLogic(int id, string name, DateTime start_date, int engine_size, int horsepower, int price)
         {
-            this.repository.CreateModelRepo(model);
+            car_models newModel = new car_models()
+            {
+                brand_id = id,
+                name = name,
+                production_start = start_date,
+                engine_size = engine_size,
+                horsepower = horsepower,
+                starting_price = price
+            };
+
+            this.repository.CreateModelRepo(newModel);
         }
 
         public void CreateExtraLogic(extra newExtra)
@@ -106,9 +125,9 @@ namespace CarShop.Logic
         /// Calls DeleteBrand method of repository.
         /// </summary>
         /// <param name="name">name of the brand that needs to be deleted</param>
-        public void DeleteBrand(string name)
+        public void DeleteBrand(int id)
         {
-            this.repository.DeleteBrandRepo(name);
+            this.repository.DeleteBrandRepo(id);
         }
 
         /// <summary>

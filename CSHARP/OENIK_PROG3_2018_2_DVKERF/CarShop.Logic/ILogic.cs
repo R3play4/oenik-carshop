@@ -38,13 +38,13 @@ namespace CarShop.Logic
         /// Method will call the repository method that will create new brand in the database.
         /// </summary>
         /// <param name="brand">new brand that needs to be created</param>
-        void CreateBrandLogic(car_brands brand);
+        void CreateBrandLogic(string name , string country, string url, DateTime date, int revenue);
 
         /// <summary>
         /// Method will call the repository method that will create new brand in the database.
         /// </summary>
         /// <param name="model">new model that will be created.</param>
-        void CreateModelLogic(car_models model);
+        void CreateModelLogic(int id, string name, DateTime start_date, int engine_size, int horsepower, int price);
 
         /// <summary>
         /// Method will call the repository method that will create new extra in the database.
@@ -55,8 +55,8 @@ namespace CarShop.Logic
         /// <summary>
         /// Method will call the repository method that will delete the brand based on the name.
         /// </summary>
-        /// <param name="name">Name of the brand that needs to be deleted </param>
-        void DeleteBrand(string name);
+        /// <param name="id">Id of the brand that needs to be deleted </param>
+        void DeleteBrand(int id);
 
         /// <summary>
         /// Method will call the repository method that will delete the model based on the name.

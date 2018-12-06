@@ -55,8 +55,8 @@ namespace CarShop.Repository
         /// <summary>
         /// Deletes Brand from the databse based on the name parameter
         /// </summary>
-        /// <param name="name">name of the brand that needs to be delted.</param>
-        void DeleteBrandRepo(string name);
+        /// <param name="id">name of the brand that needs to be delted.</param>
+        void DeleteBrandRepo(int id);
 
         /// <summary>
         /// Deletes Model from the databse based on the name parameter

@@ -31,14 +31,31 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            car_models model = new car_models();
-            model.brand_id = this.SetBrand();
-            model.name = this.SetName();
-            model.engine_size = this.SetEngineSize();
-            model.production_start = this.SetDate(this.SetYear(), this.SetMonth());
-            model.starting_price = this.SetStartingPrice();
+            int brandId = this.SetBrand();
 
-            this.LogicContact.CreateModelLogic(model);
+            Console.WriteLine("Name:");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Start Date:YYYY-MM-DD");
+            DateTime start = DateTime.Parse(Console.ReadLine());
+
+            Console.WriteLine("Engine Size:");
+            int engine = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Horsepower:");
+            int horsepower = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Starting Price:");
+            int price = int.Parse(Console.ReadLine());
+
+            this.LogicContact.CreateModelLogic(brandId, name, start, engine, horsepower, price);
+            //car_models model = new car_models();
+            //model.brand_id = this.SetBrand();
+            //model.name = this.SetName();
+            //model.engine_size = this.SetEngineSize();
+            //model.production_start = this.SetDate(this.SetYear(), this.SetMonth());
+            //model.starting_price = this.SetStartingPrice();
+            //this.LogicContact.CreateModelLogic(model);
             Console.ReadLine();
         }
 
@@ -139,21 +156,21 @@ namespace CarShop.Console.MenuItems
             return DateTime.Parse(year + "-" + month + "-01");
         }
 
-        private bool IsStringNumber(string txt)
-        {
-            bool isNumber = false;
+        //private bool IsStringNumber(string txt)
+        //{
+        //    bool isNumber = false;
 
-            int i = 0;
-            while (i < txt.Length && char.IsNumber(txt[i]))
-            {
-                i++;
-            }
+        //    int i = 0;
+        //    while (i < txt.Length && char.IsNumber(txt[i]))
+        //    {
+        //        i++;
+        //    }
 
-            // if i is >= the length of txt that means all the chars in txt is a number. 
-            isNumber = i >= txt.Length;
+        //    // if i is >= the length of txt that means all the chars in txt is a number. 
+        //    isNumber = i >= txt.Length;
 
-            return isNumber;
-        }
+        //    return isNumber;
+        //}
 
         private int SetHorsePower()
         {

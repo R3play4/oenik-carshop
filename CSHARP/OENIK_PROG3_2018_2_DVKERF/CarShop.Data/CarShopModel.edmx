@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="None" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="20" />
           <Property Name="country" Type="varchar" MaxLength="20" />
           <Property Name="url" Type="varchar" MaxLength="100" />
@@ -20,7 +20,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="None" Nullable="false" />
           <Property Name="brand_id" Type="int" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="20" />
           <Property Name="production_start" Type="date" />
@@ -32,7 +32,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="None" Nullable="false" />
           <Property Name="category_name" Type="varchar" MaxLength="20" />
           <Property Name="name" Type="varchar" MaxLength="20" />
           <Property Name="price" Type="int" />
@@ -43,7 +43,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="None" Nullable="false" />
           <Property Name="model_id" Type="int" Nullable="false" />
           <Property Name="extra_id" Type="int" Nullable="false" />
         </EntityType>
@@ -110,7 +110,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -122,7 +122,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="brand_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="production_start" Type="DateTime" Precision="0" />
@@ -136,7 +136,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="category_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="price" Type="Int32" />
@@ -148,7 +148,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="model_id" Type="Int32" Nullable="false" />
           <Property Name="extra_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="car_models" Relationship="Self.FK__model_ext__model__2A4B4B5E" FromRole="model_extra_connection" ToRole="car_models" />

@@ -62,8 +62,10 @@ namespace CarShop.Repository
         /// <param name="brand">new brand parameter.</param>
         public void CreateBrandRepo(car_brands brand)
         {
-               this.database.car_brands.Add(brand);
-               this.database.SaveChanges();
+            int last_id = this.database.car_brands.Max(i => i.id);
+            brand.id = last_id + 1;
+            this.database.car_brands.Add(brand);
+            this.database.SaveChanges();
         }
 
         /// <summary>
@@ -72,6 +74,8 @@ namespace CarShop.Repository
         /// <param name="model">new model that needs to be created.</param>
         public void CreateModelRepo(car_models model)
         {
+            int last_id = this.database.car_models.Max(i => i.id);
+            model.id = last_id + 1;
             this.database.car_models.Add(model);
             this.database.SaveChanges();
         }
@@ -82,6 +86,8 @@ namespace CarShop.Repository
         /// <param name="newExtra">new extra that needs to be created.</param>
         public void CreateExtraRepo(extra newExtra)
         {
+            int last_id = this.database.extras.Max(i => i.id);
+            newExtra.id = last_id + 1;
             this.database.extras.Add(newExtra);
             this.database.SaveChanges();
         }
@@ -90,11 +96,11 @@ namespace CarShop.Repository
         /// Deletes Brand from DB based on the brands name.
         /// </summary>
         /// <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
-        public void DeleteBrandRepo(string name)
+        public void DeleteBrandRepo(int id)
         {
 
             var brand = this.database.car_brands
-                   .Where(b => b.name == name)
+                   .Where(b => b.id == id)
                    .First();
 
             this.database.car_brands.Remove(brand);

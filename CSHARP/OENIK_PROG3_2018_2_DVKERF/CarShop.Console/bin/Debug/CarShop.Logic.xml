@@ -27,13 +27,13 @@
             </summary>
             <returns>Returns a list of models from the repository </returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(CarShop.Data.car_brands)">
+        <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(System.String,System.String,System.String,System.DateTime,System.Int32)">
             <summary>
             Method will call the repository method that will create new brand in the database.
             </summary>
             <param name="brand">new brand that needs to be created</param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.CreateModelLogic(CarShop.Data.car_models)">
+        <member name="M:CarShop.Logic.ILogic.CreateModelLogic(System.Int32,System.String,System.DateTime,System.Int32,System.Int32,System.Int32)">
             <summary>
             Method will call the repository method that will create new brand in the database.
             </summary>
@@ -45,11 +45,11 @@
             </summary>
             <param name="extra">new extra that will be created.</param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.DeleteBrand(System.String)">
+        <member name="M:CarShop.Logic.ILogic.DeleteBrand(System.Int32)">
             <summary>
             Method will call the repository method that will delete the brand based on the name.
             </summary>
-            <param name="name">Name of the brand that needs to be deleted </param>
+            <param name="id">Id of the brand that needs to be deleted </param>
         </member>
         <member name="M:CarShop.Logic.ILogic.DeleteModel(System.String)">
             <summary>
@@ -85,7 +85,7 @@
             </summary>
             <param name="repository">IRepository interface</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.RegisterRepositoryInterface(CarShop.Repository.IRepository)">
+        <member name="M:CarShop.Logic.Logic.SetRepositoryInterface(CarShop.Repository.IRepository)">
             <summary>
             Sets the Repository property of the class. This will be used for mocking.
             </summary>
@@ -109,19 +109,19 @@
             </summary>
             <returns>List of models from the repo</returns>
         </member>
-        <member name="M:CarShop.Logic.Logic.CreateBrandLogic(CarShop.Data.car_brands)">
+        <member name="M:CarShop.Logic.Logic.CreateBrandLogic(System.String,System.String,System.String,System.DateTime,System.Int32)">
             <summary>
             Calls CreateBrand method of the repository
             </summary>
             <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.CreateModelLogic(CarShop.Data.car_models)">
+        <member name="M:CarShop.Logic.Logic.CreateModelLogic(System.Int32,System.String,System.DateTime,System.Int32,System.Int32,System.Int32)">
             <summary>
             Calls CreateModel method of the repository
             </summary>
             <param name="model">new model parameter. It properties is empty at this point.</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.DeleteBrand(System.String)">
+        <member name="M:CarShop.Logic.Logic.DeleteBrand(System.Int32)">
             <summary>
             Calls DeleteBrand method of repository.
             </summary>
