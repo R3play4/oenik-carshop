@@ -4,6 +4,7 @@
 
 namespace CarShop.Console.MenuItems
 {
+    using Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -30,8 +31,19 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("\nList Extra Per Model not Ready Yet");
+            IEnumerable<object> connections = this.LogicContact.GetExtraModelLogic();
+            this.DisplayExtraModel(connections);
             Console.ReadLine();
+        }
+
+        private void DisplayExtraModel(IEnumerable<object> connections)
+        {
+            var properties = connections.GetType().GetProperties();
+
+            foreach (var item in connections)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

@@ -61,6 +61,7 @@
     <Compile Include="MenuItems\CreateExtra.cs" />
     <Compile Include="MenuItems\CreateModel.cs" />
     <Compile Include="MenuItems\DeleteBrand.cs" />
+    <Compile Include="MenuItems\DeleteConnection.cs" />
     <Compile Include="MenuItems\DeleteExtra.cs" />
     <Compile Include="MenuItems\DeleteModel.cs" />
     <Compile Include="MenuItems\ListBrand.cs" />

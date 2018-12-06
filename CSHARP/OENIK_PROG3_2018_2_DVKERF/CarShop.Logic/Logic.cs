@@ -80,6 +80,17 @@ namespace CarShop.Logic
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<object> GetExtraModelLogic()
+        {
+            IEnumerable<object> extraModels = this.repository.GetExtraModelRepo();
+            return extraModels;
+        }
+
+
+        /// <summary>
         /// Calls CreateBrand method of the repository
         /// </summary>
         /// <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
@@ -134,9 +145,9 @@ namespace CarShop.Logic
         /// Calls DeleteModel method of repository.
         /// </summary>
         /// <param name="name">name of the brand that needs to be deleted</param>
-        public void DeleteModel(string name)
+        public void DeleteModel(int id)
         {
-            this.repository.DeleteModelRepo(name);
+            this.repository.DeleteModelRepo(id);
         }
 
         /// <summary>

@@ -10,6 +10,7 @@ namespace CarShop.Repository
     using System.Text;
     using System.Threading.Tasks;
     using CarShop.Data;
+    using System.Data.Entity.Infrastructure;
 
     /// <summary>
     /// Implements CRUD operations. Comunicates with Data Entities.
@@ -57,6 +58,18 @@ namespace CarShop.Repository
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<object> GetExtraModelRepo()
+        {
+            var results = from connection in this.database.model_extra_connection
+                          join model in this.database.car_models on connection.model_id equals model.id
+                          join extra in this.database.extras on connection.extra_id equals extra.id
+                          select new { Id = connection.id, Model = model.name, Extra = extra.name };
+            return results;
+        }
+        /// <summary>
         /// Creates new brand in the Database based on the parameter.
         /// </summary>
         /// <param name="brand">new brand parameter.</param>
@@ -98,13 +111,19 @@ namespace CarShop.Repository
         /// <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
         public void DeleteBrandRepo(int id)
         {
-
             var brand = this.database.car_brands
                    .Where(b => b.id == id)
                    .First();
 
-            this.database.car_brands.Remove(brand);
-            this.database.SaveChanges();
+            try
+            {
+                this.database.car_brands.Remove(brand);
+                this.database.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                Console.WriteLine(e.InnerException.InnerException.Message);
+            }
 
             //try
             //{
@@ -123,15 +142,21 @@ namespace CarShop.Repository
         /// Deletes Model from DB based on the model name.
         /// </summary>
         /// <param name="name">Name of the model that needs to be deleted has to be exact.</param>
-        public void DeleteModelRepo(string name)
+        public void DeleteModelRepo(int id)
         {
             var model = this.database.car_models
-                .Where(b => b.name == name)
+                .Where(b => b.id == id)
                 .First();
 
-            this.database.car_models.Remove(model);
-            this.database.SaveChanges();
-
+            try
+            {
+                this.database.car_models.Remove(model);
+                this.database.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                Console.WriteLine(e.InnerException.InnerException.Message);
+            }
         }
 
         /// <summary>
@@ -143,8 +168,15 @@ namespace CarShop.Repository
             var extra = this.database.extras
                 .Where(e => e.id == id).First();
 
-            this.database.extras.Remove(extra);
-            this.database.SaveChanges();
+            try
+            {
+                this.database.extras.Remove(extra);
+                this.database.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                Console.WriteLine(e.InnerException.InnerException.Message);
+            }
         }
 
         public void UpdateBrandRepo(int id, string name, string country, string founded, string revenue)

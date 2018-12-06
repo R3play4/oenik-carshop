@@ -7,7 +7,7 @@
       <Diagram DiagramId="14553db5a15746909875bc3469f04664" Name="Diagram1">
         <EntityTypeShape EntityType="CarShopDBaseModel.car_brands" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CarShopDBaseModel.car_models" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarShopDBaseModel.extra" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarShopDBaseModel.extra" Width="1.5" PointX="3.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CarShopDBaseModel.model_extra_connection" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="CarShopDBaseModel.FK__car_model__brand__25869641" ManuallyRouted="false" />
         <AssociationConnector Association="CarShopDBaseModel.FK__model_ext__model__2A4B4B5E" ManuallyRouted="false" />

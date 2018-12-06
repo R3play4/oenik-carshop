@@ -35,6 +35,12 @@ namespace CarShop.Repository
         IEnumerable<extra> GetExtraRepo();
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<object> GetExtraModelRepo();
+
+        /// <summary>
         /// Creates new brand in the database
         /// </summary>
         /// <param name="brand">name of the new brand</param>
@@ -62,7 +68,7 @@ namespace CarShop.Repository
         /// Deletes Model from the databse based on the name parameter
         /// </summary>
         /// <param name="name">name of the model that needs to be delted.</param>
-        void DeleteModelRepo(string name);
+        void DeleteModelRepo(int id);
 
         /// <summary>
         /// Deletes Extra from the databse based on the name parameter

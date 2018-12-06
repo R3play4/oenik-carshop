@@ -35,6 +35,12 @@ namespace CarShop.Logic
         IEnumerable<extra> GetExtraLogic();
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<object> GetExtraModelLogic();
+
+        /// <summary>
         /// Method will call the repository method that will create new brand in the database.
         /// </summary>
         /// <param name="brand">new brand that needs to be created</param>
@@ -61,8 +67,8 @@ namespace CarShop.Logic
         /// <summary>
         /// Method will call the repository method that will delete the model based on the name.
         /// </summary>
-        /// <param name="name">Name of the model that needs to be deleted</param>
-        void DeleteModel(string name);
+        /// <param name="id">ID of the model that needs to be deleted</param>
+        void DeleteModel(int id);
 
         /// <summary>
         /// Method will call the repository method that will delete the extra based on the id.
