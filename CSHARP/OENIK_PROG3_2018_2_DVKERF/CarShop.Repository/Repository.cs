@@ -228,5 +228,49 @@ namespace CarShop.Repository
                 Console.WriteLine("{0}\t{1}\t",brand.Id, brand.Name);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="selected"></param>
+        /// <param name="brand_id"></param>
+        /// <param name="name"></param>
+        /// <param name="productionStart"></param>
+        /// <param name="engineSizem"></param>
+        /// <param name="horsePower"></param>
+        /// <param name="startingPrice"></param>
+        public void UpdateModelRepo(int selected, int brand_id, string name, string productionStart, string engineSize, string horsePower, string startingPrice)
+        {
+            car_models model = this.database.car_models
+                .Where(m => m.id == selected).First();
+
+            if (name != string.Empty)
+            {
+                model.name = name;
+            }
+
+            if (productionStart != string.Empty)
+            {
+                model.production_start = DateTime.Parse(productionStart);
+            }
+
+            if (engineSize != string.Empty)
+            {
+                model.engine_size = int.Parse(engineSize);
+            }
+
+            if (horsePower != string.Empty)
+            {
+                model.horsepower = int.Parse(horsePower);
+            }
+
+            if (startingPrice != string.Empty)
+            {
+                model.starting_price = int.Parse(startingPrice);
+            }
+
+            this.database.SaveChanges();
+        }
+
     }
 }

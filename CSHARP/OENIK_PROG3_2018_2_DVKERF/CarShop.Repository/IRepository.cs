@@ -79,5 +79,17 @@ namespace CarShop.Repository
         /// <param name="founded">updated foundation date</param>
         /// <param name="revenue">updated revenue</param>
         void UpdateBrandRepo(int id, string name, string country, string founded, string revenue);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="selected"></param>
+        /// <param name="brand_id"></param>
+        /// <param name="name"></param>
+        /// <param name="productionStart"></param>
+        /// <param name="engineSizem"></param>
+        /// <param name="horsePower"></param>
+        /// <param name="startingPrice"></param>
+        void UpdateModelRepo(int selected, int brand_id, string name, string productionStart, string engineSize, string horsePower, string startingPrice);
     }
 }

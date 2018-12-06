@@ -149,7 +149,7 @@ namespace CarShop.Logic
         }
 
         /// <summary>
-        ///  Calls the Repository Method to update the database. Tests if any of the parameters are null.
+        ///  Calls the Repository Method to update the database.
         /// </summary>
         /// <param name="name">updated name </param>
         /// <param name="country">updated country </param>
@@ -158,7 +158,21 @@ namespace CarShop.Logic
         public void UpdateBrandLogic(int id, string name, string country, string founded, string revenue)
         {
             this.repository.UpdateBrandRepo(id, name, country, founded, revenue);
-            
+        }
+
+        /// <summary>
+        /// Calls the Repository Method to update the database.
+        /// </summary>
+        /// <param name="selected"> selected model's id </param>
+        /// <param name="brand_id"> new model's brand id</param>
+        /// <param name="name"> updated name</param>
+        /// <param name="productionStart">updated start date time </param>
+        /// <param name="engineSizem">updated engine size</param>
+        /// <param name="horsePower">updated horsepower</param>
+        /// <param name="startingPrice">updated starting price</param>
+        public void UpdateModelLogic(int selected, int brand_id, string name, string productionStart, string engineSize, string horsePower, string startingPrice)
+        {
+            this.repository.UpdateModelRepo(selected, brand_id, name, productionStart, engineSize, horsePower, startingPrice);
         }
     }
 }

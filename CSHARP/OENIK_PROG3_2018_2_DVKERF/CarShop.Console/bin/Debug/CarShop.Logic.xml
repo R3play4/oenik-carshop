@@ -146,12 +146,24 @@
         </member>
         <member name="M:CarShop.Logic.Logic.UpdateBrandLogic(System.Int32,System.String,System.String,System.String,System.String)">
             <summary>
-             Calls the Repository Method to update the database. Tests if any of the parameters are null.
+             Calls the Repository Method to update the database.
             </summary>
             <param name="name">updated name </param>
             <param name="country">updated country </param>
             <param name="founded">updated foundation date</param>
             <param name="revenue">updated revenue</param>
+        </member>
+        <member name="M:CarShop.Logic.Logic.UpdateModelLogic(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Calls the Repository Method to update the database.
+            </summary>
+            <param name="selected"> selected model's id </param>
+            <param name="brand_id"> new model's brand id</param>
+            <param name="name"> updated name</param>
+            <param name="productionStart">updated start date time </param>
+            <param name="engineSizem">updated engine size</param>
+            <param name="horsePower">updated horsepower</param>
+            <param name="startingPrice">updated starting price</param>
         </member>
     </members>
 </doc>

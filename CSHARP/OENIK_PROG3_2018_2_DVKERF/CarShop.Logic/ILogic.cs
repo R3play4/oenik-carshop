@@ -74,5 +74,7 @@ namespace CarShop.Logic
         /// Method will call respository method that will update the brand.
         /// </summary>
         void UpdateBrandLogic(int id, string name, string country, string founded, string revenue);
+
+        void UpdateModelLogic(int selected, int brand_id, string name, string productionStart, string engineSizem, string horsePower, string startingPrice);
     }
 }

@@ -73,6 +73,18 @@
             <param name="founded">updated foundation date</param>
             <param name="revenue">updated revenue</param>
         </member>
+        <member name="M:CarShop.Repository.IRepository.UpdateModelRepo(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="selected"></param>
+            <param name="brand_id"></param>
+            <param name="name"></param>
+            <param name="productionStart"></param>
+            <param name="engineSizem"></param>
+            <param name="horsePower"></param>
+            <param name="startingPrice"></param>
+        </member>
         <member name="T:CarShop.Repository.Repository">
             <summary>
             Implements CRUD operations. Comunicates with Data Entities.
@@ -146,6 +158,18 @@
             <summary>
             Displays Brands and ID-s so the user can select a brand.
             </summary>
+        </member>
+        <member name="M:CarShop.Repository.Repository.UpdateModelRepo(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="selected"></param>
+            <param name="brand_id"></param>
+            <param name="name"></param>
+            <param name="productionStart"></param>
+            <param name="engineSizem"></param>
+            <param name="horsePower"></param>
+            <param name="startingPrice"></param>
         </member>
     </members>
 </doc>
