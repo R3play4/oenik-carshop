@@ -11,7 +11,7 @@ namespace CarShop.Console.MenuItems
     using System.Threading.Tasks;
 
     /// <summary>
-    /// ListBrandsModelsPerCountry Menu Action
+    /// List How many brands a country have.
     /// </summary>
     internal class ListBrandsModelsPerCountry : MenuItem
     {
@@ -30,8 +30,17 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("\nList Brands Models Per Country not Ready Yet");
+            IEnumerable<object> countryBrands = this.LogicContact.GetCountryBrandLogic();
+            Display(countryBrands);
             Console.ReadLine();
+        }
+
+        private void Display(IEnumerable<object> table)
+        {
+            foreach (var item in table)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

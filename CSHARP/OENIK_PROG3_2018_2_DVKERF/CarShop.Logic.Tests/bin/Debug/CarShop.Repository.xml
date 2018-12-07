@@ -27,6 +27,12 @@
             </summary>
             <returns>List of extras</returns>
         </member>
+        <member name="M:CarShop.Repository.IRepository.GetExtraConnectionRepo">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:CarShop.Repository.IRepository.CreateBrandRepo(CarShop.Data.car_brands)">
             <summary>
             Creates new brand in the database
@@ -51,7 +57,7 @@
             </summary>
             <param name="id">name of the brand that needs to be delted.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.DeleteModelRepo(System.String)">
+        <member name="M:CarShop.Repository.IRepository.DeleteModelRepo(System.Int32)">
             <summary>
             Deletes Model from the databse based on the name parameter
             </summary>
@@ -118,6 +124,12 @@
             </summary>
             <returns>List of models</returns>
         </member>
+        <member name="M:CarShop.Repository.Repository.GetExtraConnectionRepo">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:CarShop.Repository.Repository.CreateBrandRepo(CarShop.Data.car_brands)">
             <summary>
             Creates new brand in the Database based on the parameter.
@@ -142,7 +154,7 @@
             </summary>
             <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.DeleteModelRepo(System.String)">
+        <member name="M:CarShop.Repository.Repository.DeleteModelRepo(System.Int32)">
             <summary>
             Deletes Model from DB based on the model name.
             </summary>

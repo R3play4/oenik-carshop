@@ -4,6 +4,7 @@
 
 namespace CarShop.Console.MenuItems
 {
+    using Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -30,8 +31,53 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("\nUpdate Extra not Ready Yet");
+            int selected = this.ChooseExtra();
+
+            //Set new values
+            Console.WriteLine("Category Name");
+            string newCategory = Console.ReadLine();
+
+            Console.WriteLine("Name");
+            string newName = Console.ReadLine();
+
+            Console.WriteLine("Price:");
+            string newPrice = Console.ReadLine();
+
+            Console.WriteLine("Reuseable:");
+            string newReuse = Console.ReadLine();
+
+            this.LogicContact.UpdateExtraLogic(selected, newCategory, newName, newPrice, newReuse);
+
             Console.ReadLine();
+        }
+
+        private int ChooseExtra()
+        {
+            IEnumerable<extra> models = this.LogicContact.GetExtraLogic();
+
+            var extra_ids_names = models.Select(x => new
+            {
+                ID = x.id,
+                NAME = x.name
+            });
+
+            int max_id = models.Max(i => i.id);
+
+            foreach (var brand in extra_ids_names)
+            {
+                Console.WriteLine("{0} - {1}", brand.ID, brand.NAME);
+            }
+
+            Console.WriteLine("Select an ID");
+            int selection = int.Parse(Console.ReadLine());
+
+            if (selection < 1 || selection > max_id)
+            {
+                Console.WriteLine("Invalid ID was picked. Select another one");
+                this.ChooseExtra();
+            }
+
+            return selection;
         }
     }
 }

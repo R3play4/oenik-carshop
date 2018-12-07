@@ -43,6 +43,7 @@ namespace CarShop.Console.MenuItems
             foreach (var item in connections)
             {
                 Console.WriteLine(item);
+
             }
         }
     }

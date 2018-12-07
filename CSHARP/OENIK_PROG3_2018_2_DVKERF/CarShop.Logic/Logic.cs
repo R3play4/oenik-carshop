@@ -11,6 +11,7 @@ namespace CarShop.Logic
     using System.Threading.Tasks;
     using CarShop.Repository;
     using Data;
+    using System.Collections;
 
     /// <summary>
     /// Implements ILogic CRUD operations
@@ -85,10 +86,32 @@ namespace CarShop.Logic
         /// <returns></returns>
         public IEnumerable<object> GetExtraModelLogic()
         {
-            IEnumerable<object> extraModels = this.repository.GetExtraModelRepo();
-            return extraModels;
+            IEnumerable<car_models> models = this.repository.GetModelsRepo();
+            IEnumerable<extra> extras = this.repository.GetExtraRepo();
+            IEnumerable<model_extra_connection> connections = this.repository.GetExtraConnectionRepo();
+
+            var result = from con in connections
+                         join mod in models on con.model_id equals mod.id
+                         join ext in extras on con.extra_id equals ext.id
+                         select new { ID = con.id, Model = mod.name, Extra = ext.name };
+            return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<object> GetCountryBrandLogic()
+        {
+            IEnumerable<car_brands> brands = this.repository.GetBrandsRepo();
+            IEnumerable<car_models> models = this.repository.GetModelsRepo();
+
+            var result = from br in brands
+                         join mod in models on br.id equals mod.brand_id
+                         select new { Country = br.country, FullName = br.name + " " + mod.name };
+
+            return result;
+        }
 
         /// <summary>
         /// Calls CreateBrand method of the repository
@@ -184,6 +207,19 @@ namespace CarShop.Logic
         public void UpdateModelLogic(int selected, int brand_id, string name, string productionStart, string engineSize, string horsePower, string startingPrice)
         {
             this.repository.UpdateModelRepo(selected, brand_id, name, productionStart, engineSize, horsePower, startingPrice);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="selected"></param>
+        /// <param name="catname"></param>
+        /// <param name="name"></param>
+        /// <param name="price"></param>
+        /// <param name="newReuse"></param>
+        public void UpdateExtraLogic(int selected, string catname, string name, string price, string newReuse)
+        {
+            this.repository.UpdateExtraRepo(selected, catname, name, price , newReuse);
         }
     }
 }

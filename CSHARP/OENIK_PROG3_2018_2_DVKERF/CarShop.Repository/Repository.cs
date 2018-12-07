@@ -61,14 +61,11 @@ namespace CarShop.Repository
         /// 
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<object> GetExtraModelRepo()
+        public IEnumerable<model_extra_connection> GetExtraConnectionRepo()
         {
-            var results = from connection in this.database.model_extra_connection
-                          join model in this.database.car_models on connection.model_id equals model.id
-                          join extra in this.database.extras on connection.extra_id equals extra.id
-                          select new { Id = connection.id, Model = model.name, Extra = extra.name };
-            return results;
+            return this.database.model_extra_connection;
         }
+
         /// <summary>
         /// Creates new brand in the Database based on the parameter.
         /// </summary>
@@ -304,5 +301,32 @@ namespace CarShop.Repository
             this.database.SaveChanges();
         }
 
+        public void UpdateExtraRepo(int selected, string catname, string name, string price, string newReuse)
+        {
+            extra extra = this.database.extras
+                .Where(e => e.id == selected).First();
+
+            if (catname != string.Empty)
+            {
+                extra.category_name = catname;
+            }
+
+            if (name != string.Empty)
+            {
+                extra.name = name;
+            }
+
+            if (price != string.Empty)
+            {
+                extra.price = int.Parse(price);
+            }
+
+            if (newReuse != string.Empty)
+            {
+                extra.reuseable = byte.Parse(newReuse);
+            }
+
+            this.database.SaveChanges();
+        }
     }
 }

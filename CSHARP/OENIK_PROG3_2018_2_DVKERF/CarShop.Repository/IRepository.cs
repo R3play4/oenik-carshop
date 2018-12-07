@@ -38,7 +38,7 @@ namespace CarShop.Repository
         /// 
         /// </summary>
         /// <returns></returns>
-        IEnumerable<object> GetExtraModelRepo();
+        IEnumerable<model_extra_connection> GetExtraConnectionRepo();
 
         /// <summary>
         /// Creates new brand in the database
@@ -97,5 +97,15 @@ namespace CarShop.Repository
         /// <param name="horsePower"></param>
         /// <param name="startingPrice"></param>
         void UpdateModelRepo(int selected, int brand_id, string name, string productionStart, string engineSize, string horsePower, string startingPrice);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="selected"></param>
+        /// <param name="catname"></param>
+        /// <param name="name"></param>
+        /// <param name="price"></param>
+        /// <param name="newReuse"></param>
+        void UpdateExtraRepo(int selected, string catname, string name, string price, string newReuse);
     }
 }

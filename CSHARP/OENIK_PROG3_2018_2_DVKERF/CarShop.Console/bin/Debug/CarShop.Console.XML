@@ -229,7 +229,7 @@
         </member>
         <member name="T:CarShop.Console.MenuItems.ListBrandsModelsPerCountry">
             <summary>
-            ListBrandsModelsPerCountry Menu Action
+            List How many brands a country have.
             </summary>
         </member>
         <member name="M:CarShop.Console.MenuItems.ListBrandsModelsPerCountry.#ctor(System.String,System.String)">

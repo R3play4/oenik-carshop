@@ -41,6 +41,13 @@ namespace CarShop.Logic
         IEnumerable<object> GetExtraModelLogic();
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<object> GetCountryBrandLogic();
+
+
+        /// <summary>
         /// Method will call the repository method that will create new brand in the database.
         /// </summary>
         /// <param name="brand">new brand that needs to be created</param>
@@ -82,5 +89,6 @@ namespace CarShop.Logic
         void UpdateBrandLogic(int id, string name, string country, string founded, string revenue);
 
         void UpdateModelLogic(int selected, int brand_id, string name, string productionStart, string engineSizem, string horsePower, string startingPrice);
+        void UpdateExtraLogic(int selected, string catname, string name, string price, string newReuse);
     }
 }

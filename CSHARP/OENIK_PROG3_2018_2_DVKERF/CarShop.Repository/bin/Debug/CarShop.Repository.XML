@@ -27,7 +27,7 @@
             </summary>
             <returns>List of extras</returns>
         </member>
-        <member name="M:CarShop.Repository.IRepository.GetExtraModelRepo">
+        <member name="M:CarShop.Repository.IRepository.GetExtraConnectionRepo">
             <summary>
             
             </summary>
@@ -91,6 +91,16 @@
             <param name="horsePower"></param>
             <param name="startingPrice"></param>
         </member>
+        <member name="M:CarShop.Repository.IRepository.UpdateExtraRepo(System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="selected"></param>
+            <param name="catname"></param>
+            <param name="name"></param>
+            <param name="price"></param>
+            <param name="newReuse"></param>
+        </member>
         <member name="T:CarShop.Repository.Repository">
             <summary>
             Implements CRUD operations. Comunicates with Data Entities.
@@ -124,7 +134,7 @@
             </summary>
             <returns>List of models</returns>
         </member>
-        <member name="M:CarShop.Repository.Repository.GetExtraModelRepo">
+        <member name="M:CarShop.Repository.Repository.GetExtraConnectionRepo">
             <summary>
             
             </summary>
