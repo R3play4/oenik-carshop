@@ -41,12 +41,21 @@ namespace CarShop.Console.MenuItems
             string url = Console.ReadLine();
 
             Console.WriteLine("Founded: YYYY-MM-DD");
-            DateTime date = DateTime.Parse(Console.ReadLine());
+            string date = Console.ReadLine();
 
             Console.WriteLine("Revenue:");
             int revenue = int.Parse(Console.ReadLine());
 
-            this.LogicContact.CreateBrandLogic(name, country, url, date, revenue);
+            try
+            {
+                this.LogicContact.CreateBrandLogic(name, country, url, date, revenue);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Name or Country cannot be null");
+                Console.ReadLine();
+            }
 
             //car_brands newBrand = new car_brands();
             //Console.WriteLine("Enter data of the new Brand");

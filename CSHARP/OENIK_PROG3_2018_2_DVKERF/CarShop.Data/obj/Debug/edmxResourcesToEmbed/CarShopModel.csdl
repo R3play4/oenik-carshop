@@ -5,8 +5,8 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
-    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="founded" Type="DateTime" Precision="0" />
     <Property Name="yearly_revenue" Type="Int32" />

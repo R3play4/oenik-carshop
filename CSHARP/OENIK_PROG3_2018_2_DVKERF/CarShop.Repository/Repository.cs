@@ -70,12 +70,21 @@ namespace CarShop.Repository
         /// Creates new brand in the Database based on the parameter.
         /// </summary>
         /// <param name="brand">new brand parameter.</param>
-        public void CreateBrandRepo(car_brands brand)
+        public bool CreateBrandRepo(car_brands brand)
         {
-            int last_id = this.database.car_brands.Max(i => i.id);
-            brand.id = last_id + 1;
-            this.database.car_brands.Add(brand);
-            this.database.SaveChanges();
+            try
+            {
+                int last_id = this.database.car_brands.Max(i => i.id);
+                brand.id = last_id + 1;
+                this.database.car_brands.Add(brand);
+                this.database.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
         }
 
         /// <summary>

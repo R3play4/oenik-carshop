@@ -44,7 +44,7 @@ namespace CarShop.Repository
         /// Creates new brand in the database
         /// </summary>
         /// <param name="brand">name of the new brand</param>
-        void CreateBrandRepo(car_brands brand);
+        bool CreateBrandRepo(car_brands brand);
 
         /// <summary>
         /// Creates new model in the database

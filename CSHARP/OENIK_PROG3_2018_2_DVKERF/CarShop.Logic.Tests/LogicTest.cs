@@ -43,13 +43,23 @@
             this.mockedRepository
                 .Setup(m => m.GetExtraRepo())
                 .Returns(new[] { extra1, extra2, extra3 });
+
+            model_extra_connection connection1 = new model_extra_connection() { id = 1, extra_id = 1, model_id = 1 };
+            model_extra_connection connection2 = new model_extra_connection() { id = 2, extra_id = 1, model_id = 3 };
+            model_extra_connection connection3 = new model_extra_connection() { id = 3, extra_id = 2, model_id = 4 };
+
+            this.mockedRepository
+                .Setup(m => m.GetExtraConnectionRepo())
+                .Returns(new[] { connection1, connection2, connection3 });
+
         }
 
         [Test]
         public void WhenGettingBrandsFromDb_GetsBrands()
         {
             // Mock
-            Logic logic = new Logic(this.mockedRepository.Object);
+            Logic logic = new Logic();
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
 
             // Act
             var result = logic.GetBrandsLogic();
@@ -64,7 +74,8 @@
         public void WhenGettingModelsFromDb_GetsModels()
         {
             // Mock
-            Logic logic = new Logic(this.mockedRepository.Object);
+            Logic logic = new Logic();
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
 
             // Act
             var result = logic.GetModelsLogic();
@@ -78,8 +89,8 @@
         public void WhenGettingExtrasFromDb_GetsExtras()
         {
             // Mock
-            Logic logic = new Logic(this.mockedRepository.Object);
-
+            Logic logic = new Logic();
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
             // Act
             var result = logic.GetExtraLogic();
 
@@ -89,13 +100,36 @@
         }
 
         [Test]
-        public void WhenCreatingBrand_CorrectBrandCreated()
+        public void WhenGettingExtraConnections_GetsExtraConnections()
         {
-            // Mock
-            Logic logic = new Logic(this.mockedRepository.Object);
+            Logic logic = new Logic();
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
 
-            // Act
-            //logic.CreateBrandLogic();      
+            var result = logic.GetConnectionLogic();
+
+            Assert.That(result.Count(), Is.EqualTo(3));
+            Assert.That(result.SingleOrDefault(x => x.id == 3), Is.Not.Null);
+
+        }
+
+        [TestCase("", "Germany", "test.hu", "2018-01-01", 2000)]
+        [TestCase("Audi", "", "test.hu", "2018-01-01", 2000)]
+        [TestCase("Audi", "Germany", "test.hu", "2018-01-01", -1000)]
+        public void WhenCreatingBrand_WithBadParameters_ExceptionThrown(string name, string country, string url, string date, int revenue)
+        {
+            Logic logic = new Logic();
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
+            Assert.Throws(typeof(ArgumentException), () => logic.CreateBrandLogic(name, country, url, date, revenue));
+        }
+
+        [TestCase(1, "", "2018-01-01", 300, 400, 10000)]
+        [TestCase(1, "Valami", "2018-01-01", 300, -400, 10000)]
+        [TestCase(1, "Ferrari", "2018-01-01", 300, 400, -10000)]
+        public void WhenCreatingModel_WithBadParameters_ExceptionThrown(int id, string name, string start_date, int engine_size, int horsepower, int price)
+        {
+            Logic logic = new Logic();
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
+            Assert.Throws(typeof(ArgumentException), () => logic.CreateModelLogic(id, name, start_date, engine_size, horsepower, price));
         }
     }
 }

@@ -33,13 +33,19 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(System.String,System.String,System.String,System.DateTime,System.Int32)">
+        <member name="M:CarShop.Logic.ILogic.GetCountryBrandLogic">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>
             Method will call the repository method that will create new brand in the database.
             </summary>
             <param name="brand">new brand that needs to be created</param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.CreateModelLogic(System.Int32,System.String,System.DateTime,System.Int32,System.Int32,System.Int32)">
+        <member name="M:CarShop.Logic.ILogic.CreateModelLogic(System.Int32,System.String,System.String,System.Int32,System.Int32,System.Int32)">
             <summary>
             Method will call the repository method that will create new brand in the database.
             </summary>
@@ -69,6 +75,12 @@
             </summary>
             <param name="id">ID of the extra that needs to be deleted</param>
         </member>
+        <member name="M:CarShop.Logic.ILogic.DeleteConnection(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+        </member>
         <member name="M:CarShop.Logic.ILogic.UpdateBrandLogic(System.Int32,System.String,System.String,System.String,System.String)">
             <summary>
             Method will call respository method that will update the brand.
@@ -88,13 +100,6 @@
             <summary>
             Initializes a new instance of the <see cref="T:CarShop.Logic.Logic"/> class.
             </summary>
-        </member>
-        <member name="M:CarShop.Logic.Logic.#ctor(CarShop.Repository.IRepository)">
-            <summary>
-            Initializes a new instance of the <see cref="T:CarShop.Logic.Logic"/> class.
-            Alternative constuctor for mocking
-            </summary>
-            <param name="repository">IRepository interface</param>
         </member>
         <member name="M:CarShop.Logic.Logic.SetRepositoryInterface(CarShop.Repository.IRepository)">
             <summary>
@@ -126,13 +131,19 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CarShop.Logic.Logic.CreateBrandLogic(System.String,System.String,System.String,System.DateTime,System.Int32)">
+        <member name="M:CarShop.Logic.Logic.GetCountryBrandLogic">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CarShop.Logic.Logic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>
             Calls CreateBrand method of the repository
             </summary>
             <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.CreateModelLogic(System.Int32,System.String,System.DateTime,System.Int32,System.Int32,System.Int32)">
+        <member name="M:CarShop.Logic.Logic.CreateModelLogic(System.Int32,System.String,System.String,System.Int32,System.Int32,System.Int32)">
             <summary>
             Calls CreateModel method of the repository
             </summary>
@@ -176,6 +187,16 @@
             <param name="engineSizem">updated engine size</param>
             <param name="horsePower">updated horsepower</param>
             <param name="startingPrice">updated starting price</param>
+        </member>
+        <member name="M:CarShop.Logic.Logic.UpdateExtraLogic(System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="selected"></param>
+            <param name="catname"></param>
+            <param name="name"></param>
+            <param name="price"></param>
+            <param name="newReuse"></param>
         </member>
     </members>
 </doc>

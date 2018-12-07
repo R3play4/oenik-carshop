@@ -37,7 +37,7 @@ namespace CarShop.Console.MenuItems
             string name = Console.ReadLine();
 
             Console.WriteLine("Start Date:YYYY-MM-DD");
-            DateTime start = DateTime.Parse(Console.ReadLine());
+            string start = Console.ReadLine();
 
             Console.WriteLine("Engine Size:");
             int engine = int.Parse(Console.ReadLine());
@@ -48,7 +48,16 @@ namespace CarShop.Console.MenuItems
             Console.WriteLine("Starting Price:");
             int price = int.Parse(Console.ReadLine());
 
-            this.LogicContact.CreateModelLogic(brandId, name, start, engine, horsepower, price);
+            try
+            {
+                this.LogicContact.CreateModelLogic(brandId, name, start, engine, horsepower, price);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("moreee");
+            }
+            
             //car_models model = new car_models();
             //model.brand_id = this.SetBrand();
             //model.name = this.SetName();

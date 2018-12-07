@@ -39,13 +39,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(System.String,System.String,System.String,System.DateTime,System.Int32)">
+        <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>
             Method will call the repository method that will create new brand in the database.
             </summary>
             <param name="brand">new brand that needs to be created</param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.CreateModelLogic(System.Int32,System.String,System.DateTime,System.Int32,System.Int32,System.Int32)">
+        <member name="M:CarShop.Logic.ILogic.CreateModelLogic(System.Int32,System.String,System.String,System.Int32,System.Int32,System.Int32)">
             <summary>
             Method will call the repository method that will create new brand in the database.
             </summary>
@@ -101,13 +101,6 @@
             Initializes a new instance of the <see cref="T:CarShop.Logic.Logic"/> class.
             </summary>
         </member>
-        <member name="M:CarShop.Logic.Logic.#ctor(CarShop.Repository.IRepository)">
-            <summary>
-            Initializes a new instance of the <see cref="T:CarShop.Logic.Logic"/> class.
-            Alternative constuctor for mocking
-            </summary>
-            <param name="repository">IRepository interface</param>
-        </member>
         <member name="M:CarShop.Logic.Logic.SetRepositoryInterface(CarShop.Repository.IRepository)">
             <summary>
             Sets the Repository property of the class. This will be used for mocking.
@@ -144,13 +137,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CarShop.Logic.Logic.CreateBrandLogic(System.String,System.String,System.String,System.DateTime,System.Int32)">
+        <member name="M:CarShop.Logic.Logic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>
             Calls CreateBrand method of the repository
             </summary>
             <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.CreateModelLogic(System.Int32,System.String,System.DateTime,System.Int32,System.Int32,System.Int32)">
+        <member name="M:CarShop.Logic.Logic.CreateModelLogic(System.Int32,System.String,System.String,System.Int32,System.Int32,System.Int32)">
             <summary>
             Calls CreateModel method of the repository
             </summary>

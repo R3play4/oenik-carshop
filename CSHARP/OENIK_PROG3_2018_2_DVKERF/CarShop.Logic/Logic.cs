@@ -36,10 +36,10 @@ namespace CarShop.Logic
         /// Alternative constuctor for mocking
         /// </summary>
         /// <param name="repository">IRepository interface</param>
-        public Logic(IRepository repository)
-        {
-            this.repository = repository;
-        }
+        //public Logic(IRepository repository)
+        //{
+        //    this.repository = repository;
+        //}
 
         /// <summary>
         /// Sets the Repository property of the class. This will be used for mocking.
@@ -122,16 +122,34 @@ namespace CarShop.Logic
         /// Calls CreateBrand method of the repository
         /// </summary>
         /// <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
-        public void CreateBrandLogic(string name, string country, string url, DateTime date, int revenue)
+        public void CreateBrandLogic(string name, string country, string url, string date, int revenue)
         {
-            car_brands newBrand = new car_brands()
+
+            car_brands newBrand = new car_brands();
+
+            if (name == string.Empty || country == string.Empty || revenue < 0)
             {
-                name = name,
-                country = country,
-                url = url,
-                founded = date,
-                yearly_revenue = revenue
-            };
+                throw new ArgumentException();
+            }
+            else
+            {
+                newBrand.name = name;
+                newBrand.country = country;
+                newBrand.yearly_revenue = revenue;
+            }
+
+            newBrand.url = url;
+
+            // erre kéne validálni
+            try
+            {
+                newBrand.founded = DateTime.Parse(date);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Invalid Date Format");
+            }
 
             this.repository.CreateBrandRepo(newBrand);
         }
@@ -140,17 +158,32 @@ namespace CarShop.Logic
         /// Calls CreateModel method of the repository
         /// </summary>
         /// <param name="model">new model parameter. It properties is empty at this point.</param>
-        public void CreateModelLogic(int id, string name, DateTime start_date, int engine_size, int horsepower, int price)
+        public void CreateModelLogic(int id, string name, string start_date, int engine_size, int horsepower, int price)
         {
-            car_models newModel = new car_models()
+            car_models newModel = new car_models();
+
+            if (name == string.Empty || start_date == string.Empty || engine_size < 0 || horsepower < 0 || price < 0)
             {
-                brand_id = id,
-                name = name,
-                production_start = start_date,
-                engine_size = engine_size,
-                horsepower = horsepower,
-                starting_price = price
-            };
+                throw new ArgumentException();
+            }
+            else
+            {
+                newModel.brand_id = id;
+                newModel.name = name;
+                newModel.engine_size = engine_size;
+                newModel.horsepower = horsepower;
+                newModel.starting_price = price;
+            }
+
+            try
+            {
+                newModel.production_start = DateTime.Parse(start_date);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Invalid Date Format please use YYYY-MM-DD");
+            }
 
             this.repository.CreateModelRepo(newModel);
         }

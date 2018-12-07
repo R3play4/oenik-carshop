@@ -52,13 +52,13 @@ namespace CarShop.Logic
         /// Method will call the repository method that will create new brand in the database.
         /// </summary>
         /// <param name="brand">new brand that needs to be created</param>
-        void CreateBrandLogic(string name , string country, string url, DateTime date, int revenue);
+        void CreateBrandLogic(string name , string country, string url, string date, int revenue);
 
         /// <summary>
         /// Method will call the repository method that will create new brand in the database.
         /// </summary>
         /// <param name="model">new model that will be created.</param>
-        void CreateModelLogic(int id, string name, DateTime start_date, int engine_size, int horsepower, int price);
+        void CreateModelLogic(int id, string name, string start_date, int engine_size, int horsepower, int price);
 
         /// <summary>
         /// Method will call the repository method that will create new extra in the database.
