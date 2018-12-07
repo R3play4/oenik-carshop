@@ -77,6 +77,12 @@ namespace CarShop.Repository
         void DeleteExtraRepo(int id);
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        void DeleteConnectionRepo(int id);
+
+        /// <summary>
         /// Calls repository to update selected brand.
         /// </summary>
         /// <param name="id">id of the brand that needs to be updated </param>

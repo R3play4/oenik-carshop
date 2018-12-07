@@ -45,6 +45,7 @@ namespace CarShop.Logic
         /// </summary>
         /// <returns></returns>
         IEnumerable<object> GetCountryBrandLogic();
+        IEnumerable<model_extra_connection> GetConnectionLogic();
 
 
         /// <summary>
@@ -82,6 +83,12 @@ namespace CarShop.Logic
         /// </summary>
         /// <param name="id">ID of the extra that needs to be deleted</param>
         void DeleteExtra(int id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        void DeleteConnection(int id);
 
         /// <summary>
         /// Method will call respository method that will update the brand.

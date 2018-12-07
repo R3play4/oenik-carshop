@@ -48,6 +48,7 @@ namespace CarShop.Console
             delete.SubMenuItems.Add(new DeleteBrand("Delete Brand", "DB"));
             delete.SubMenuItems.Add(new DeleteModel("Delete Model", "DM"));
             delete.SubMenuItems.Add(new DeleteExtra("Delete Extra", "DE"));
+            delete.SubMenuItems.Add(new DeleteConnection("Delete Extra - Model connection", "DEM"));
             menu.SubMenus.Add(delete);
 
             menu.StartMenu();

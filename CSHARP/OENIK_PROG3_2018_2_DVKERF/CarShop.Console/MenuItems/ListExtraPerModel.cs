@@ -38,12 +38,9 @@ namespace CarShop.Console.MenuItems
 
         private void DisplayExtraModel(IEnumerable<object> connections)
         {
-            var properties = connections.GetType().GetProperties();
-
             foreach (var item in connections)
             {
                 Console.WriteLine(item);
-
             }
         }
     }

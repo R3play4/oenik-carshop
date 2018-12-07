@@ -80,6 +80,11 @@ namespace CarShop.Logic
             return models;
         }
 
+        public IEnumerable<model_extra_connection> GetConnectionLogic()
+        {
+            return this.repository.GetExtraConnectionRepo();
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -172,7 +177,10 @@ namespace CarShop.Logic
         {
             this.repository.DeleteModelRepo(id);
         }
-
+        public void DeleteConnection(int id)
+        {
+            this.repository.DeleteConnectionRepo(id);
+        }
         /// <summary>
         /// Calls DeleteExtra method of repository.
         /// </summary>

@@ -176,6 +176,34 @@ namespace CarShop.Repository
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        public void DeleteConnectionRepo(int id)
+        {
+            var connection = this.database.model_extra_connection
+                .Where(c => c.id == id).First();
+
+            try
+            {
+                this.database.model_extra_connection.Remove(connection);
+                this.database.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                Console.WriteLine(e.InnerException.InnerException.Message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="country"></param>
+        /// <param name="founded"></param>
+        /// <param name="revenue"></param>
         public void UpdateBrandRepo(int id, string name, string country, string founded, string revenue)
         {
             // returns the selected brand
