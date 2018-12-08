@@ -197,30 +197,111 @@ namespace CarShop.Logic
         /// Calls DeleteBrand method of repository.
         /// </summary>
         /// <param name="name">name of the brand that needs to be deleted</param>
-        public void DeleteBrand(int id)
+        public void DeleteBrand(string selection)
         {
-            this.repository.DeleteBrandRepo(id);
+            IEnumerable<car_brands> brands = this.repository.GetBrandsRepo();
+
+            IEnumerable<int> brand_ids = brands
+                .Select(b => b.id);
+
+            if (this.IsStringNumber(selection) && brand_ids.Contains(int.Parse(selection)))
+            {
+                car_brands toBeDeleted = brands.Where(b => b.id == int.Parse(selection)).First();
+                this.repository.DeleteBrandRepo(toBeDeleted);
+            }
+            else
+            {
+                if (!this.IsStringNumber(selection))
+                {
+                    throw new ArgumentException("Invalid id. You have to select number");
+                }
+                else
+                {
+                    throw new ArgumentException("Brand cannot be found. Please select another one");
+                }
+            }
+
         }
 
         /// <summary>
         /// Calls DeleteModel method of repository.
         /// </summary>
         /// <param name="name">name of the brand that needs to be deleted</param>
-        public void DeleteModel(int id)
+        public void DeleteModel(string selection)
         {
-            this.repository.DeleteModelRepo(id);
+            IEnumerable<car_models> models = this.repository.GetModelsRepo();
+
+            IEnumerable<int> model_ids = models
+                .Select(m => m.id);
+
+            if (this.IsStringNumber(selection) && model_ids.Contains(int.Parse(selection)))
+            {
+                car_models toBeDeleted = models.Where(m => m.id == int.Parse(selection)).First();
+                this.repository.DeleteModelRepo(toBeDeleted);
+            }
+            else
+            {
+                if (!this.IsStringNumber(selection))
+                {
+                    throw new ArgumentException("Invalid id. You have to select number");
+                }
+                else
+                {
+                    throw new ArgumentException("Conection cannot be found. Please select another one");
+                }
+            }
         }
-        public void DeleteConnection(int id)
+
+        public void DeleteConnection(string selection)
         {
-            this.repository.DeleteConnectionRepo(id);
+            IEnumerable<model_extra_connection> connections = this.repository.GetExtraConnectionRepo();
+
+            IEnumerable<int> model_ids = connections
+                .Select(c => c.id);
+
+            if (this.IsStringNumber(selection) && model_ids.Contains(int.Parse(selection)))
+            {
+                model_extra_connection toBeDeleted = connections.Where(m => m.id == int.Parse(selection)).First();
+                this.repository.DeleteConnectionRepo(toBeDeleted);
+            }
+            else
+            {
+                if (!this.IsStringNumber(selection))
+                {
+                    throw new ArgumentException("Invalid id. You have to select number");
+                }
+                else
+                {
+                    throw new ArgumentException("Model cannot be found. Please select another one");
+                }
+            }
         }
+
         /// <summary>
         /// Calls DeleteExtra method of repository.
         /// </summary>
         /// <param name="id">id of the extra that needs to be deleted</param>
-        public void DeleteExtra(int id)
+        public void DeleteExtra(string selection)
         {
-            this.repository.DeleteExtraRepo(id);
+            IEnumerable<extra> extras = this.repository.GetExtraRepo();
+            IEnumerable<int> extra_ids = extras.Select(x => x.id);
+
+            if (this.IsStringNumber(selection) && extra_ids.Contains(int.Parse(selection)))
+            {
+                extra toBeDeleted = extras.Where(x => x.id == int.Parse(selection)).First();
+                this.repository.DeleteExtraRepo(toBeDeleted);
+            }
+            else
+            {
+                if (!this.IsStringNumber(selection))
+                {
+                    throw new ArgumentException("Invalid id. You have to select number");
+                }
+                else
+                {
+                    throw new ArgumentException("Extra cannot be found. Please select another one");
+                }
+            }
         }
 
         /// <summary>
@@ -261,6 +342,22 @@ namespace CarShop.Logic
         public void UpdateExtraLogic(int selected, string catname, string name, string price, string newReuse)
         {
             this.repository.UpdateExtraRepo(selected, catname, name, price , newReuse);
+        }
+
+        private bool IsStringNumber(string txt)
+        {
+            bool isNumber = false;
+
+            int i = 0;
+            while (i < txt.Length && char.IsNumber(txt[i]))
+            {
+                i++;
+            }
+
+            // if i is >= the length of txt that means all the chars in txt is a number.
+            isNumber = i >= txt.Length;
+
+            return isNumber;
         }
     }
 }

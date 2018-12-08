@@ -70,25 +70,25 @@ namespace CarShop.Logic
         /// Method will call the repository method that will delete the brand based on the name.
         /// </summary>
         /// <param name="id">Id of the brand that needs to be deleted </param>
-        void DeleteBrand(int id);
+        void DeleteBrand(string selection);
 
         /// <summary>
         /// Method will call the repository method that will delete the model based on the name.
         /// </summary>
         /// <param name="id">ID of the model that needs to be deleted</param>
-        void DeleteModel(int id);
+        void DeleteModel(string selection);
 
         /// <summary>
         /// Method will call the repository method that will delete the extra based on the id.
         /// </summary>
         /// <param name="id">ID of the extra that needs to be deleted</param>
-        void DeleteExtra(int id);
+        void DeleteExtra(string selection);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
-        void DeleteConnection(int id);
+        void DeleteConnection(string selection);
 
         /// <summary>
         /// Method will call respository method that will update the brand.

@@ -31,42 +31,58 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            int id = this.ChooseBrand();
-            this.LogicContact.DeleteBrand(id);
-            Console.ReadLine();
+            this.DisplayOptions();
+            Console.WriteLine("Select the ID of the Brand you would like to delete");
+            string selection = Console.ReadLine();
+
+            try
+            {
+                this.LogicContact.DeleteBrand(selection);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+            }
         }
 
-        /// <summary>
-        /// Lists brand names and ids. User can pick one based on the id.
-        /// </summary>
-        /// <returns>returns the id of the selected brand </returns>
-        private int ChooseBrand()
+        private void DisplayOptions()
         {
             IEnumerable<car_brands> brands = this.LogicContact.GetBrandsLogic();
 
-            var brand_ids_names = brands.Select(x => new
+            foreach (var brand in brands)
             {
-                ID = x.id,
-                NAME = x.name
-            });
-
-            int max_id = brands.Max(i => i.id);
-
-            foreach (var brand in brand_ids_names)
-            {
-                Console.WriteLine("{0} - {1}", brand.ID, brand.NAME);
+                Console.WriteLine("{0} - {1}", brand.id, brand.name);
             }
-
-            Console.WriteLine("Select an ID");
-            int selection = int.Parse(Console.ReadLine());
-
-            if (selection < 1 || selection > max_id)
-            {
-                Console.WriteLine("Invalid ID was picked. Select another one");
-                this.ChooseBrand();
-            }
-
-            return selection;
         }
+
+        //private int ChooseBrand()
+        //{
+        //    IEnumerable<car_brands> brands = this.LogicContact.GetBrandsLogic();
+
+        //    var brand_ids_names = brands.Select(x => new
+        //    {
+        //        ID = x.id,
+        //        NAME = x.name
+        //    });
+
+        //    int max_id = brands.Max(i => i.id);
+
+        //    foreach (var brand in brand_ids_names)
+        //    {
+        //        Console.WriteLine("{0} - {1}", brand.ID, brand.NAME);
+        //    }
+
+        //    Console.WriteLine("Select an ID");
+        //    string selection = Console.ReadLine();
+
+        //    while (!this.IsStringNumber(selection) || int.Parse(selection) < 1 || int.Parse(selection) > max_id)
+        //    {
+        //        Console.WriteLine("Invalid ID, Choose again");
+        //        selection = Console.ReadLine();
+        //    }
+
+        //    return int.Parse(selection);
+        //}
     }
 }

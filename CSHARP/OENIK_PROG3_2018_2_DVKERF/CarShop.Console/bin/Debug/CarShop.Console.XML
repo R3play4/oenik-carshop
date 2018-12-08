@@ -164,12 +164,6 @@
             Executes the menu's action
             </summary>
         </member>
-        <member name="M:CarShop.Console.MenuItems.DeleteBrand.ChooseBrand">
-            <summary>
-            Lists brand names and ids. User can pick one based on the id.
-            </summary>
-            <returns>returns the id of the selected brand </returns>
-        </member>
         <member name="T:CarShop.Console.MenuItems.DeleteExtra">
             <summary>
             DeleteExtra Menu Action

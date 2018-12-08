@@ -44,7 +44,7 @@ namespace CarShop.Repository
         /// Creates new brand in the database
         /// </summary>
         /// <param name="brand">name of the new brand</param>
-        bool CreateBrandRepo(car_brands brand);
+        void CreateBrandRepo(car_brands brand);
 
         /// <summary>
         /// Creates new model in the database
@@ -62,25 +62,25 @@ namespace CarShop.Repository
         /// Deletes Brand from the databse based on the name parameter
         /// </summary>
         /// <param name="id">name of the brand that needs to be delted.</param>
-        void DeleteBrandRepo(int id);
+        void DeleteBrandRepo(car_brands brand);
 
         /// <summary>
         /// Deletes Model from the databse based on the name parameter
         /// </summary>
         /// <param name="name">name of the model that needs to be delted.</param>
-        void DeleteModelRepo(int id);
+        void DeleteModelRepo(car_models model);
 
         /// <summary>
         /// Deletes Extra from the databse based on the name parameter
         /// </summary>
         /// <param name="id">ID of the extra that needs to be delted.</param>
-        void DeleteExtraRepo(int id);
+        void DeleteExtraRepo(extra extra);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
-        void DeleteConnectionRepo(int id);
+        void DeleteConnectionRepo(model_extra_connection connection);
 
         /// <summary>
         /// Calls repository to update selected brand.

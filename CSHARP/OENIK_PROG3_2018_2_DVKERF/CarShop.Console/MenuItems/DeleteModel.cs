@@ -31,39 +31,30 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("Enter the id of the model you would like to delete.");
-            int id = this.ChooseModel();
-            this.LogicContact.DeleteModel(id);
-            Console.ReadLine();
+            this.DisplayOptions();
+            Console.WriteLine("Select the id of the Model that you would like to delete");
+            string selection = Console.ReadLine();
+
+            try
+            {
+                this.LogicContact.DeleteModel(selection);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+            }
         }
 
-        private int ChooseModel()
+        private void DisplayOptions()
         {
             IEnumerable<car_models> models = this.LogicContact.GetModelsLogic();
 
-            var model_ids_names = models.Select(x => new
+            foreach (var model in models)
             {
-                ID = x.id,
-                NAME = x.name
-            });
-
-            int max_id = models.Max(i => i.id);
-
-            foreach (var model in model_ids_names)
-            {
-                Console.WriteLine("{0} - {1}", model.ID, model.NAME);
+                Console.WriteLine("{0} - {1}", model.id, model.name);
             }
-
-            Console.WriteLine("Select an ID");
-            int selection = int.Parse(Console.ReadLine());
-
-            if (selection < 1 || selection > max_id)
-            {
-                Console.WriteLine("Invalid ID was picked. Select another one");
-                this.ChooseModel();
-            }
-
-            return selection;
         }
+
     }
 }

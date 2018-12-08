@@ -31,41 +31,59 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            Console.WriteLine("Enter the id of the extra you would like to delete");
-            int id = this.ChooseExtra();
+            this.DisplayOptions();
+            Console.WriteLine("Select the id of the Extra that you would like to delete");
+            string selection = Console.ReadLine();
 
-            this.LogicContact.DeleteExtra(id);
-            Console.ReadLine();
+            try
+            {
+                this.LogicContact.DeleteExtra(selection);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+            }
         }
 
-        private int ChooseExtra()
+        private void DisplayOptions()
         {
-            IEnumerable<extra> extras = this.LogicContact.GetExtraLogic();
+            IEnumerable<car_models> models = this.LogicContact.GetModelsLogic();
 
-            var brand_ids_names = extras.Select(x => new
+            foreach (var model in models)
             {
-                ID = x.id,
-                NAME = x.name
-            });
-
-            int max_id = extras.Max(i => i.id);
-
-            foreach (var brand in brand_ids_names)
-            {
-                Console.WriteLine("{0} - {1}", brand.ID, brand.NAME);
+                Console.WriteLine("{0} - {1}" , model.id, model.name);
             }
-
-            Console.WriteLine("Select an ID");
-            int selection = int.Parse(Console.ReadLine());
-
-            if (selection < 1 || selection > max_id)
-            {
-                Console.WriteLine("Invalid ID was picked. Select another one");
-                this.ChooseExtra();
-            }
-
-            return selection;
         }
+
+        //private int ChooseExtra()
+        //{
+        //    IEnumerable<extra> extras = this.LogicContact.GetExtraLogic();
+
+        //    var brand_ids_names = extras.Select(x => new
+        //    {
+        //        ID = x.id,
+        //        NAME = x.name
+        //    });
+
+        //    int max_id = extras.Max(i => i.id);
+
+        //    foreach (var brand in brand_ids_names)
+        //    {
+        //        Console.WriteLine("{0} - {1}", brand.ID, brand.NAME);
+        //    }
+
+        //    Console.WriteLine("Select an ID");
+        //    int selection = int.Parse(Console.ReadLine());
+
+        //    if (selection < 1 || selection > max_id)
+        //    {
+        //        Console.WriteLine("Invalid ID was picked. Select another one");
+        //        this.ChooseExtra();
+        //    }
+
+        //    return selection;
+        //}
 
     }
 }

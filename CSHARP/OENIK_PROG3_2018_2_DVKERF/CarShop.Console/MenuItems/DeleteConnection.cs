@@ -17,8 +17,29 @@
         // Ez majd egy groupolt megjelnitéssel fog törölni.
         public override void ExecuteMenuAction()
         {
-            int selection = this.ChooseConnection();
-            this.LogicContact.DeleteConnection(selection);
+            this.DisplayOptions();
+            Console.WriteLine("Select the ID of the connection you would like to delete");
+            string selection = Console.ReadLine();
+
+            try
+            {
+                this.LogicContact.DeleteConnection(selection);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+            }
+        }
+
+        private void DisplayOptions()
+        {
+            IEnumerable<object> connections = this.LogicContact.GetExtraModelLogic();
+
+            foreach (var con in connections)
+            {
+                Console.WriteLine(con);
+            }
         }
 
         private int ChooseConnection()

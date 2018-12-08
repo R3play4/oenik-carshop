@@ -67,16 +67,16 @@ namespace CarShop.Console.MenuItems
                 Console.WriteLine("{0} - {1}", brand.ID, brand.NAME);
             }
 
-            Console.WriteLine("Select an ID");
-            int selection = int.Parse(Console.ReadLine());
+            Console.WriteLine("Select the ID of the brand you would like to update.");
+            string selection = Console.ReadLine();
 
-            if (selection < 1 || selection > max_id)
+            while (!this.IsStringNumber(selection) || int.Parse(selection) < 1 || int.Parse(selection) > max_id)
             {
-                Console.WriteLine("Invalid ID was picked. Select another one");
-                this.ChooseBrand();
+                Console.WriteLine("Invalid ID, Choose again");
+                selection = Console.ReadLine();
             }
 
-            return selection;
+            return int.Parse(selection);
         }
     }
 }

@@ -70,7 +70,7 @@ namespace CarShop.Repository
         /// Creates new brand in the Database based on the parameter.
         /// </summary>
         /// <param name="brand">new brand parameter.</param>
-        public bool CreateBrandRepo(car_brands brand)
+        public void CreateBrandRepo(car_brands brand)
         {
             try
             {
@@ -78,12 +78,12 @@ namespace CarShop.Repository
                 brand.id = last_id + 1;
                 this.database.car_brands.Add(brand);
                 this.database.SaveChanges();
-                return true;
+                //return true;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return false;
+                //return false;
             }
         }
 
@@ -115,12 +115,8 @@ namespace CarShop.Repository
         /// Deletes Brand from DB based on the brands name.
         /// </summary>
         /// <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
-        public void DeleteBrandRepo(int id)
+        public void DeleteBrandRepo(car_brands brand)
         {
-            var brand = this.database.car_brands
-                   .Where(b => b.id == id)
-                   .First();
-
             try
             {
                 this.database.car_brands.Remove(brand);
@@ -129,31 +125,16 @@ namespace CarShop.Repository
             catch (DbUpdateException e)
             {
                 Console.WriteLine(e.InnerException.InnerException.Message);
+                Console.ReadLine();
             }
-
-            //try
-            //{
-            //    var brand = this.database.car_brands
-            //        .Where(b => b.name == name).First();
-            //    this.database.car_brands.Remove(brand);
-            //    this.database.SaveChanges();
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
         }
 
         /// <summary>
         /// Deletes Model from DB based on the model name.
         /// </summary>
         /// <param name="name">Name of the model that needs to be deleted has to be exact.</param>
-        public void DeleteModelRepo(int id)
+        public void DeleteModelRepo(car_models model)
         {
-            var model = this.database.car_models
-                .Where(b => b.id == id)
-                .First();
-
             try
             {
                 this.database.car_models.Remove(model);
@@ -162,6 +143,7 @@ namespace CarShop.Repository
             catch (DbUpdateException e)
             {
                 Console.WriteLine(e.InnerException.InnerException.Message);
+                Console.ReadLine();
             }
         }
 
@@ -169,11 +151,8 @@ namespace CarShop.Repository
         /// Deletes Extra from DB based on the model name.
         /// </summary>
         /// <param name="id">Name of the model that needs to be deleted has to be exact.</param>
-        public void DeleteExtraRepo(int id)
+        public void DeleteExtraRepo(extra extra)
         {
-            var extra = this.database.extras
-                .Where(e => e.id == id).First();
-
             try
             {
                 this.database.extras.Remove(extra);
@@ -182,6 +161,7 @@ namespace CarShop.Repository
             catch (DbUpdateException e)
             {
                 Console.WriteLine(e.InnerException.InnerException.Message);
+                Console.ReadLine();
             }
         }
 
@@ -189,11 +169,8 @@ namespace CarShop.Repository
         /// 
         /// </summary>
         /// <param name="id"></param>
-        public void DeleteConnectionRepo(int id)
+        public void DeleteConnectionRepo(model_extra_connection connection)
         {
-            var connection = this.database.model_extra_connection
-                .Where(c => c.id == id).First();
-
             try
             {
                 this.database.model_extra_connection.Remove(connection);
@@ -202,6 +179,7 @@ namespace CarShop.Repository
             catch (DbUpdateException e)
             {
                 Console.WriteLine(e.InnerException.InnerException.Message);
+                Console.ReadLine();
             }
         }
 

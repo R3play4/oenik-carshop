@@ -57,25 +57,25 @@
             </summary>
             <param name="extra">new extra that will be created.</param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.DeleteBrand(System.Int32)">
+        <member name="M:CarShop.Logic.ILogic.DeleteBrand(System.String)">
             <summary>
             Method will call the repository method that will delete the brand based on the name.
             </summary>
             <param name="id">Id of the brand that needs to be deleted </param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.DeleteModel(System.Int32)">
+        <member name="M:CarShop.Logic.ILogic.DeleteModel(System.String)">
             <summary>
             Method will call the repository method that will delete the model based on the name.
             </summary>
             <param name="id">ID of the model that needs to be deleted</param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.DeleteExtra(System.Int32)">
+        <member name="M:CarShop.Logic.ILogic.DeleteExtra(System.String)">
             <summary>
             Method will call the repository method that will delete the extra based on the id.
             </summary>
             <param name="id">ID of the extra that needs to be deleted</param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.DeleteConnection(System.Int32)">
+        <member name="M:CarShop.Logic.ILogic.DeleteConnection(System.String)">
             <summary>
             
             </summary>
@@ -149,19 +149,19 @@
             </summary>
             <param name="model">new model parameter. It properties is empty at this point.</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.DeleteBrand(System.Int32)">
+        <member name="M:CarShop.Logic.Logic.DeleteBrand(System.String)">
             <summary>
             Calls DeleteBrand method of repository.
             </summary>
             <param name="name">name of the brand that needs to be deleted</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.DeleteModel(System.Int32)">
+        <member name="M:CarShop.Logic.Logic.DeleteModel(System.String)">
             <summary>
             Calls DeleteModel method of repository.
             </summary>
             <param name="name">name of the brand that needs to be deleted</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.DeleteExtra(System.Int32)">
+        <member name="M:CarShop.Logic.Logic.DeleteExtra(System.String)">
             <summary>
             Calls DeleteExtra method of repository.
             </summary>

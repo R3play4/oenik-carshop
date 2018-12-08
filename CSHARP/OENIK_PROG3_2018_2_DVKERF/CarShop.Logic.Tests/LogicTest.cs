@@ -131,5 +131,90 @@
             logic.SetRepositoryInterface(this.mockedRepository.Object);
             Assert.Throws(typeof(ArgumentException), () => logic.CreateModelLogic(id, name, start_date, engine_size, horsepower, price));
         }
+
+        [TestCase("id")]
+        [TestCase("6")]
+        [TestCase("4")]
+        public void WhenDeletingBrandWithInvalidId_ExceptionIsThrown(string selection)
+        {
+            // Arrange
+            Logic logic = new Logic();
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
+
+            // Act, Assert
+            Assert.Throws(typeof(ArgumentException), () => logic.DeleteBrand(selection));
+
+            this.mockedRepository.Verify(
+                m => m.DeleteBrandRepo(It.IsAny<car_brands>()), Times.Never);
+        }
+
+        [TestCase("1")]
+        [TestCase("2")]
+        [TestCase("3")]
+        public void WhenDeletingBrand_RepositoryIsCalled(string selection)
+        {
+            // Arrange
+            Logic logic = new Logic();
+
+            //this.mockedRepository.Setup(m => m.DeleteBrandRepo(It.IsAny<car_brands>()));
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
+
+            // Act
+            logic.DeleteBrand(selection);
+
+            // Assert (Verify)
+            this.mockedRepository.Verify(m => m.DeleteBrandRepo(It.IsAny<car_brands>()), Times.AtLeastOnce);
+
+        }
+
+        [TestCase("id")]
+        [TestCase("7")]
+        [TestCase("-1")]
+        public void WhenDeletingModelWithInvalidID_ExceptionIsThrown(string selection)
+        {
+            Logic logic = new Logic();
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
+
+            Assert.Throws(typeof(ArgumentException), () => logic.DeleteModel(selection));
+        }
+
+        [TestCase("1")]
+        [TestCase("2")]
+        [TestCase("3")]
+        public void WhenDeletingModel_RepositoryIsCalled(string selection)
+        {
+            Logic logic = new Logic();
+
+            // this.mockedRepository.Setup(m => m.DeleteModelRepo(It.IsAny<car_models>()));
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
+            logic.DeleteModel(selection);
+            this.mockedRepository.Verify(m => m.DeleteModelRepo(It.IsAny<car_models>()),Times.Once);
+        }
+
+        [TestCase("id")]
+        [TestCase("4")]
+        [TestCase("5")]
+        public void WhenDeletingExtraWithInvalidID_ExceptionIsThrown(string selection)
+        {
+            Logic logic = new Logic();
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
+
+            Assert.Throws(typeof(ArgumentException), () => logic.DeleteExtra(selection));
+        }
+
+        public void WhenDeletingExtra_RepositoryIsCalled(string selection)
+        {
+            Logic logic = new Logic();
+
+            // this.mockedRepository.Setup(m => m.DeleteModelRepo(It.IsAny<car_models>()));
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
+            logic.DeleteModel(selection);
+            this.mockedRepository.Verify(m => m.DeleteExtraRepo(It.IsAny<extra>()), Times.Once);
+        }
+
+        public void WhenUpdatingBrand_ProperValueIsSet(int id, string name, string country, string founded, string revenue)
+        {
+
+        }
     }
 }

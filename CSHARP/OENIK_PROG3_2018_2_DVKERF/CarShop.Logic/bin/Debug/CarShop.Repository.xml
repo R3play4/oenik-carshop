@@ -51,25 +51,25 @@
             </summary>
             <param name="newExtra">the new model that needs to be created.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.DeleteBrandRepo(System.Int32)">
+        <member name="M:CarShop.Repository.IRepository.DeleteBrandRepo(CarShop.Data.car_brands)">
             <summary>
             Deletes Brand from the databse based on the name parameter
             </summary>
             <param name="id">name of the brand that needs to be delted.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.DeleteModelRepo(System.Int32)">
+        <member name="M:CarShop.Repository.IRepository.DeleteModelRepo(CarShop.Data.car_models)">
             <summary>
             Deletes Model from the databse based on the name parameter
             </summary>
             <param name="name">name of the model that needs to be delted.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.DeleteExtraRepo(System.Int32)">
+        <member name="M:CarShop.Repository.IRepository.DeleteExtraRepo(CarShop.Data.extra)">
             <summary>
             Deletes Extra from the databse based on the name parameter
             </summary>
             <param name="id">ID of the extra that needs to be delted.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.DeleteConnectionRepo(System.Int32)">
+        <member name="M:CarShop.Repository.IRepository.DeleteConnectionRepo(CarShop.Data.model_extra_connection)">
             <summary>
             
             </summary>
@@ -164,25 +164,25 @@
             </summary>
             <param name="newExtra">new extra that needs to be created.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.DeleteBrandRepo(System.Int32)">
+        <member name="M:CarShop.Repository.Repository.DeleteBrandRepo(CarShop.Data.car_brands)">
             <summary>
             Deletes Brand from DB based on the brands name.
             </summary>
             <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.DeleteModelRepo(System.Int32)">
+        <member name="M:CarShop.Repository.Repository.DeleteModelRepo(CarShop.Data.car_models)">
             <summary>
             Deletes Model from DB based on the model name.
             </summary>
             <param name="name">Name of the model that needs to be deleted has to be exact.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.DeleteExtraRepo(System.Int32)">
+        <member name="M:CarShop.Repository.Repository.DeleteExtraRepo(CarShop.Data.extra)">
             <summary>
             Deletes Extra from DB based on the model name.
             </summary>
             <param name="id">Name of the model that needs to be deleted has to be exact.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.DeleteConnectionRepo(System.Int32)">
+        <member name="M:CarShop.Repository.Repository.DeleteConnectionRepo(CarShop.Data.model_extra_connection)">
             <summary>
             
             </summary>
