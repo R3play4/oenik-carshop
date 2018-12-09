@@ -31,9 +31,12 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            int selected = this.ChooseExtra();
+            this.DisplayExtra();
+            Console.WriteLine("Select the ID of the Extra that you would like to update");
+            string extraSelected = Console.ReadLine();
 
-            //Set new values
+            Console.WriteLine("Enter a new value or hit enter");
+
             Console.WriteLine("Category Name");
             string newCategory = Console.ReadLine();
 
@@ -46,9 +49,19 @@ namespace CarShop.Console.MenuItems
             Console.WriteLine("Reuseable:");
             string newReuse = Console.ReadLine();
 
-            this.LogicContact.UpdateExtraLogic(selected, newCategory, newName, newPrice, newReuse);
+            this.LogicContact.UpdateExtraLogic(extraSelected, newCategory, newName, newPrice, newReuse);
 
             Console.ReadLine();
+        }
+
+        private void DisplayExtra()
+        {
+            IEnumerable<extra> extras = this.LogicContact.GetExtraLogic();
+
+            foreach (var extra in extras)
+            {
+                Console.WriteLine(extra);
+            }
         }
 
         private int ChooseExtra()

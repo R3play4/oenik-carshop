@@ -10,6 +10,7 @@ namespace CarShop.Console.MenuItems
     using System.Text;
     using System.Threading.Tasks;
     using Data;
+    using Logic;
 
     /// <summary>
     /// Create Brand Menu Action
@@ -44,7 +45,7 @@ namespace CarShop.Console.MenuItems
             string date = Console.ReadLine();
 
             Console.WriteLine("Revenue:");
-            int revenue = int.Parse(Console.ReadLine());
+            string revenue = Console.ReadLine();
 
             try
             {
@@ -53,7 +54,11 @@ namespace CarShop.Console.MenuItems
             catch (ArgumentException e)
             {
                 Console.WriteLine(e.Message);
-                Console.WriteLine("Name or Country cannot be null");
+                Console.ReadLine();
+            }
+            catch (InvalidDateFormatException e)
+            {
+                Console.WriteLine(e.Message);
                 Console.ReadLine();
             }
 

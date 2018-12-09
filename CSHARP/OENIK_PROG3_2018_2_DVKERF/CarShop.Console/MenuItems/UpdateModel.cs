@@ -5,6 +5,7 @@
 namespace CarShop.Console.MenuItems
 {
     using Data;
+    using Logic;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -31,61 +32,61 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            int selectedModel = this.ChooseModel();
+            this.DisplayModels();
+            Console.WriteLine("Select the id of the model you would like to update");
+            string id = Console.ReadLine();
 
-            // Setting new values. At this point everything is stored string values.
-            Console.WriteLine();
-            Console.WriteLine("Brand:");
-            int newBrand = SetBrand();
+            Console.WriteLine("Enter a new value or hit enter");
 
             Console.WriteLine("Name:");
             string newName = Console.ReadLine();
 
-            Console.WriteLine("Start Date of production:");
-            string newStartDate = Console.ReadLine();
+            Console.WriteLine("Start Date:");
+            string startDate = Console.ReadLine();
 
-            Console.WriteLine("Engine Size:");
-            string newEngineSize = Console.ReadLine();
+            Console.WriteLine("Engine size:");
+            string engineSize = Console.ReadLine();
 
-            Console.WriteLine("HorsePower:");
-            string newHorsePower = Console.ReadLine();
+            Console.WriteLine("Horsepower:");
+            string horsePower = Console.ReadLine();
 
-            Console.WriteLine("Starting Price:");
-            string newStartingPrice = Console.ReadLine();
+            Console.WriteLine("Starting Price");
+            string startPrice = Console.ReadLine();
 
-            this.LogicContact.UpdateModelLogic(selectedModel, newBrand, newName, newStartDate, newEngineSize, newHorsePower, newStartingPrice);
-
+            try
+            {
+                this.LogicContact.UpdateModelLogic(id, newName, startDate, engineSize, horsePower, startPrice);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+            }
+            catch (InvalidDateFormatException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+            }
         }
 
-        private int SetBrand()
+        private void DisplayModels()
+        {
+            IEnumerable<car_models> models = this.LogicContact.GetModelsLogic();
+
+            foreach (var model in models)
+            {
+                Console.WriteLine("{0} - {1}", model.id, model.name);
+            }
+        }
+
+        private void DisplayBrand()
         {
             IEnumerable<car_brands> brands = this.LogicContact.GetBrandsLogic();
 
-            var brandsAndIds = brands.Select(b => new
+            foreach (var item in brands)
             {
-                Id = b.id,
-                Name = b.name
-            });
-
-            foreach (var item in brandsAndIds)
-            {
-                Console.WriteLine("{0} - {1}", item.Id, item.Name);
+                Console.WriteLine("{0} - {1}", item.id, item.name);
             }
-
-            int max = brandsAndIds.Max(b => b.Id);
-
-            Console.WriteLine("Select the ID of the brand");
-            string idStr = Console.ReadLine();
-
-            if (idStr != string.Empty && int.Parse(idStr) < 1 && int.Parse(idStr) <= max)
-            {
-                return int.Parse(Console.ReadLine());
-            }
-            else
-            {
-                return 0;
-            }
-
         }
 
         private int ChooseModel()

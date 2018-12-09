@@ -39,19 +39,19 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.Int32)">
+        <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Method will call the repository method that will create new brand in the database.
             </summary>
             <param name="brand">new brand that needs to be created</param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.CreateModelLogic(System.Int32,System.String,System.String,System.Int32,System.Int32,System.Int32)">
+        <member name="M:CarShop.Logic.ILogic.CreateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Method will call the repository method that will create new brand in the database.
             </summary>
             <param name="model">new model that will be created.</param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.CreateExtraLogic(CarShop.Data.extra)">
+        <member name="M:CarShop.Logic.ILogic.CreateExtraLogic(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Method will call the repository method that will create new extra in the database.
             </summary>
@@ -81,7 +81,7 @@
             </summary>
             <param name="id"></param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.UpdateBrandLogic(System.Int32,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Logic.ILogic.UpdateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Method will call respository method that will update the brand.
             </summary>
@@ -137,13 +137,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CarShop.Logic.Logic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.Int32)">
+        <member name="M:CarShop.Logic.Logic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Calls CreateBrand method of the repository
             </summary>
             <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.CreateModelLogic(System.Int32,System.String,System.String,System.Int32,System.Int32,System.Int32)">
+        <member name="M:CarShop.Logic.Logic.CreateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Calls CreateModel method of the repository
             </summary>
@@ -167,7 +167,7 @@
             </summary>
             <param name="id">id of the extra that needs to be deleted</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.UpdateBrandLogic(System.Int32,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Logic.Logic.UpdateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
             <summary>
              Calls the Repository Method to update the database.
             </summary>
@@ -176,7 +176,7 @@
             <param name="founded">updated foundation date</param>
             <param name="revenue">updated revenue</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.UpdateModelLogic(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Logic.Logic.UpdateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Calls the Repository Method to update the database.
             </summary>
@@ -188,7 +188,7 @@
             <param name="horsePower">updated horsepower</param>
             <param name="startingPrice">updated starting price</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.UpdateExtraLogic(System.Int32,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Logic.Logic.UpdateExtraLogic(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             
             </summary>

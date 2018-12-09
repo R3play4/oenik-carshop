@@ -191,7 +191,7 @@ namespace CarShop.Repository
         /// <param name="country"></param>
         /// <param name="founded"></param>
         /// <param name="revenue"></param>
-        public void UpdateBrandRepo(int id, string name, string country, string founded, string revenue)
+        public void UpdateBrandRepo(int id, string name, string country, DateTime? founded, int? revenue)
         {
             // returns the selected brand
             car_brands brand = this.database.car_brands
@@ -207,16 +207,17 @@ namespace CarShop.Repository
                 brand.country = country;
             }
 
-            if (founded != string.Empty)
+            if (founded != default(DateTime))
             {
-                brand.founded = DateTime.Parse(founded);
+                brand.founded = founded;
             }
 
-            if (revenue != string.Empty)
+            if (revenue != default(int))
             {
-                brand.yearly_revenue = int.Parse(revenue);
+                brand.yearly_revenue = revenue;
             }
 
+            Console.ReadLine();
             this.database.SaveChanges();
         }
 
@@ -283,7 +284,7 @@ namespace CarShop.Repository
         /// <param name="engineSizem"></param>
         /// <param name="horsePower"></param>
         /// <param name="startingPrice"></param>
-        public void UpdateModelRepo(int selected, int brand_id, string name, string productionStart, string engineSize, string horsePower, string startingPrice)
+        public void UpdateModelRepo(int selected, string name, DateTime? productionStart, int? engineSize, int? horsePower, int? startingPrice)
         {
             car_models model = this.database.car_models
                 .Where(m => m.id == selected).First();
@@ -293,30 +294,30 @@ namespace CarShop.Repository
                 model.name = name;
             }
 
-            if (productionStart != string.Empty)
+            if (productionStart != default(DateTime))
             {
-                model.production_start = DateTime.Parse(productionStart);
+                model.production_start = productionStart;
             }
 
-            if (engineSize != string.Empty)
+            if (engineSize != default(int))
             {
-                model.engine_size = int.Parse(engineSize);
+                model.engine_size = engineSize;
             }
 
-            if (horsePower != string.Empty)
+            if (horsePower != default(int))
             {
-                model.horsepower = int.Parse(horsePower);
+                model.horsepower = horsePower;
             }
 
-            if (startingPrice != string.Empty)
+            if (startingPrice != default(int))
             {
-                model.starting_price = int.Parse(startingPrice);
+                model.starting_price = startingPrice;
             }
 
             this.database.SaveChanges();
         }
 
-        public void UpdateExtraRepo(int selected, string catname, string name, string price, string newReuse)
+        public void UpdateExtraRepo(int selected, string catname, string name, int price, int newReuse)
         {
             extra extra = this.database.extras
                 .Where(e => e.id == selected).First();
@@ -331,14 +332,14 @@ namespace CarShop.Repository
                 extra.name = name;
             }
 
-            if (price != string.Empty)
+            if (price != default(int))
             {
-                extra.price = int.Parse(price);
+                extra.price = price;
             }
 
-            if (newReuse != string.Empty)
+            if (newReuse != default(int))
             {
-                extra.reuseable = byte.Parse(newReuse);
+                extra.reuseable = (byte)newReuse;
             }
 
             this.database.SaveChanges();

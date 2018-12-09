@@ -122,75 +122,129 @@ namespace CarShop.Logic
         /// Calls CreateBrand method of the repository
         /// </summary>
         /// <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
-        public void CreateBrandLogic(string name, string country, string url, string date, int revenue)
+        public void CreateBrandLogic(string name, string country, string url, string date, string revenue)
         {
-
             car_brands newBrand = new car_brands();
+            int newRevenue = this.SetIntValue(revenue);
+            DateTime newDate = this.SetDate(date);
 
-            if (name == string.Empty || country == string.Empty || revenue < 0)
+            if (name == string.Empty || country == string.Empty || newDate == default(DateTime) || newRevenue <= 0)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Invalid values. Brand cannot be created");
             }
             else
             {
                 newBrand.name = name;
                 newBrand.country = country;
-                newBrand.yearly_revenue = revenue;
+                newBrand.url = url;
+                newBrand.founded = newDate;
+                newBrand.yearly_revenue = newRevenue;
+                this.repository.CreateBrandRepo(newBrand);
             }
 
-            newBrand.url = url;
+            //car_brands newBrand = new car_brands();
 
-            // erre kéne validálni
-            try
-            {
-                newBrand.founded = DateTime.Parse(date);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                Console.WriteLine("Invalid Date Format");
-            }
+            //if (name == string.Empty || country == string.Empty || revenue < 0)
+            //{
+            //    throw new ArgumentException();
+            //}
+            //else
+            //{
+            //    newBrand.name = name;
+            //    newBrand.country = country;
+            //    newBrand.yearly_revenue = revenue;
+            //}
 
-            this.repository.CreateBrandRepo(newBrand);
+            //newBrand.url = url;
+
+            //// erre kéne validálni
+            //try
+            //{
+            //    newBrand.founded = DateTime.Parse(date);
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //    Console.WriteLine("Invalid Date Format");
+            //}
+
+            //this.repository.CreateBrandRepo(newBrand);
         }
 
         /// <summary>
         /// Calls CreateModel method of the repository
         /// </summary>
         /// <param name="model">new model parameter. It properties is empty at this point.</param>
-        public void CreateModelLogic(int id, string name, string start_date, int engine_size, int horsepower, int price)
+        public void CreateModelLogic(string brandId, string name, string start_date, string engine_size, string horsepower, string price)
         {
             car_models newModel = new car_models();
+            int newBrandId;
+            DateTime newDate = this.SetDate(start_date);
+            int newEngine = this.SetIntValue(engine_size);
+            int newHorseP = this.SetIntValue(horsepower);
+            int newPrice = this.SetIntValue(price);
 
-            if (name == string.Empty || start_date == string.Empty || engine_size < 0 || horsepower < 0 || price < 0)
+            if (int.TryParse(brandId, out newBrandId) && this.BrandExists(newBrandId) && newDate != default(DateTime) && newEngine > 0 && newHorseP > 0 && newPrice > 0 && name != string.Empty)
             {
-                throw new ArgumentException();
+                newModel.name = name;
+                newModel.brand_id = newBrandId;
+                newModel.production_start = newDate;
+                newModel.engine_size = newEngine;
+                newModel.horsepower = newHorseP;
+                newModel.starting_price = newPrice;
+                this.repository.CreateModelRepo(newModel);
             }
             else
             {
-                newModel.brand_id = id;
-                newModel.name = name;
-                newModel.engine_size = engine_size;
-                newModel.horsepower = horsepower;
-                newModel.starting_price = price;
+                throw new ArgumentException("Invalid values. Model cannot be created");
             }
 
-            try
-            {
-                newModel.production_start = DateTime.Parse(start_date);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                Console.WriteLine("Invalid Date Format please use YYYY-MM-DD");
-            }
 
-            this.repository.CreateModelRepo(newModel);
+            //if (name == string.Empty || start_date == string.Empty || engine_size < 0 || horsepower < 0 || price < 0)
+            //{
+            //    throw new ArgumentException();
+            //}
+            //else
+            //{
+            //    newModel.brand_id = id;
+            //    newModel.name = name;
+            //    newModel.engine_size = engine_size;
+            //    newModel.horsepower = horsepower;
+            //    newModel.starting_price = price;
+            //}
+
+            //try
+            //{
+            //    newModel.production_start = DateTime.Parse(start_date);
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //    Console.WriteLine("Invalid Date Format please use YYYY-MM-DD");
+            //}
+
+            //this.repository.CreateModelRepo(newModel);
         }
 
-        public void CreateExtraLogic(extra newExtra)
+        public void CreateExtraLogic(string categoryName, string extraName, string color, string price, string reusable)
         {
-            this.repository.CreateExtraRepo(newExtra);
+            extra newExtra = new extra();
+            int newPrice = this.SetIntValue(price);
+            int reuseAble = this.SetIntValue(reusable);
+
+            if (categoryName != string.Empty && extraName != string.Empty && newPrice > 0 && reuseAble >= 0 && reuseAble <= 1)
+            {
+                newExtra.category_name = categoryName;
+                newExtra.name = extraName;
+                newExtra.color = color;
+                newExtra.price = newPrice;
+                newExtra.reuseable = (byte)reuseAble;
+                this.repository.CreateExtraRepo(newExtra);
+            }
+            else
+            {
+                throw new ArgumentException("Invalid parmeters. Extra cannot be created");
+            }
         }
 
         /// <summary>
@@ -311,9 +365,118 @@ namespace CarShop.Logic
         /// <param name="country">updated country </param>
         /// <param name="founded">updated foundation date</param>
         /// <param name="revenue">updated revenue</param>
-        public void UpdateBrandLogic(int id, string name, string country, string founded, string revenue)
+        public void UpdateBrandLogic(string newId, string name, string country, string founded, string revenue)
         {
-            this.repository.UpdateBrandRepo(id, name, country, founded, revenue);
+            int toBeUpdated;
+            if (int.TryParse(newId, out toBeUpdated) && this.BrandExists(toBeUpdated))
+            {
+                string newName = name;
+                string newCountry = country;
+                DateTime newDate = this.SetDate(founded);
+                int newRevenue = this.SetPositiveIntValue(revenue);
+                this.repository.UpdateBrandRepo(toBeUpdated, newName, newCountry, newDate, newRevenue);
+            }
+            else
+            {
+                throw new ArgumentException("Invalid parameters. Brand cannot be updated");
+            }
+
+            //IEnumerable<car_brands> brands = this.repository.GetBrandsRepo();
+            //IEnumerable<int> brand_ids = brands.Select(b => b.id);
+            //int toBeUpdatedId;
+            //DateTime newDate = default(DateTime);
+            //int newRevenue = default(int);
+
+            //if (this.IsStringNumber(newId) && brand_ids.Contains(int.Parse(newId)))
+            //{
+            //    toBeUpdatedId = int.Parse(newId);
+
+            //    if (founded != string.Empty)
+            //    {
+            //        newDate = this.SetDate(founded);
+            //    }
+
+            //    if (revenue != string.Empty && this.IsStringNumber(revenue))
+            //    {
+            //        newRevenue = int.Parse(revenue);
+
+            //        if (newRevenue <= 0)
+            //        {
+            //            throw new ArgumentException("Revenue cannot be minus");
+            //        }
+            //    }
+
+            //    this.repository.UpdateBrandRepo(toBeUpdatedId, name, country, newDate, newRevenue);
+            //}
+            //else
+            //{
+            //    if (!this.IsStringNumber(newId))
+            //    {
+            //        throw new ArgumentException("Please select a number");
+            //    }
+            //    else
+            //    {
+            //        throw new ArgumentException("Brand cannot be found.Please select again");
+            //    }
+            //}
+
+            //if (this.IsStringNumber(id) && brand_ids.Contains(int.Parse(id)))
+            //{
+            //    toBeUpdatedId = int.Parse(id);
+
+            //    if (name != string.Empty)
+            //    {
+            //        newName = name;
+            //    }
+
+            //    if (country != string.Empty)
+            //    {
+            //        newCountry = country;
+            //    }
+
+            //    if (founded != string.Empty)
+            //    {
+
+            //        if (DateTime.TryParse(founded, out newDate))
+            //        {
+            //            string.Format("yyyy-MM-dd", newDate);
+
+            //            if (newDate.Year > DateTime.Now.Year || newDate.Month > 12 || newDate.Day > DateTime.DaysInMonth(newDate.Year, newDate.Month))
+            //            {
+            //                throw new InvalidDateFormatException("Invalid date. Please select a proper date prior to today's date");
+            //            }
+            //        }
+            //        else
+            //        {
+            //            throw new InvalidDateFormatException("Invalid date format. Please use date format YYYY-MM-DD");
+            //        }
+
+            //    }
+
+            //    if (revenue != string.Empty && this.IsStringNumber(revenue))
+            //    {
+            //        newRevenue = int.Parse(revenue);
+
+            //        if (newRevenue < 0)
+            //        {
+            //            throw new ArgumentException("Revenue cannot be minus");
+            //        }
+            //    }
+
+            //    this.repository.UpdateBrandRepo(toBeUpdatedId, newName, newCountry, newDate, newRevenue);
+            //}
+            //else
+            //{
+            //    if (!this.IsStringNumber(id))
+            //    {
+            //        throw new ArgumentException("Please select a number");
+            //    }
+            //    else
+            //    {
+            //        throw new ArgumentException("Brand cannot be found.Please select again");
+            //    }
+            //}
+
         }
 
         /// <summary>
@@ -326,9 +489,49 @@ namespace CarShop.Logic
         /// <param name="engineSizem">updated engine size</param>
         /// <param name="horsePower">updated horsepower</param>
         /// <param name="startingPrice">updated starting price</param>
-        public void UpdateModelLogic(int selected, int brand_id, string name, string productionStart, string engineSize, string horsePower, string startingPrice)
+        public void UpdateModelLogic(string selected, string name, string productionStart, string engineSize, string horsePower, string startingPrice)
         {
-            this.repository.UpdateModelRepo(selected, brand_id, name, productionStart, engineSize, horsePower, startingPrice);
+            int selectedModelId;
+            string newName = name;
+            DateTime newProdStart = this.SetDate(productionStart);
+            int newEngine = this.SetIntValue(engineSize);
+            int newHorseP = this.SetIntValue(horsePower);
+            int newPrice = this.SetIntValue(startingPrice);
+
+            if (int.TryParse(selected, out selectedModelId) && this.ModelExists(selectedModelId) && newEngine > 0 && newHorseP > 0 && newPrice > 0)
+            {
+                this.repository.UpdateModelRepo(selectedModelId, newName, newProdStart, newEngine, newHorseP, newPrice);
+            }
+            else
+            {
+                throw new ArgumentException("Invalid parameters. Model cannot be updated");
+            }
+
+            //IEnumerable<car_models> models = this.repository.GetModelsRepo();
+            //IEnumerable<int> model_ids = models.Select(m => m.id);
+            //string newName = string.Empty;
+            //DateTime newStartDate = default(DateTime);
+            //int newEngineSize = default(int);
+            //int newHorsePower = default(int);
+            //int newStartPrice = default(int);
+
+            //if (this.IsStringNumber(selected) && model_ids.Contains(int.Parse(selected)))
+            //{
+            //    int toBeUpdated = int.Parse(selected);
+            //    newStartDate = this.SetDate(productionStart);
+
+            //}
+            //else
+            //{
+            //    if (!this.IsStringNumber(selected))
+            //    {
+            //        throw new ArgumentException("Please select a number");
+            //    }
+            //    else
+            //    {
+            //        throw new ArgumentException("Model cannot be found.Please select again");
+            //    }
+            //}
         }
 
         /// <summary>
@@ -339,25 +542,135 @@ namespace CarShop.Logic
         /// <param name="name"></param>
         /// <param name="price"></param>
         /// <param name="newReuse"></param>
-        public void UpdateExtraLogic(int selected, string catname, string name, string price, string newReuse)
+        public void UpdateExtraLogic(string selected, string catname, string name, string price, string newReuse)
         {
-            this.repository.UpdateExtraRepo(selected, catname, name, price , newReuse);
+            int selectedExtra;
+            string newCatName = catname;
+            string newExtraName = name;
+            int newPrice = this.SetPositiveIntValue(price);
+            int reUsAble = this.SetPositiveIntValue(newReuse);
+
+            if (int.TryParse(selected, out selectedExtra) && this.ExtraExists(selectedExtra) && reUsAble > 0 && reUsAble <= 1)
+            {
+                this.repository.UpdateExtraRepo(selectedExtra, newCatName, newExtraName, newPrice, reUsAble);
+            }
+            else
+            {
+                throw new ArgumentException("Invalid parameters. Brand cannot be updated");
+            }
         }
 
         private bool IsStringNumber(string txt)
         {
-            bool isNumber = false;
+            bool isNumber;
 
             int i = 0;
+            if (txt != string.Empty && txt[0] == '-')
+            {
+                i = 1;
+            }
+
             while (i < txt.Length && char.IsNumber(txt[i]))
             {
                 i++;
             }
 
             // if i is >= the length of txt that means all the chars in txt is a number.
-            isNumber = i >= txt.Length;
+            isNumber = i >= txt.Length && txt != string.Empty;
 
             return isNumber;
+        }
+
+        private DateTime SetDate(string date)
+        {
+            DateTime newDate;
+
+            if (DateTime.TryParse(date, out newDate))
+            {
+                string.Format("yyyy-MM-dd", newDate);
+
+                if (newDate.Year > DateTime.Now.Year || newDate.Month > 12 || newDate.Day > DateTime.DaysInMonth(newDate.Year, newDate.Month))
+                {
+                    throw new InvalidDateFormatException("Invalid date. Please select a proper date prior to today's date");
+                }
+            }
+            else if (date == string.Empty)
+            {
+                return default(DateTime);
+            }
+            else
+            {
+                throw new InvalidDateFormatException("Invalid date format. Please use date format YYYY-MM-DD");
+            }
+
+            return newDate;
+        }
+
+        private int SetPositiveIntValue(string value)
+        {
+            int result = default(int);
+
+            if (value != string.Empty)
+            {
+                if (int.TryParse(value, out result) && result > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    throw new ArgumentException("Please enter a positve Number");
+                }
+            }
+
+            return result;
+        }
+
+        private int SetIntValue(string value)
+        {
+            int result = default(int);
+
+            if (value != string.Empty)
+            {
+                int.TryParse(value, out result);
+            }
+
+            return result;
+        }
+
+        private bool BrandExists(int id)
+        {
+            IEnumerable<int> brands_id = this.repository
+                .GetBrandsRepo()
+                .Select(b => b.id);
+
+            return brands_id.Contains(id);
+        }
+
+        private bool ModelExists(int id)
+        {
+            IEnumerable<int> model_id = this.repository
+                .GetModelsRepo()
+                .Select(b => b.id);
+
+            return model_id.Contains(id);
+        }
+
+        private bool ExtraExists(int id)
+        {
+            IEnumerable<int> extras_id = this.repository
+                .GetBrandsRepo()
+                .Select(b => b.id);
+
+            return extras_id.Contains(id);
+        }
+
+        private bool ModelExtraConnectionExists(int id)
+        {
+            IEnumerable<int> connections = this.repository
+                .GetExtraConnectionRepo()
+                .Select(e => e.id);
+
+            return connections.Contains(id);
         }
     }
 }

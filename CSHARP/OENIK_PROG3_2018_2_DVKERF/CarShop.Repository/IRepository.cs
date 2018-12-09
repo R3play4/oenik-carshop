@@ -90,7 +90,7 @@ namespace CarShop.Repository
         /// <param name="country">updated country</param>
         /// <param name="founded">updated foundation date</param>
         /// <param name="revenue">updated revenue</param>
-        void UpdateBrandRepo(int id, string name, string country, string founded, string revenue);
+        void UpdateBrandRepo(int id, string name, string country, DateTime? founded, int? revenue);
 
         /// <summary>
         /// 
@@ -102,7 +102,7 @@ namespace CarShop.Repository
         /// <param name="engineSizem"></param>
         /// <param name="horsePower"></param>
         /// <param name="startingPrice"></param>
-        void UpdateModelRepo(int selected, int brand_id, string name, string productionStart, string engineSize, string horsePower, string startingPrice);
+        void UpdateModelRepo(int selected, string name, DateTime? productionStart, int? engineSize, int? horsePower, int? startingPrice);
 
         /// <summary>
         /// 
@@ -112,6 +112,6 @@ namespace CarShop.Repository
         /// <param name="name"></param>
         /// <param name="price"></param>
         /// <param name="newReuse"></param>
-        void UpdateExtraRepo(int selected, string catname, string name, string price, string newReuse);
+        void UpdateExtraRepo(int selected, string catname, string name, int price, int newReuse);
     }
 }

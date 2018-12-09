@@ -31,25 +31,31 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            extra newExtra = new extra();
 
             Console.WriteLine("Category:");
-            newExtra.category_name = Console.ReadLine();
+            string categoryName = Console.ReadLine();
 
             Console.WriteLine("Name:");
-            newExtra.name = Console.ReadLine();
+            string extraName = Console.ReadLine();
 
             Console.WriteLine("Price:");
-            newExtra.price = int.Parse(Console.ReadLine());
+            string price = Console.ReadLine();
 
             Console.WriteLine("Color:");
-            newExtra.color = Console.ReadLine();
+            string color = Console.ReadLine();
 
             Console.WriteLine("Reuseable: ");
-            newExtra.reuseable = byte.Parse(Console.ReadLine());
+            string reuseable = Console.ReadLine();
 
-            this.LogicContact.CreateExtraLogic(newExtra);
-            Console.ReadLine();
+            try
+            {
+                this.LogicContact.CreateExtraLogic(categoryName, extraName, color, price, reuseable);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+            }
         }
     }
 }

@@ -52,26 +52,5 @@ namespace CarShop.Console
         /// This method will be implemented by the children classes.
         /// </summary>
         public abstract void ExecuteMenuAction();
-
-        /// <summary>
-        /// Determines if a string is a number
-        /// </summary>
-        /// <param name="txt">string to be checked</param>
-        /// <returns>true if string is number, false otherwise </returns>
-        public bool IsStringNumber(string txt)
-        {
-            bool isNumber = false;
-
-            int i = 0;
-            while (i < txt.Length && char.IsNumber(txt[i]))
-            {
-                i++;
-            }
-
-            // if i is >= the length of txt that means all the chars in txt is a number.
-            isNumber = i >= txt.Length;
-
-            return isNumber;
-        }
     }
 }

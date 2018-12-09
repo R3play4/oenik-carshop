@@ -75,7 +75,7 @@
             </summary>
             <param name="id"></param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.UpdateBrandRepo(System.Int32,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Repository.IRepository.UpdateBrandRepo(System.Int32,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32})">
             <summary>
             Calls repository to update selected brand.
             </summary>
@@ -85,7 +85,7 @@
             <param name="founded">updated foundation date</param>
             <param name="revenue">updated revenue</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.UpdateModelRepo(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Repository.IRepository.UpdateModelRepo(System.Int32,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             
             </summary>
@@ -97,7 +97,7 @@
             <param name="horsePower"></param>
             <param name="startingPrice"></param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.UpdateExtraRepo(System.Int32,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Repository.IRepository.UpdateExtraRepo(System.Int32,System.String,System.String,System.Int32,System.Int32)">
             <summary>
             
             </summary>
@@ -188,7 +188,7 @@
             </summary>
             <param name="id"></param>
         </member>
-        <member name="M:CarShop.Repository.Repository.UpdateBrandRepo(System.Int32,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Repository.Repository.UpdateBrandRepo(System.Int32,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32})">
             <summary>
             
             </summary>
@@ -203,7 +203,7 @@
             Displays Brands and ID-s so the user can select a brand.
             </summary>
         </member>
-        <member name="M:CarShop.Repository.Repository.UpdateModelRepo(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Repository.Repository.UpdateModelRepo(System.Int32,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             
             </summary>

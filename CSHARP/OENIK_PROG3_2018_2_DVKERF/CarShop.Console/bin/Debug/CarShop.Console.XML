@@ -77,13 +77,6 @@
             This method will be implemented by the children classes.
             </summary>
         </member>
-        <member name="M:CarShop.Console.MenuItem.IsStringNumber(System.String)">
-            <summary>
-            Determines if a string is a number
-            </summary>
-            <param name="txt">string to be checked</param>
-            <returns>true if string is number, false otherwise </returns>
-        </member>
         <member name="T:CarShop.Console.MenuItems.CreateBrand">
             <summary>
             Create Brand Menu Action

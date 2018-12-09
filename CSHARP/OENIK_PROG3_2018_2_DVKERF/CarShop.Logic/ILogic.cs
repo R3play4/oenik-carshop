@@ -52,19 +52,19 @@ namespace CarShop.Logic
         /// Method will call the repository method that will create new brand in the database.
         /// </summary>
         /// <param name="brand">new brand that needs to be created</param>
-        void CreateBrandLogic(string name , string country, string url, string date, int revenue);
+        void CreateBrandLogic(string name , string country, string url, string date, string revenue);
 
         /// <summary>
         /// Method will call the repository method that will create new brand in the database.
         /// </summary>
         /// <param name="model">new model that will be created.</param>
-        void CreateModelLogic(int id, string name, string start_date, int engine_size, int horsepower, int price);
+        void CreateModelLogic(string id, string name, string start_date, string engine_size, string horsepower, string price);
 
         /// <summary>
         /// Method will call the repository method that will create new extra in the database.
         /// </summary>
         /// <param name="extra">new extra that will be created.</param>
-        void CreateExtraLogic(extra extra);
+        void CreateExtraLogic(string categoryName, string extraName, string color, string price, string reusable);
 
         /// <summary>
         /// Method will call the repository method that will delete the brand based on the name.
@@ -93,9 +93,9 @@ namespace CarShop.Logic
         /// <summary>
         /// Method will call respository method that will update the brand.
         /// </summary>
-        void UpdateBrandLogic(int id, string name, string country, string founded, string revenue);
+        void UpdateBrandLogic(string id, string name, string country, string founded, string revenue);
 
-        void UpdateModelLogic(int selected, int brand_id, string name, string productionStart, string engineSizem, string horsePower, string startingPrice);
-        void UpdateExtraLogic(int selected, string catname, string name, string price, string newReuse);
+        void UpdateModelLogic(string selected, string name, string productionStart, string engineSizem, string horsePower, string startingPrice);
+        void UpdateExtraLogic(string selected, string catname, string name, string price, string newReuse);
     }
 }

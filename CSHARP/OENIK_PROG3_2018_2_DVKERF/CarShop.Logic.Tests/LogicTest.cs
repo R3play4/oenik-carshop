@@ -112,24 +112,35 @@
 
         }
 
-        [TestCase("", "Germany", "test.hu", "2018-01-01", 2000)]
-        [TestCase("Audi", "", "test.hu", "2018-01-01", 2000)]
-        [TestCase("Audi", "Germany", "test.hu", "2018-01-01", -1000)]
-        public void WhenCreatingBrand_WithBadParameters_ExceptionThrown(string name, string country, string url, string date, int revenue)
+        [TestCase("", "Germany", "test.hu", "2018-01-01", "2000")]
+        [TestCase("Audi", "", "test.hu", "2018-01-01", "2000")]
+        [TestCase("Audi", "Germany", "test.hu", "2018-01-01", "-1000")]
+        public void WhenCreatingBrand_WithBadParameters_ExceptionThrown(string name, string country, string url, string date, string revenue)
         {
             Logic logic = new Logic();
             logic.SetRepositoryInterface(this.mockedRepository.Object);
             Assert.Throws(typeof(ArgumentException), () => logic.CreateBrandLogic(name, country, url, date, revenue));
         }
 
-        [TestCase(1, "", "2018-01-01", 300, 400, 10000)]
-        [TestCase(1, "Valami", "2018-01-01", 300, -400, 10000)]
-        [TestCase(1, "Ferrari", "2018-01-01", 300, 400, -10000)]
-        public void WhenCreatingModel_WithBadParameters_ExceptionThrown(int id, string name, string start_date, int engine_size, int horsepower, int price)
+        [TestCase("1", "", "2018-01-01", "300", "400", "10000")]
+        [TestCase("1", "Valami", "2018-01-01", "300", "-400", "10000")]
+        [TestCase("1", "Ferrari", "2018-01-01", "300", "400", "-10000")]
+        [TestCase("4", "Ferrari", "2018-01-01", "300", "400", "10000")]
+        public void WhenCreatingModel_WithBadParameters_ExceptionThrown(string id, string name, string start_date, string engine_size, string horsepower, string price)
         {
             Logic logic = new Logic();
             logic.SetRepositoryInterface(this.mockedRepository.Object);
             Assert.Throws(typeof(ArgumentException), () => logic.CreateModelLogic(id, name, start_date, engine_size, horsepower, price));
+        }
+
+        [TestCase("", "extra", "black", "1400", "1")]
+        [TestCase("test", "extra", "black", "-1400", "1")]
+        [TestCase("test", "extra", "black", "1400", "3")]
+        public void WhenCreatingExtra_WithBadParameters_ExceptionIsThrown(string categoryName, string extraName, string color, string price, string reusable)
+        {
+            Logic logic = new Logic();
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
+            Assert.Throws(typeof(ArgumentException), () => logic.CreateExtraLogic(categoryName, extraName, color, price, reusable));
         }
 
         [TestCase("id")]
@@ -212,9 +223,14 @@
             this.mockedRepository.Verify(m => m.DeleteExtraRepo(It.IsAny<extra>()), Times.Once);
         }
 
-        public void WhenUpdatingBrand_ProperValueIsSet(int id, string name, string country, string founded, string revenue)
+        [TestCase("1", "", "", "2019-01-01", "")]
+        [TestCase("2", "", "", "Invalid Date", "")]
+        [TestCase("3", "", "", "2010-13-04", "")]
+        public void WhenUpdatingBrandWithInvalidValues_ExceptionThrwon (string id, string name, string country, string founded, string revenue)
         {
-
+            Logic logic = new Logic();
+            logic.SetRepositoryInterface(this.mockedRepository.Object);
+            Assert.Throws(typeof(InvalidDateFormatException), () => logic.UpdateBrandLogic(id, name, country, founded, revenue));
         }
     }
 }
