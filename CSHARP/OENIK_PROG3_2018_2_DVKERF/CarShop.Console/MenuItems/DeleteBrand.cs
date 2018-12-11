@@ -55,34 +55,5 @@ namespace CarShop.Console.MenuItems
                 Console.WriteLine("{0} - {1}", brand.id, brand.name);
             }
         }
-
-        //private int ChooseBrand()
-        //{
-        //    IEnumerable<car_brands> brands = this.LogicContact.GetBrandsLogic();
-
-        //    var brand_ids_names = brands.Select(x => new
-        //    {
-        //        ID = x.id,
-        //        NAME = x.name
-        //    });
-
-        //    int max_id = brands.Max(i => i.id);
-
-        //    foreach (var brand in brand_ids_names)
-        //    {
-        //        Console.WriteLine("{0} - {1}", brand.ID, brand.NAME);
-        //    }
-
-        //    Console.WriteLine("Select an ID");
-        //    string selection = Console.ReadLine();
-
-        //    while (!this.IsStringNumber(selection) || int.Parse(selection) < 1 || int.Parse(selection) > max_id)
-        //    {
-        //        Console.WriteLine("Invalid ID, Choose again");
-        //        selection = Console.ReadLine();
-        //    }
-
-        //    return int.Parse(selection);
-        //}
     }
 }

@@ -91,6 +91,7 @@
             // Mock
             Logic logic = new Logic();
             logic.SetRepositoryInterface(this.mockedRepository.Object);
+
             // Act
             var result = logic.GetExtraLogic();
 
@@ -167,7 +168,6 @@
             // Arrange
             Logic logic = new Logic();
 
-            //this.mockedRepository.Setup(m => m.DeleteBrandRepo(It.IsAny<car_brands>()));
             logic.SetRepositoryInterface(this.mockedRepository.Object);
 
             // Act

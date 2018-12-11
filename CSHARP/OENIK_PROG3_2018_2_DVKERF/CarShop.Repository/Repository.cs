@@ -6,11 +6,11 @@ namespace CarShop.Repository
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity.Infrastructure;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
     using CarShop.Data;
-    using System.Data.Entity.Infrastructure;
 
     /// <summary>
     /// Implements CRUD operations. Comunicates with Data Entities.
@@ -58,9 +58,9 @@ namespace CarShop.Repository
         }
 
         /// <summary>
-        /// 
+        /// Gets a list of Extra-Model connection from the DB.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>returns extra and model connections</returns>
         public IEnumerable<model_extra_connection> GetExtraConnectionRepo()
         {
             return this.database.model_extra_connection;
@@ -78,12 +78,10 @@ namespace CarShop.Repository
                 brand.id = last_id + 1;
                 this.database.car_brands.Add(brand);
                 this.database.SaveChanges();
-                //return true;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                //return false;
             }
         }
 
@@ -112,9 +110,9 @@ namespace CarShop.Repository
         }
 
         /// <summary>
-        /// Deletes Brand from DB based on the brands name.
+        /// Deletes Brand from the databse.
         /// </summary>
-        /// <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
+        /// <param name="brand">brand that needs to be delted.</param>
         public void DeleteBrandRepo(car_brands brand)
         {
             try
@@ -130,9 +128,9 @@ namespace CarShop.Repository
         }
 
         /// <summary>
-        /// Deletes Model from DB based on the model name.
+        /// Deletes Model from the databse.
         /// </summary>
-        /// <param name="name">Name of the model that needs to be deleted has to be exact.</param>
+        /// <param name="model">model that needs to be delted.</param>
         public void DeleteModelRepo(car_models model)
         {
             try
@@ -148,9 +146,9 @@ namespace CarShop.Repository
         }
 
         /// <summary>
-        /// Deletes Extra from DB based on the model name.
+        /// Deletes Extra from the databse.
         /// </summary>
-        /// <param name="id">Name of the model that needs to be deleted has to be exact.</param>
+        /// <param name="extra">extra that needs to be delted.</param>
         public void DeleteExtraRepo(extra extra)
         {
             try
@@ -166,9 +164,9 @@ namespace CarShop.Repository
         }
 
         /// <summary>
-        /// 
+        /// Deletes Extra-Model connesction from the databse.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="connection">Connection that needs to be deleted.</param>
         public void DeleteConnectionRepo(model_extra_connection connection)
         {
             try
@@ -184,13 +182,13 @@ namespace CarShop.Repository
         }
 
         /// <summary>
-        /// 
+        /// Calls repository to update selected brand.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="country"></param>
-        /// <param name="founded"></param>
-        /// <param name="revenue"></param>
+        /// <param name="id">id of the brand that needs to be updated </param>
+        /// <param name="name">updated name</param>
+        /// <param name="country">updated country</param>
+        /// <param name="founded">updated foundation date</param>
+        /// <param name="revenue">updated revenue</param>
         public void UpdateBrandRepo(int id, string name, string country, DateTime? founded, int? revenue)
         {
             // returns the selected brand
@@ -221,69 +219,15 @@ namespace CarShop.Repository
             this.database.SaveChanges();
         }
 
-        private int SelectBrandForModel()
-        {
-            var valid_options = this.database.car_models.Select(i => i.id);
-            Console.WriteLine("Please type the id of the desired brand");
-            this.DisplayIdAndBrand();
-            int selected = int.Parse(Console.ReadLine());
-
-            if (valid_options.Contains(selected))
-            {
-                return selected;
-            }
-            else
-            {
-                Console.WriteLine("Invalid Id was selected. Please choose again");
-                this.SelectBrandForModel();
-            }
-
-            return selected;
-        }
-
         /// <summary>
-        /// Displays Brands and ID-s so the user can select a brand.
+        /// Gets the id of the Model that needs to be updated. Sets the new values based on the parameters.
         /// </summary>
-        private void DisplayIdAndBrand()
-        {
-            var brands = this.database.car_brands.Select(b =>
-            new
-            {
-                Id = b.id,
-                Name = b.name
-            });
-
-            int i = 0;
-            foreach (var brand in brands)
-            {
-                string header = string.Empty;
-                if (i == 0)
-                {
-                    i++;
-                    var properties = brand.GetType().GetProperties();
-
-                    foreach (var prop in properties)
-                    {
-                        header += prop.Name + "\t";
-                    }
-
-                    Console.WriteLine(header);
-                }
-
-                Console.WriteLine("{0}\t{1}\t",brand.Id, brand.Name);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="selected"></param>
-        /// <param name="brand_id"></param>
-        /// <param name="name"></param>
-        /// <param name="productionStart"></param>
-        /// <param name="engineSizem"></param>
-        /// <param name="horsePower"></param>
-        /// <param name="startingPrice"></param>
+        /// <param name="selected">id of the model that needs to be updated</param>
+        /// <param name="name">updated name</param>
+        /// <param name="productionStart">updated production start date.</param>
+        /// <param name="engineSize">updated engine size.</param>
+        /// <param name="horsePower">updated horsepower</param>
+        /// <param name="startingPrice">updated starting price.</param>
         public void UpdateModelRepo(int selected, string name, DateTime? productionStart, int? engineSize, int? horsePower, int? startingPrice)
         {
             car_models model = this.database.car_models
@@ -317,6 +261,14 @@ namespace CarShop.Repository
             this.database.SaveChanges();
         }
 
+        /// <summary>
+        /// Gets the id of the Extra that needs to be updated. Sets the new values based on the parameters.
+        /// </summary>
+        /// <param name="selected">id of the extra that needs to be updated</param>
+        /// <param name="catname">updated category name</param>
+        /// <param name="name">updated name of the extra</param>
+        /// <param name="price">updated price </param>
+        /// <param name="newReuse">updated value of reuseable field.</param>
         public void UpdateExtraRepo(int selected, string catname, string name, int price, int newReuse)
         {
             extra extra = this.database.extras

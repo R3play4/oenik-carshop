@@ -35,9 +35,9 @@ namespace CarShop.Repository
         IEnumerable<extra> GetExtraRepo();
 
         /// <summary>
-        /// 
+        /// Gets a list of Extra-Model connection from the DB.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>returns extra and model connections</returns>
         IEnumerable<model_extra_connection> GetExtraConnectionRepo();
 
         /// <summary>
@@ -59,27 +59,27 @@ namespace CarShop.Repository
         void CreateExtraRepo(extra newExtra);
 
         /// <summary>
-        /// Deletes Brand from the databse based on the name parameter
+        /// Deletes Brand from the databse.
         /// </summary>
-        /// <param name="id">name of the brand that needs to be delted.</param>
+        /// <param name="brand">brand that needs to be delted.</param>
         void DeleteBrandRepo(car_brands brand);
 
         /// <summary>
-        /// Deletes Model from the databse based on the name parameter
+        /// Deletes Model from the databse.
         /// </summary>
-        /// <param name="name">name of the model that needs to be delted.</param>
+        /// <param name="model">model that needs to be delted.</param>
         void DeleteModelRepo(car_models model);
 
         /// <summary>
-        /// Deletes Extra from the databse based on the name parameter
+        /// Deletes Extra from the databse.
         /// </summary>
-        /// <param name="id">ID of the extra that needs to be delted.</param>
+        /// <param name="extra">extra that needs to be delted.</param>
         void DeleteExtraRepo(extra extra);
 
         /// <summary>
-        /// 
+        /// Deletes Extra-Model connesction from the databse.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="connection">Connection that needs to be deleted.</param>
         void DeleteConnectionRepo(model_extra_connection connection);
 
         /// <summary>
@@ -93,25 +93,24 @@ namespace CarShop.Repository
         void UpdateBrandRepo(int id, string name, string country, DateTime? founded, int? revenue);
 
         /// <summary>
-        /// 
+        /// Gets the id of the Model that needs to be updated. Sets the new values based on the parameters.
         /// </summary>
-        /// <param name="selected"></param>
-        /// <param name="brand_id"></param>
-        /// <param name="name"></param>
-        /// <param name="productionStart"></param>
-        /// <param name="engineSizem"></param>
-        /// <param name="horsePower"></param>
-        /// <param name="startingPrice"></param>
+        /// <param name="selected">id of the model that needs to be updated</param>
+        /// <param name="name">updated name</param>
+        /// <param name="productionStart">updated production start date.</param>
+        /// <param name="engineSize">updated engine size.</param>
+        /// <param name="horsePower">updated horsepower</param>
+        /// <param name="startingPrice">updated starting price.</param>
         void UpdateModelRepo(int selected, string name, DateTime? productionStart, int? engineSize, int? horsePower, int? startingPrice);
 
         /// <summary>
-        /// 
+        /// Gets the id of the Extra that needs to be updated. Sets the new values based on the parameters.
         /// </summary>
-        /// <param name="selected"></param>
-        /// <param name="catname"></param>
-        /// <param name="name"></param>
-        /// <param name="price"></param>
-        /// <param name="newReuse"></param>
+        /// <param name="selected">id of the extra that needs to be updated</param>
+        /// <param name="catname">updated category name</param>
+        /// <param name="name">updated name of the extra</param>
+        /// <param name="price">updated price </param>
+        /// <param name="newReuse">updated value of reuseable field.</param>
         void UpdateExtraRepo(int selected, string catname, string name, int price, int newReuse);
     }
 }

@@ -4,12 +4,12 @@
 
 namespace CarShop.Console.MenuItems
 {
-    using Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Data;
 
     /// <summary>
     /// UpdateExtra Menu Action
@@ -62,35 +62,6 @@ namespace CarShop.Console.MenuItems
             {
                 Console.WriteLine(extra);
             }
-        }
-
-        private int ChooseExtra()
-        {
-            IEnumerable<extra> models = this.LogicContact.GetExtraLogic();
-
-            var extra_ids_names = models.Select(x => new
-            {
-                ID = x.id,
-                NAME = x.name
-            });
-
-            int max_id = models.Max(i => i.id);
-
-            foreach (var brand in extra_ids_names)
-            {
-                Console.WriteLine("{0} - {1}", brand.ID, brand.NAME);
-            }
-
-            Console.WriteLine("Select an ID");
-            int selection = int.Parse(Console.ReadLine());
-
-            if (selection < 1 || selection > max_id)
-            {
-                Console.WriteLine("Invalid ID was picked. Select another one");
-                this.ChooseExtra();
-            }
-
-            return selection;
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿namespace CarShop.Console.MenuItems
+﻿// <copyright file="DeleteConnection.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace CarShop.Console.MenuItems
 {
     using System;
     using System.Collections.Generic;
@@ -7,14 +11,24 @@
     using System.Threading.Tasks;
     using CarShop.Data;
 
+    /// <summary>
+    /// Menu for deleting existing Extra Model connections
+    /// </summary>
     internal class DeleteConnection : MenuItem
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DeleteConnection"/> class.
+        /// </summary>
+        /// <param name="name"> name of the menu </param>
+        /// <param name="command">command that calls this menu </param>
         public DeleteConnection(string name, string command) 
             : base(name, command)
         {
         }
 
-        // Ez majd egy groupolt megjelnitéssel fog törölni.
+        /// <summary>
+        /// Executes the menu's action
+        /// </summary>
         public override void ExecuteMenuAction()
         {
             this.DisplayOptions();

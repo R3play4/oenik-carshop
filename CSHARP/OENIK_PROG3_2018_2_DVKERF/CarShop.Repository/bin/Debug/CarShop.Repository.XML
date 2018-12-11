@@ -29,9 +29,9 @@
         </member>
         <member name="M:CarShop.Repository.IRepository.GetExtraConnectionRepo">
             <summary>
-            
+            Gets a list of Extra-Model connection from the DB.
             </summary>
-            <returns></returns>
+            <returns>returns extra and model connections</returns>
         </member>
         <member name="M:CarShop.Repository.IRepository.CreateBrandRepo(CarShop.Data.car_brands)">
             <summary>
@@ -53,27 +53,27 @@
         </member>
         <member name="M:CarShop.Repository.IRepository.DeleteBrandRepo(CarShop.Data.car_brands)">
             <summary>
-            Deletes Brand from the databse based on the name parameter
+            Deletes Brand from the databse.
             </summary>
-            <param name="id">name of the brand that needs to be delted.</param>
+            <param name="brand">brand that needs to be delted.</param>
         </member>
         <member name="M:CarShop.Repository.IRepository.DeleteModelRepo(CarShop.Data.car_models)">
             <summary>
-            Deletes Model from the databse based on the name parameter
+            Deletes Model from the databse.
             </summary>
-            <param name="name">name of the model that needs to be delted.</param>
+            <param name="model">model that needs to be delted.</param>
         </member>
         <member name="M:CarShop.Repository.IRepository.DeleteExtraRepo(CarShop.Data.extra)">
             <summary>
-            Deletes Extra from the databse based on the name parameter
+            Deletes Extra from the databse.
             </summary>
-            <param name="id">ID of the extra that needs to be delted.</param>
+            <param name="extra">extra that needs to be delted.</param>
         </member>
         <member name="M:CarShop.Repository.IRepository.DeleteConnectionRepo(CarShop.Data.model_extra_connection)">
             <summary>
-            
+            Deletes Extra-Model connesction from the databse.
             </summary>
-            <param name="id"></param>
+            <param name="connection">Connection that needs to be deleted.</param>
         </member>
         <member name="M:CarShop.Repository.IRepository.UpdateBrandRepo(System.Int32,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32})">
             <summary>
@@ -87,25 +87,24 @@
         </member>
         <member name="M:CarShop.Repository.IRepository.UpdateModelRepo(System.Int32,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
-            
+            Gets the id of the Model that needs to be updated. Sets the new values based on the parameters.
             </summary>
-            <param name="selected"></param>
-            <param name="brand_id"></param>
-            <param name="name"></param>
-            <param name="productionStart"></param>
-            <param name="engineSizem"></param>
-            <param name="horsePower"></param>
-            <param name="startingPrice"></param>
+            <param name="selected">id of the model that needs to be updated</param>
+            <param name="name">updated name</param>
+            <param name="productionStart">updated production start date.</param>
+            <param name="engineSize">updated engine size.</param>
+            <param name="horsePower">updated horsepower</param>
+            <param name="startingPrice">updated starting price.</param>
         </member>
         <member name="M:CarShop.Repository.IRepository.UpdateExtraRepo(System.Int32,System.String,System.String,System.Int32,System.Int32)">
             <summary>
-            
+            Gets the id of the Extra that needs to be updated. Sets the new values based on the parameters.
             </summary>
-            <param name="selected"></param>
-            <param name="catname"></param>
-            <param name="name"></param>
-            <param name="price"></param>
-            <param name="newReuse"></param>
+            <param name="selected">id of the extra that needs to be updated</param>
+            <param name="catname">updated category name</param>
+            <param name="name">updated name of the extra</param>
+            <param name="price">updated price </param>
+            <param name="newReuse">updated value of reuseable field.</param>
         </member>
         <member name="T:CarShop.Repository.Repository">
             <summary>
@@ -142,9 +141,9 @@
         </member>
         <member name="M:CarShop.Repository.Repository.GetExtraConnectionRepo">
             <summary>
-            
+            Gets a list of Extra-Model connection from the DB.
             </summary>
-            <returns></returns>
+            <returns>returns extra and model connections</returns>
         </member>
         <member name="M:CarShop.Repository.Repository.CreateBrandRepo(CarShop.Data.car_brands)">
             <summary>
@@ -166,54 +165,48 @@
         </member>
         <member name="M:CarShop.Repository.Repository.DeleteBrandRepo(CarShop.Data.car_brands)">
             <summary>
-            Deletes Brand from DB based on the brands name.
+            Deletes Brand from the databse.
             </summary>
-            <param name="name">Name of the brand that needs to be deleted has to be exact.</param>
+            <param name="brand">brand that needs to be delted.</param>
         </member>
         <member name="M:CarShop.Repository.Repository.DeleteModelRepo(CarShop.Data.car_models)">
             <summary>
-            Deletes Model from DB based on the model name.
+            Deletes Model from the databse.
             </summary>
-            <param name="name">Name of the model that needs to be deleted has to be exact.</param>
+            <param name="model">model that needs to be delted.</param>
         </member>
         <member name="M:CarShop.Repository.Repository.DeleteExtraRepo(CarShop.Data.extra)">
             <summary>
-            Deletes Extra from DB based on the model name.
+            Deletes Extra from the databse.
             </summary>
-            <param name="id">Name of the model that needs to be deleted has to be exact.</param>
+            <param name="extra">extra that needs to be delted.</param>
         </member>
         <member name="M:CarShop.Repository.Repository.DeleteConnectionRepo(CarShop.Data.model_extra_connection)">
             <summary>
-            
+            Deletes Extra-Model connesction from the databse.
             </summary>
-            <param name="id"></param>
+            <param name="connection">Connection that needs to be deleted.</param>
         </member>
         <member name="M:CarShop.Repository.Repository.UpdateBrandRepo(System.Int32,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32})">
             <summary>
-            
+            Calls repository to update selected brand.
             </summary>
-            <param name="id"></param>
-            <param name="name"></param>
-            <param name="country"></param>
-            <param name="founded"></param>
-            <param name="revenue"></param>
-        </member>
-        <member name="M:CarShop.Repository.Repository.DisplayIdAndBrand">
-            <summary>
-            Displays Brands and ID-s so the user can select a brand.
-            </summary>
+            <param name="id">id of the brand that needs to be updated </param>
+            <param name="name">updated name</param>
+            <param name="country">updated country</param>
+            <param name="founded">updated foundation date</param>
+            <param name="revenue">updated revenue</param>
         </member>
         <member name="M:CarShop.Repository.Repository.UpdateModelRepo(System.Int32,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
-            
+            Gets the id of the Model that needs to be updated. Sets the new values based on the parameters.
             </summary>
-            <param name="selected"></param>
-            <param name="brand_id"></param>
-            <param name="name"></param>
-            <param name="productionStart"></param>
-            <param name="engineSizem"></param>
-            <param name="horsePower"></param>
-            <param name="startingPrice"></param>
+            <param name="selected">id of the model that needs to be updated</param>
+            <param name="name">updated name</param>
+            <param name="productionStart">updated production start date.</param>
+            <param name="engineSize">updated engine size.</param>
+            <param name="horsePower">updated horsepower</param>
+            <param name="startingPrice">updated starting price.</param>
         </member>
     </members>
 </doc>

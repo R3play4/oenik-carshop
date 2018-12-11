@@ -65,14 +65,6 @@ namespace CarShop.Console.MenuItems
                 Console.WriteLine(e.Message);
                 Console.ReadLine();
             }
-
-            //car_models model = new car_models();
-            //model.brand_id = this.SetBrand();
-            //model.name = this.SetName();
-            //model.engine_size = this.SetEngineSize();
-            //model.production_start = this.SetDate(this.SetYear(), this.SetMonth());
-            //model.starting_price = this.SetStartingPrice();
-            //this.LogicContact.CreateModelLogic(model);
             Console.ReadLine();
         }
 
@@ -85,35 +77,5 @@ namespace CarShop.Console.MenuItems
                 Console.WriteLine("{0} - {1}", brand.id, brand.name);
             }
         }
-
-        //private int SetBrand()
-        //{
-        //    IEnumerable<car_brands> brands = this.LogicContact.GetBrandsLogic();
-
-        //    var brandsAndIds = brands.Select(b => new
-        //    {
-        //        Id = b.id,
-        //        Name = b.name
-        //    });
-
-        //    foreach (var item in brandsAndIds)
-        //    {
-        //        Console.WriteLine("{0} - {1}",item.Id, item.Name);
-        //    }
-
-        //    int max = brandsAndIds.Max(b => b.Id);
-
-        //    Console.WriteLine("Select the ID of the brand");
-        //    int id = int.Parse(Console.ReadLine());
-
-        //    if (id < 1 || id > max || !this.IsStringNumber(id.ToString()))
-        //    {
-        //        Console.WriteLine("Invalid ID was received. Select a valid Id");
-        //        this.SetBrand();
-        //    }
-
-        //    return id;
-        //}
-
     }
 }

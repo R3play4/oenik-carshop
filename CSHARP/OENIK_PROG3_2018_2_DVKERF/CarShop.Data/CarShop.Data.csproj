@@ -90,7 +90,6 @@
     <Compile Include="car_models.cs">
       <DependentUpon>CarShopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data.cs" />
     <Compile Include="extra.cs">
       <DependentUpon>CarShopModel.tt</DependentUpon>
     </Compile>

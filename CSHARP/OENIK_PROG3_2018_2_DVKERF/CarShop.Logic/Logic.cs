@@ -7,11 +7,8 @@ namespace CarShop.Logic
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using CarShop.Repository;
     using Data;
-    using System.Collections;
 
     /// <summary>
     /// Implements ILogic CRUD operations
@@ -30,16 +27,6 @@ namespace CarShop.Logic
         {
             this.SetRepositoryInterface(new Repository());
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Logic"/> class.
-        /// Alternative constuctor for mocking
-        /// </summary>
-        /// <param name="repository">IRepository interface</param>
-        //public Logic(IRepository repository)
-        //{
-        //    this.repository = repository;
-        //}
 
         /// <summary>
         /// Sets the Repository property of the class. This will be used for mocking.
@@ -86,9 +73,9 @@ namespace CarShop.Logic
         }
 
         /// <summary>
-        /// 
+        /// Gets the connection between the extra and the model from the repository.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns a list of Extra and Model conencitons.</returns>
         public IEnumerable<object> GetExtraModelLogic()
         {
             IEnumerable<car_models> models = this.repository.GetModelsRepo();
@@ -103,9 +90,9 @@ namespace CarShop.Logic
         }
 
         /// <summary>
-        /// 
+        /// Get Countries and Brands from the repository. Joins Brands and Modles table.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns a list of objects from Brands and Models table. </returns>
         public IEnumerable<object> GetCountryBrandLogic()
         {
             IEnumerable<car_brands> brands = this.repository.GetBrandsRepo();
@@ -119,9 +106,13 @@ namespace CarShop.Logic
         }
 
         /// <summary>
-        /// Calls CreateBrand method of the repository
+        /// Checks the parameters of the new brand and forwards it to the repository if everything is correct.
         /// </summary>
-        /// <param name="brand">new brand parameter that was gathered form the user in the Console Layer</param>
+        /// <param name="name">new name</param>
+        /// <param name="country">new country</param>
+        /// <param name="url">new url it can be null</param>
+        /// <param name="date">new date </param>
+        /// <param name="revenue">new reveneu </param>
         public void CreateBrandLogic(string name, string country, string url, string date, string revenue)
         {
             car_brands newBrand = new car_brands();
@@ -172,9 +163,14 @@ namespace CarShop.Logic
         }
 
         /// <summary>
-        /// Calls CreateModel method of the repository
+        /// Checks the parameters of the new model and forwards it to the repository if everything is correct.
         /// </summary>
-        /// <param name="model">new model parameter. It properties is empty at this point.</param>
+        /// <param name="id">new id of the brand of the model</param>
+        /// <param name="name">new name</param>
+        /// <param name="start_date">new production start date</param>
+        /// <param name="engine_size">new engine size</param>
+        /// <param name="horsepower">new horspower</param>
+        /// <param name="price">new price</param>
         public void CreateModelLogic(string brandId, string name, string start_date, string engine_size, string horsepower, string price)
         {
             car_models newModel = new car_models();
@@ -198,34 +194,16 @@ namespace CarShop.Logic
             {
                 throw new ArgumentException("Invalid values. Model cannot be created");
             }
-
-
-            //if (name == string.Empty || start_date == string.Empty || engine_size < 0 || horsepower < 0 || price < 0)
-            //{
-            //    throw new ArgumentException();
-            //}
-            //else
-            //{
-            //    newModel.brand_id = id;
-            //    newModel.name = name;
-            //    newModel.engine_size = engine_size;
-            //    newModel.horsepower = horsepower;
-            //    newModel.starting_price = price;
-            //}
-
-            //try
-            //{
-            //    newModel.production_start = DateTime.Parse(start_date);
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //    Console.WriteLine("Invalid Date Format please use YYYY-MM-DD");
-            //}
-
-            //this.repository.CreateModelRepo(newModel);
         }
 
+        /// <summary>
+        /// Checks the parameters of the new extra and forwards it to the repository if everything is correct.
+        /// </summary>
+        /// <param name="categoryName">new categpory name for the extra</param>
+        /// <param name="extraName"> nam eof the new extra</param>
+        /// <param name="color">color of the extra</param>
+        /// <param name="price">new price </param>
+        /// <param name="reusable">value of the reusable field of the new extra</param>
         public void CreateExtraLogic(string categoryName, string extraName, string color, string price, string reusable)
         {
             extra newExtra = new extra();
@@ -248,9 +226,9 @@ namespace CarShop.Logic
         }
 
         /// <summary>
-        /// Calls DeleteBrand method of repository.
+        /// Checks if the Brand that needs to be deleted is proper. Searches based on Brand Id.
         /// </summary>
-        /// <param name="name">name of the brand that needs to be deleted</param>
+        /// <param name="selection">Id of the brand that needs to be deleted</param>
         public void DeleteBrand(string selection)
         {
             IEnumerable<car_brands> brands = this.repository.GetBrandsRepo();
@@ -274,13 +252,12 @@ namespace CarShop.Logic
                     throw new ArgumentException("Brand cannot be found. Please select another one");
                 }
             }
-
         }
 
         /// <summary>
-        /// Calls DeleteModel method of repository.
+        /// Checks if the Model that needs to be deleted is proper. Searches based on Model Id.
         /// </summary>
-        /// <param name="name">name of the brand that needs to be deleted</param>
+        /// <param name="selection">Id of the model that needs to be deleted.</param>
         public void DeleteModel(string selection)
         {
             IEnumerable<car_models> models = this.repository.GetModelsRepo();
@@ -306,6 +283,10 @@ namespace CarShop.Logic
             }
         }
 
+        /// <summary>
+        /// Checks if the Extra-Model connection that needs to be deleted is proper.
+        /// </summary>
+        /// <param name="selection">Id of the connection that needs to be deleted.</param>
         public void DeleteConnection(string selection)
         {
             IEnumerable<model_extra_connection> connections = this.repository.GetExtraConnectionRepo();
@@ -332,9 +313,9 @@ namespace CarShop.Logic
         }
 
         /// <summary>
-        /// Calls DeleteExtra method of repository.
+        /// Checks if the Extra that needs to be deleted is proper. Searches based on Extra Id.
         /// </summary>
-        /// <param name="id">id of the extra that needs to be deleted</param>
+        /// <param name="selection">Id of the extra that needs to be deleted.</param>
         public void DeleteExtra(string selection)
         {
             IEnumerable<extra> extras = this.repository.GetExtraRepo();
@@ -359,12 +340,13 @@ namespace CarShop.Logic
         }
 
         /// <summary>
-        ///  Calls the Repository Method to update the database.
+        /// Checks if the values that will be updated are properly set.
         /// </summary>
-        /// <param name="name">updated name </param>
-        /// <param name="country">updated country </param>
-        /// <param name="founded">updated foundation date</param>
-        /// <param name="revenue">updated revenue</param>
+        /// <param name="newId">Id of the brand that needs to be updated.</param>
+        /// <param name="name">Updated name</param>
+        /// <param name="country">Updated country</param>
+        /// <param name="founded">new foundation date</param>
+        /// <param name="revenue">new revenu</param>m>
         public void UpdateBrandLogic(string newId, string name, string country, string founded, string revenue)
         {
             int toBeUpdated;
@@ -380,115 +362,17 @@ namespace CarShop.Logic
             {
                 throw new ArgumentException("Invalid parameters. Brand cannot be updated");
             }
-
-            //IEnumerable<car_brands> brands = this.repository.GetBrandsRepo();
-            //IEnumerable<int> brand_ids = brands.Select(b => b.id);
-            //int toBeUpdatedId;
-            //DateTime newDate = default(DateTime);
-            //int newRevenue = default(int);
-
-            //if (this.IsStringNumber(newId) && brand_ids.Contains(int.Parse(newId)))
-            //{
-            //    toBeUpdatedId = int.Parse(newId);
-
-            //    if (founded != string.Empty)
-            //    {
-            //        newDate = this.SetDate(founded);
-            //    }
-
-            //    if (revenue != string.Empty && this.IsStringNumber(revenue))
-            //    {
-            //        newRevenue = int.Parse(revenue);
-
-            //        if (newRevenue <= 0)
-            //        {
-            //            throw new ArgumentException("Revenue cannot be minus");
-            //        }
-            //    }
-
-            //    this.repository.UpdateBrandRepo(toBeUpdatedId, name, country, newDate, newRevenue);
-            //}
-            //else
-            //{
-            //    if (!this.IsStringNumber(newId))
-            //    {
-            //        throw new ArgumentException("Please select a number");
-            //    }
-            //    else
-            //    {
-            //        throw new ArgumentException("Brand cannot be found.Please select again");
-            //    }
-            //}
-
-            //if (this.IsStringNumber(id) && brand_ids.Contains(int.Parse(id)))
-            //{
-            //    toBeUpdatedId = int.Parse(id);
-
-            //    if (name != string.Empty)
-            //    {
-            //        newName = name;
-            //    }
-
-            //    if (country != string.Empty)
-            //    {
-            //        newCountry = country;
-            //    }
-
-            //    if (founded != string.Empty)
-            //    {
-
-            //        if (DateTime.TryParse(founded, out newDate))
-            //        {
-            //            string.Format("yyyy-MM-dd", newDate);
-
-            //            if (newDate.Year > DateTime.Now.Year || newDate.Month > 12 || newDate.Day > DateTime.DaysInMonth(newDate.Year, newDate.Month))
-            //            {
-            //                throw new InvalidDateFormatException("Invalid date. Please select a proper date prior to today's date");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            throw new InvalidDateFormatException("Invalid date format. Please use date format YYYY-MM-DD");
-            //        }
-
-            //    }
-
-            //    if (revenue != string.Empty && this.IsStringNumber(revenue))
-            //    {
-            //        newRevenue = int.Parse(revenue);
-
-            //        if (newRevenue < 0)
-            //        {
-            //            throw new ArgumentException("Revenue cannot be minus");
-            //        }
-            //    }
-
-            //    this.repository.UpdateBrandRepo(toBeUpdatedId, newName, newCountry, newDate, newRevenue);
-            //}
-            //else
-            //{
-            //    if (!this.IsStringNumber(id))
-            //    {
-            //        throw new ArgumentException("Please select a number");
-            //    }
-            //    else
-            //    {
-            //        throw new ArgumentException("Brand cannot be found.Please select again");
-            //    }
-            //}
-
         }
 
         /// <summary>
-        /// Calls the Repository Method to update the database.
+        /// Checks if the values that will be updated are properly set.
         /// </summary>
-        /// <param name="selected"> selected model's id </param>
-        /// <param name="brand_id"> new model's brand id</param>
-        /// <param name="name"> updated name</param>
-        /// <param name="productionStart">updated start date time </param>
-        /// <param name="engineSizem">updated engine size</param>
-        /// <param name="horsePower">updated horsepower</param>
-        /// <param name="startingPrice">updated starting price</param>
+        /// <param name="selected">Id of the model that will be updated.</param>
+        /// <param name="name">updated name</param>
+        /// <param name="productionStart">updated production start date</param>
+        /// <param name="engineSize">Updated engine size</param>
+        /// <param name="horsePower">Updated horsepower</param>
+        /// <param name="startingPrice">Updated starting price</param>
         public void UpdateModelLogic(string selected, string name, string productionStart, string engineSize, string horsePower, string startingPrice)
         {
             int selectedModelId;
@@ -506,42 +390,16 @@ namespace CarShop.Logic
             {
                 throw new ArgumentException("Invalid parameters. Model cannot be updated");
             }
-
-            //IEnumerable<car_models> models = this.repository.GetModelsRepo();
-            //IEnumerable<int> model_ids = models.Select(m => m.id);
-            //string newName = string.Empty;
-            //DateTime newStartDate = default(DateTime);
-            //int newEngineSize = default(int);
-            //int newHorsePower = default(int);
-            //int newStartPrice = default(int);
-
-            //if (this.IsStringNumber(selected) && model_ids.Contains(int.Parse(selected)))
-            //{
-            //    int toBeUpdated = int.Parse(selected);
-            //    newStartDate = this.SetDate(productionStart);
-
-            //}
-            //else
-            //{
-            //    if (!this.IsStringNumber(selected))
-            //    {
-            //        throw new ArgumentException("Please select a number");
-            //    }
-            //    else
-            //    {
-            //        throw new ArgumentException("Model cannot be found.Please select again");
-            //    }
-            //}
         }
 
         /// <summary>
-        /// 
+        /// Checks if the values that will be updated are properly set.
         /// </summary>
-        /// <param name="selected"></param>
-        /// <param name="catname"></param>
-        /// <param name="name"></param>
-        /// <param name="price"></param>
-        /// <param name="newReuse"></param>
+        /// <param name="selected">Id of the Extra that will be updated.</param>
+        /// <param name="catname">Updated category name</param>
+        /// <param name="name">updated extra name</param>
+        /// <param name="price">updated price </param>
+        /// <param name="newReuse">updated ruse field.</param>
         public void UpdateExtraLogic(string selected, string catname, string name, string price, string newReuse)
         {
             int selectedExtra;
