@@ -196,6 +196,23 @@
             Executes the menu's action
             </summary>
         </member>
+        <member name="T:CarShop.Console.MenuItems.GetDataFromJava">
+            <summary>
+            Creates Object that gets Data from Java Endpoint.
+            </summary>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.GetDataFromJava.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Console.MenuItems.GetDataFromJava"/> class.
+            </summary>
+            <param name="name">name of the menu</param>
+            <param name="command">command that invokes the menu</param>
+        </member>
+        <member name="M:CarShop.Console.MenuItems.GetDataFromJava.ExecuteMenuAction">
+            <summary>
+            Executes menu action
+            </summary>
+        </member>
         <member name="T:CarShop.Console.MenuItems.ListBrand">
             <summary>
             ListBrand Menu Action

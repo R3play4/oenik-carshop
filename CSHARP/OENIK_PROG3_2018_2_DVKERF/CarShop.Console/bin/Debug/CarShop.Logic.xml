@@ -45,6 +45,12 @@
             </summary>
             <returns>returns extra model connections</returns>
         </member>
+        <member name="M:CarShop.Logic.ILogic.GetFullNamePricesLogic">
+            <summary>
+            Joins car brands and car models and create a List of CarData Objects
+            </summary>
+            <returns>List of Car Data objects</returns>
+        </member>
         <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Checks the parameters of the new brand and forwards it to the repository if everything is correct.
@@ -186,6 +192,12 @@
             Gets the connection between the extra and the model from the repository.
             </summary>
             <returns>Returns a list of Extra and Model conencitons.</returns>
+        </member>
+        <member name="M:CarShop.Logic.Logic.GetFullNamePricesLogic">
+            <summary>
+            Joins car brands and car models and create a List of CarData Objects
+            </summary>
+            <returns>List of Car Data objects</returns>
         </member>
         <member name="M:CarShop.Logic.Logic.GetCountryBrandLogic">
             <summary>

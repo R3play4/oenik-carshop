@@ -53,6 +53,11 @@ namespace CarShop.Logic
         IEnumerable<model_extra_connection> GetConnectionLogic();
 
         /// <summary>
+        /// Joins car brands and car models and create a List of CarData Objects
+        /// </summary>
+        /// <returns>List of Car Data objects</returns>
+        IEnumerable<CarData> GetFullNamePricesLogic();
+        /// <summary>
         /// Checks the parameters of the new brand and forwards it to the repository if everything is correct.
         /// </summary>
         /// <param name="name">new name</param>

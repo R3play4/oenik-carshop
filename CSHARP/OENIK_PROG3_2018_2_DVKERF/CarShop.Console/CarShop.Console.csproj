@@ -64,10 +64,12 @@
     <Compile Include="MenuItems\DeleteConnection.cs" />
     <Compile Include="MenuItems\DeleteExtra.cs" />
     <Compile Include="MenuItems\DeleteModel.cs" />
+    <Compile Include="MenuItems\GetDataFromJava.cs" />
     <Compile Include="MenuItems\ListBrand.cs" />
     <Compile Include="MenuItems\ListBrandsModelsPerCountry.cs" />
     <Compile Include="MenuItems\ListExtra.cs" />
     <Compile Include="MenuItems\ListExtraPerModel.cs" />
+    <Compile Include="MenuItems\ListFullNamesAndPrices.cs" />
     <Compile Include="MenuItems\ListModel.cs" />
     <Compile Include="MenuItems\UpdateBrand.cs" />
     <Compile Include="MenuItems\UpdateExtra.cs" />

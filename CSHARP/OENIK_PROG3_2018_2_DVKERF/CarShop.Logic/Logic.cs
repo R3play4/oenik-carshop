@@ -90,6 +90,22 @@ namespace CarShop.Logic
         }
 
         /// <summary>
+        /// Joins car brands and car models and create a List of CarData Objects
+        /// </summary>
+        /// <returns>List of Car Data objects</returns>
+        public IEnumerable<CarData> GetFullNamePricesLogic()
+        {
+            IEnumerable<car_brands> brands = this.repository.GetBrandsRepo();
+            IEnumerable<car_models> models = this.repository.GetModelsRepo();
+
+            IEnumerable<CarData> result = from br in brands
+                                          join mod in models on br.id equals mod.brand_id
+                                          select new CarData(mod.id, br.name + " " + mod.name, mod.starting_price);
+
+            return result;
+        }
+
+        /// <summary>
         /// Get Countries and Brands from the repository. Joins Brands and Modles table.
         /// </summary>
         /// <returns>Returns a list of objects from Brands and Models table. </returns>

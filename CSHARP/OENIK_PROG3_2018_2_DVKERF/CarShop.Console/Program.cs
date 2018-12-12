@@ -23,13 +23,14 @@ namespace CarShop.Console
         {
             // Initiating Menu
             MainMenu menu = new MainMenu();
-            Console.WriteLine("DVKERF");
+
             SubMenu list = new SubMenu("List", "L");
             list.SubMenuItems.Add(new ListBrand("List Brand", "LB"));
             list.SubMenuItems.Add(new ListModel("List Model", "LM"));
             list.SubMenuItems.Add(new ListExtraPerModel("List Extra Per Model", "LEM"));
             list.SubMenuItems.Add(new ListExtra("List Extra", "LE"));
             list.SubMenuItems.Add(new ListBrandsModelsPerCountry("List Brands and Models Per Country", "LBM"));
+            list.SubMenuItems.Add(new GetDataFromJava("List data from Java Endpoint", "J"));
             menu.SubMenus.Add(list);
 
             SubMenu create = new SubMenu("Create", "C");
@@ -49,6 +50,7 @@ namespace CarShop.Console
             delete.SubMenuItems.Add(new DeleteModel("Delete Model", "DM"));
             delete.SubMenuItems.Add(new DeleteExtra("Delete Extra", "DE"));
             delete.SubMenuItems.Add(new DeleteConnection("Delete Extra - Model connection", "DEM"));
+
             menu.SubMenus.Add(delete);
 
             menu.StartMenu();
