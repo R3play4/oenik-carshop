@@ -208,5 +208,15 @@
             <param name="horsePower">updated horsepower</param>
             <param name="startingPrice">updated starting price.</param>
         </member>
+        <member name="M:CarShop.Repository.Repository.UpdateExtraRepo(System.Int32,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Gets the id of the Extra that needs to be updated. Sets the new values based on the parameters.
+            </summary>
+            <param name="selected">id of the extra that needs to be updated</param>
+            <param name="catname">updated category name</param>
+            <param name="name">updated name of the extra</param>
+            <param name="price">updated price </param>
+            <param name="newReuse">updated value of reuseable field.</param>
+        </member>
     </members>
 </doc>
