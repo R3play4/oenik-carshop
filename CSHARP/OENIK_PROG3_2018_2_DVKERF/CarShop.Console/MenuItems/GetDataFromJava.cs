@@ -35,8 +35,19 @@ namespace CarShop.Console.MenuItems
             IEnumerable<CarData> cars = this.LogicContact.GetFullNamePricesLogic();
             try
             {
-                CarData test = this.SelectCar(cars.ToList());
-                Console.WriteLine(test.FullName);
+                CarData selected = this.SelectCar(cars.ToList());
+                string carName = selected.FullName;
+                string price = selected.Price.ToString();
+                XDocument data = XDocument.Load("http://localhost:8080/OENIK_PROG3_2018_2_DVKERF_war_exploded/RandomPriceGenerator?carname=" + carName + "&" + "price=" + price);
+
+                var names = data.Root.Elements("cardata").Elements("name").ToList();
+                var prices = data.Root.Elements("cardata").Elements("price").ToList();
+
+                for (int i = 0; i < names.Count(); i++)
+                {
+                    Console.WriteLine("{0} - {1}", names[i].Value, prices[i].Value);
+                }
+
                 Console.ReadLine();
             }
             catch (Exception e)
