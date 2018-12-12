@@ -23,7 +23,7 @@ namespace CarShop.Console
         {
             // Initiating Menu
             MainMenu menu = new MainMenu();
-
+            
             SubMenu list = new SubMenu("List", "L");
             list.SubMenuItems.Add(new ListBrand("List Brand", "LB"));
             list.SubMenuItems.Add(new ListModel("List Model", "LM"));
