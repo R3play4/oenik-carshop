@@ -57,26 +57,27 @@ namespace CarShop.Logic
         /// </summary>
         /// <returns>List of Car Data objects</returns>
         IEnumerable<CarData> GetFullNamePricesLogic();
+
         /// <summary>
         /// Checks the parameters of the new brand and forwards it to the repository if everything is correct.
         /// </summary>
         /// <param name="name">new name</param>
         /// <param name="country">new country</param>
         /// <param name="url">new url it can be null</param>
-        /// <param name="date">new date </param>
+        /// <param name="foundationDate">new date </param>
         /// <param name="revenue">new reveneu </param>
-        void CreateBrandLogic(string name, string country, string url, string date, string revenue);
+        void CreateBrandLogic(string name, string country, string url, string foundationDate, string revenue);
 
         /// <summary>
         /// Checks the parameters of the new model and forwards it to the repository if everything is correct.
         /// </summary>
         /// <param name="id">new id of the brand of the model</param>
         /// <param name="name">new name</param>
-        /// <param name="start_date">new production start date</param>
-        /// <param name="engine_size">new engine size</param>
+        /// <param name="startDate">new production start date</param>
+        /// <param name="engineSize">new engine size</param>
         /// <param name="horsepower">new horspower</param>
         /// <param name="price">new price</param>
-        void CreateModelLogic(string id, string name, string start_date, string engine_size, string horsepower, string price);
+        void CreateModelLogic(string id, string name, string startDate, string engineSize, string horsepower, string price);
 
         /// <summary>
         /// Checks the parameters of the new extra and forwards it to the repository if everything is correct.

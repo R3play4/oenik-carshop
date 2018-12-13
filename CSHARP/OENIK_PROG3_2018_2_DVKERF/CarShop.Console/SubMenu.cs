@@ -108,7 +108,7 @@ namespace CarShop.Console
         {
             this.goBack = false;
 
-            while (!goBack)
+            while (!this.goBack)
             {
                 this.DisplayMenu();
                 this.SelectMenuItem();

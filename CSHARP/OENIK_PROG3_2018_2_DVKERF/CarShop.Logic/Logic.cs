@@ -67,6 +67,10 @@ namespace CarShop.Logic
             return models;
         }
 
+        /// <summary>
+        /// Gets extra model connections from table. Only the ids will be returened. (No Join)
+        /// </summary>
+        /// <returns>return content of model extra table</returns>
         public IEnumerable<model_extra_connection> GetConnectionLogic()
         {
             return this.repository.GetExtraConnectionRepo();
@@ -148,40 +152,12 @@ namespace CarShop.Logic
                 newBrand.yearly_revenue = newRevenue;
                 this.repository.CreateBrandRepo(newBrand);
             }
-
-            //car_brands newBrand = new car_brands();
-
-            //if (name == string.Empty || country == string.Empty || revenue < 0)
-            //{
-            //    throw new ArgumentException();
-            //}
-            //else
-            //{
-            //    newBrand.name = name;
-            //    newBrand.country = country;
-            //    newBrand.yearly_revenue = revenue;
-            //}
-
-            //newBrand.url = url;
-
-            //// erre kéne validálni
-            //try
-            //{
-            //    newBrand.founded = DateTime.Parse(date);
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //    Console.WriteLine("Invalid Date Format");
-            //}
-
-            //this.repository.CreateBrandRepo(newBrand);
         }
 
         /// <summary>
         /// Checks the parameters of the new model and forwards it to the repository if everything is correct.
         /// </summary>
-        /// <param name="id">new id of the brand of the model</param>
+        /// <param name="brandId">new id of the brand of the model</param>
         /// <param name="name">new name</param>
         /// <param name="start_date">new production start date</param>
         /// <param name="engine_size">new engine size</param>

@@ -15,7 +15,7 @@ namespace CarShop.Repository
     /// <summary>
     /// Implements CRUD operations. Comunicates with Data Entities.
     /// </summary>
-    public class Repository : IRepository
+    public class Repository : IRepository, IDisposable
     {
         /// <summary>
         /// database connection
@@ -295,6 +295,14 @@ namespace CarShop.Repository
             }
 
             this.database.SaveChanges();
+        }
+
+        /// <summary>
+        /// Dispose es the Entity context
+        /// </summary>
+        public void Dispose()
+        {
+            this.database.Dispose();
         }
     }
 }

@@ -32,3 +32,6 @@ c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\
 c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Logic.Tests\bin\Debug\System.Threading.Tasks.Extensions.xml
 c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Logic.Tests\bin\Debug\System.ValueTuple.xml
 c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Logic.Tests\bin\Debug\EntityFramework.xml
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Logic.Tests\bin\Debug\CarShop.Logic.Tests.XML
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Logic.Tests\bin\Debug\CarShop.Logic.Tests.dll.CodeAnalysisLog.xml
+c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Logic.Tests\bin\Debug\CarShop.Logic.Tests.dll.lastcodeanalysissucceeded

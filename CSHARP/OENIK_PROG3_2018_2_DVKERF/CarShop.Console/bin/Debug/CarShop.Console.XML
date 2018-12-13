@@ -366,7 +366,7 @@
             Main Class. Includes Entry point (Main method)
             </summary>
         </member>
-        <member name="M:CarShop.Console.Program.Main(System.String[])">
+        <member name="M:CarShop.Console.Program.Main">
             <summary>
             Entry point -> Main Method
             </summary>

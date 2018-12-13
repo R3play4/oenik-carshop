@@ -65,6 +65,7 @@ namespace CarShop.Console.MenuItems
                 Console.WriteLine(e.Message);
                 Console.ReadLine();
             }
+
             Console.ReadLine();
         }
 

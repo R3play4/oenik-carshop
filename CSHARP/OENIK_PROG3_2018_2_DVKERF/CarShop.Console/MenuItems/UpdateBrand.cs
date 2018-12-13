@@ -4,13 +4,14 @@
 
 namespace CarShop.Console.MenuItems
 {
-    using Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
     using CarShop.Logic;
+    using Data;
+
     /// <summary>
     /// ListBrand Menu Action
     /// </summary>
@@ -69,7 +70,7 @@ namespace CarShop.Console.MenuItems
         {
             IEnumerable<car_brands> brands = this.LogicContact.GetBrandsLogic();
 
-            foreach (var brand in brands )
+            foreach (var brand in brands)
             {
                 Console.WriteLine("{0} - {1}", brand.id, brand.name);
             }

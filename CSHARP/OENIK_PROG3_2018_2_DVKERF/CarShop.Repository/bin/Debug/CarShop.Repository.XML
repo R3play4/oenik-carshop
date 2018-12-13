@@ -218,5 +218,10 @@
             <param name="price">updated price </param>
             <param name="newReuse">updated value of reuseable field.</param>
         </member>
+        <member name="M:CarShop.Repository.Repository.Dispose">
+            <summary>
+            Dispose es the Entity context
+            </summary>
+        </member>
     </members>
 </doc>

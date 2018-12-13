@@ -1,4 +1,8 @@
-﻿namespace CarShop.Logic
+﻿// <copyright file="InvalidDateFormatException.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace CarShop.Logic
 {
     using System;
     using System.Collections.Generic;

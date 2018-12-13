@@ -4,5 +4,33 @@
         <name>CarShop.Data</name>
     </assembly>
     <members>
+        <member name="T:CarShop.Data.CarData">
+            <summary>
+            Class that holds Car full name and pricess. Will be used by the Java Endpoint.
+            </summary>
+        </member>
+        <member name="M:CarShop.Data.CarData.#ctor(System.Int32,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Data.CarData"/> class.
+            </summary>
+            <param name="id">id of the car</param>
+            <param name="fullname">full name of the car.</param>
+            <param name="price">price of the car</param>
+        </member>
+        <member name="P:CarShop.Data.CarData.Id">
+            <summary>
+            Gets or sets Id of a given Car
+            </summary>
+        </member>
+        <member name="P:CarShop.Data.CarData.FullName">
+            <summary>
+            Gets or sets FullName of a car( Brand + Model name combo)
+            </summary>
+        </member>
+        <member name="P:CarShop.Data.CarData.Price">
+            <summary>
+            Gets or sets price of a car
+            </summary>
+        </member>
     </members>
 </doc>

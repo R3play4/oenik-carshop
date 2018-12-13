@@ -21,7 +21,7 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         /// <param name="name"> name of the menu </param>
         /// <param name="command">command that calls this menu </param>
-        public DeleteConnection(string name, string command) 
+        public DeleteConnection(string name, string command)
             : base(name, command)
         {
         }

@@ -55,6 +55,5 @@ namespace CarShop.Console.MenuItems
                 Console.WriteLine("{0} - {1}", model.id, model.name);
             }
         }
-
     }
 }

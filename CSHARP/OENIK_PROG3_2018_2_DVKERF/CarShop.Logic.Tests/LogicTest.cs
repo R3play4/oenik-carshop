@@ -1,4 +1,8 @@
-﻿namespace CarShop.Logic.Tests
+﻿// <copyright file="LogicTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace CarShop.Logic.Tests
 {
     using System;
     using System.Collections.Generic;
@@ -10,11 +14,17 @@
     using Moq;
     using NUnit.Framework;
 
+    /// <summary>
+    /// Test Class
+    /// </summary>
     [TestFixture]
     public class LogicTest
     {
         private Mock<IRepository> mockedRepository;
 
+        /// <summary>
+        /// Sets up mocked repository.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -51,9 +61,11 @@
             this.mockedRepository
                 .Setup(m => m.GetExtraConnectionRepo())
                 .Returns(new[] { connection1, connection2, connection3 });
-
         }
 
+        /// <summary>
+        /// Checks if proper Brand is returned by the logic.
+        /// </summary>
         [Test]
         public void WhenGettingBrandsFromDb_GetsBrands()
         {
@@ -67,9 +79,11 @@
             // Assert
             Assert.That(result.Count(), Is.EqualTo(3));
             Assert.That(result.SingleOrDefault(x => x.name == "Ferari"), Is.Not.Null);
-
         }
 
+        /// <summary>
+        /// Checks if proper Model is returned by the logic.
+        /// </summary>
         [Test]
         public void WhenGettingModelsFromDb_GetsModels()
         {
@@ -85,6 +99,9 @@
             Assert.That(result.SingleOrDefault(x => x.name == "406"), Is.Not.Null);
         }
 
+        /// <summary>
+        /// Checks if proper Extra is returned by the logic.
+        /// </summary>
         [Test]
         public void WhenGettingExtrasFromDb_GetsExtras()
         {
@@ -100,6 +117,9 @@
             Assert.That(result.SingleOrDefault(x => x.name == "turbo"), Is.Not.Null);
         }
 
+        /// <summary>
+        /// Checks if proper extra connection is returned.
+        /// </summary>
         [Test]
         public void WhenGettingExtraConnections_GetsExtraConnections()
         {
@@ -110,9 +130,16 @@
 
             Assert.That(result.Count(), Is.EqualTo(3));
             Assert.That(result.SingleOrDefault(x => x.id == 3), Is.Not.Null);
-
         }
 
+        /// <summary>
+        /// Tests if the values for the new Brands are properly set by the user.
+        /// </summary>
+        /// <param name="name">new name</param>
+        /// <param name="country">new country</param>
+        /// <param name="url">new url</param>
+        /// <param name="date">new date</param>
+        /// <param name="revenue">new revenue</param>
         [TestCase("", "Germany", "test.hu", "2018-01-01", "2000")]
         [TestCase("Audi", "", "test.hu", "2018-01-01", "2000")]
         [TestCase("Audi", "Germany", "test.hu", "2018-01-01", "-1000")]
@@ -123,6 +150,15 @@
             Assert.Throws(typeof(ArgumentException), () => logic.CreateBrandLogic(name, country, url, date, revenue));
         }
 
+        /// <summary>
+        /// Tests if the values for the new Model are properly set by the user.
+        /// </summary>
+        /// <param name="id">new id</param>
+        /// <param name="name">new name</param>
+        /// <param name="start_date">new date</param>
+        /// <param name="engine_size">new size</param>
+        /// <param name="horsepower">new horsepower</param>
+        /// <param name="price">new price</param>
         [TestCase("1", "", "2018-01-01", "300", "400", "10000")]
         [TestCase("1", "Valami", "2018-01-01", "300", "-400", "10000")]
         [TestCase("1", "Ferrari", "2018-01-01", "300", "400", "-10000")]
@@ -134,6 +170,14 @@
             Assert.Throws(typeof(ArgumentException), () => logic.CreateModelLogic(id, name, start_date, engine_size, horsepower, price));
         }
 
+        /// <summary>
+        /// Tests if the values for the new Extra are properly set by the user.
+        /// </summary>
+        /// <param name="categoryName">new category name</param>
+        /// <param name="extraName">new extra name</param>
+        /// <param name="color">new color</param>
+        /// <param name="price">new price</param>
+        /// <param name="reusable">new reusebla value</param>
         [TestCase("", "extra", "black", "1400", "1")]
         [TestCase("test", "extra", "black", "-1400", "1")]
         [TestCase("test", "extra", "black", "1400", "3")]
@@ -144,6 +188,10 @@
             Assert.Throws(typeof(ArgumentException), () => logic.CreateExtraLogic(categoryName, extraName, color, price, reusable));
         }
 
+        /// <summary>
+        /// Checks logic thorws exception when user tries to delete with bad parameters
+        /// </summary>
+        /// <param name="selection">id of the brand that needs to be deleted</param>
         [TestCase("id")]
         [TestCase("6")]
         [TestCase("4")]
@@ -160,6 +208,10 @@
                 m => m.DeleteBrandRepo(It.IsAny<car_brands>()), Times.Never);
         }
 
+        /// <summary>
+        /// Checks if repository was called once
+        /// </summary>
+        /// <param name="selection">id of the brand</param>
         [TestCase("1")]
         [TestCase("2")]
         [TestCase("3")]
@@ -175,9 +227,12 @@
 
             // Assert (Verify)
             this.mockedRepository.Verify(m => m.DeleteBrandRepo(It.IsAny<car_brands>()), Times.AtLeastOnce);
-
         }
 
+        /// <summary>
+        /// Checks logic thorws exception when user tries to delete with bad parameters
+        /// </summary>
+        /// <param name="selection">id of the model that needs to be deleted.</param>
         [TestCase("id")]
         [TestCase("7")]
         [TestCase("-1")]
@@ -189,6 +244,10 @@
             Assert.Throws(typeof(ArgumentException), () => logic.DeleteModel(selection));
         }
 
+        /// <summary>
+        /// Checks if repository was called once
+        /// </summary>
+        /// <param name="selection">id of the model</param>
         [TestCase("1")]
         [TestCase("2")]
         [TestCase("3")]
@@ -199,9 +258,13 @@
             // this.mockedRepository.Setup(m => m.DeleteModelRepo(It.IsAny<car_models>()));
             logic.SetRepositoryInterface(this.mockedRepository.Object);
             logic.DeleteModel(selection);
-            this.mockedRepository.Verify(m => m.DeleteModelRepo(It.IsAny<car_models>()),Times.Once);
+            this.mockedRepository.Verify(m => m.DeleteModelRepo(It.IsAny<car_models>()), Times.Once);
         }
 
+        /// <summary>
+        /// Checks logic thorws exception when user tries to delete with bad parameters
+        /// </summary>
+        /// <param name="selection">id of the extra that needs to be deleted</param>
         [TestCase("id")]
         [TestCase("4")]
         [TestCase("5")]
@@ -213,6 +276,10 @@
             Assert.Throws(typeof(ArgumentException), () => logic.DeleteExtra(selection));
         }
 
+        /// <summary>
+        /// Checks if repository was called once
+        /// </summary>
+        /// <param name="selection">id of the extra</param>
         public void WhenDeletingExtra_RepositoryIsCalled(string selection)
         {
             Logic logic = new Logic();
@@ -223,10 +290,18 @@
             this.mockedRepository.Verify(m => m.DeleteExtraRepo(It.IsAny<extra>()), Times.Once);
         }
 
+        /// <summary>
+        /// Checks logic thorws exception when user tries to update with bad parameters
+        /// </summary>
+        /// <param name="id">brand id</param>
+        /// <param name="name">brand name</param>
+        /// <param name="country">brand country</param>
+        /// <param name="founded">foundation date</param>
+        /// <param name="revenue">revenue</param>
         [TestCase("1", "", "", "2019-01-01", "")]
         [TestCase("2", "", "", "Invalid Date", "")]
         [TestCase("3", "", "", "2010-13-04", "")]
-        public void WhenUpdatingBrandWithInvalidValues_ExceptionThrwon (string id, string name, string country, string founded, string revenue)
+        public void WhenUpdatingBrandWithInvalidValues_ExceptionThrwon(string id, string name, string country, string founded, string revenue)
         {
             Logic logic = new Logic();
             logic.SetRepositoryInterface(this.mockedRepository.Object);

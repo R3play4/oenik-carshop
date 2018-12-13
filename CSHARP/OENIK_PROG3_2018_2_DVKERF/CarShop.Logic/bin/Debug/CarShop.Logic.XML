@@ -58,7 +58,7 @@
             <param name="name">new name</param>
             <param name="country">new country</param>
             <param name="url">new url it can be null</param>
-            <param name="date">new date </param>
+            <param name="foundationDate">new date </param>
             <param name="revenue">new reveneu </param>
         </member>
         <member name="M:CarShop.Logic.ILogic.CreateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
@@ -67,8 +67,8 @@
             </summary>
             <param name="id">new id of the brand of the model</param>
             <param name="name">new name</param>
-            <param name="start_date">new production start date</param>
-            <param name="engine_size">new engine size</param>
+            <param name="startDate">new production start date</param>
+            <param name="engineSize">new engine size</param>
             <param name="horsepower">new horspower</param>
             <param name="price">new price</param>
         </member>
@@ -187,6 +187,12 @@
             </summary>
             <returns>List of models from the repo</returns>
         </member>
+        <member name="M:CarShop.Logic.Logic.GetConnectionLogic">
+            <summary>
+            Gets extra model connections from table. Only the ids will be returened. (No Join)
+            </summary>
+            <returns>return content of model extra table</returns>
+        </member>
         <member name="M:CarShop.Logic.Logic.GetExtraModelLogic">
             <summary>
             Gets the connection between the extra and the model from the repository.
@@ -219,7 +225,7 @@
             <summary>
             Checks the parameters of the new model and forwards it to the repository if everything is correct.
             </summary>
-            <param name="id">new id of the brand of the model</param>
+            <param name="brandId">new id of the brand of the model</param>
             <param name="name">new name</param>
             <param name="start_date">new production start date</param>
             <param name="engine_size">new engine size</param>

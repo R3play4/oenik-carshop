@@ -31,7 +31,6 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-
             Console.WriteLine("Category:");
             string categoryName = Console.ReadLine();
 

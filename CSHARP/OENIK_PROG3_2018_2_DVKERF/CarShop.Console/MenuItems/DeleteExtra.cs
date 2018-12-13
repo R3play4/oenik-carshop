@@ -52,7 +52,7 @@ namespace CarShop.Console.MenuItems
 
             foreach (var model in models)
             {
-                Console.WriteLine("{0} - {1}" , model.id, model.name);
+                Console.WriteLine("{0} - {1}", model.id, model.name);
             }
         }
     }
