@@ -43,9 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ILogic.cs" />
-    <Compile Include="InvalidDateFormatException.cs" />
-    <Compile Include="Logic.cs" />
+    <Compile Include="ICarLogic.cs" />
+    <Compile Include="InvalidParameterException.cs" />
+    <Compile Include="CarLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

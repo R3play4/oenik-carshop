@@ -20,5 +20,3 @@ c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\
 c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Repository.xml
 c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Data.pdb
 c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Data.xml
-c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Console.exe.CodeAnalysisLog.xml
-c:\Users\R3pl4y\Documents\Saját Dokkumentumok\OE NIK\2018 - 1. Félév\Webprog\Beadando\CSHARP\OENIK_PROG3_2018_2_DVKERF\CarShop.Console\bin\Debug\CarShop.Console.exe.lastcodeanalysissucceeded

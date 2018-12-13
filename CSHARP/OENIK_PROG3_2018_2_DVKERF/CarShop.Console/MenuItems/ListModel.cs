@@ -31,7 +31,7 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            IEnumerable<car_models> models = this.LogicContact.GetModelsLogic();
+            IEnumerable<CarModels> models = this.LogicContact.ListModelLogic();
             this.DisplayModels(models);
             Console.ReadLine();
         }
@@ -40,7 +40,7 @@ namespace CarShop.Console.MenuItems
         /// Gets the models from the logic, and displays it.
         /// </summary>
         /// <param name="models">models that was received from the logic layer and neds to be displayed</param>
-        private void DisplayModels(IEnumerable<car_models> models)
+        private void DisplayModels(IEnumerable<CarModels> models)
         {
             var result = models.Select(b => new
             {

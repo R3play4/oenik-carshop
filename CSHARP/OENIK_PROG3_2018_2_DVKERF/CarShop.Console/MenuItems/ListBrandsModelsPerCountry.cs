@@ -30,7 +30,7 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            IEnumerable<object> countryBrands = this.LogicContact.GetCountryBrandLogic();
+            IEnumerable<object> countryBrands = this.LogicContact.ListCountryBrandLogic();
             this.Display(countryBrands);
             Console.ReadLine();
         }

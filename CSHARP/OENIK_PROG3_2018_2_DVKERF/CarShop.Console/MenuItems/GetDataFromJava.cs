@@ -11,6 +11,7 @@ namespace CarShop.Console.MenuItems
     using System.Threading.Tasks;
     using System.Xml.Linq;
     using Data;
+    using Logic;
 
     /// <summary>
     /// Creates Object that gets Data from Java Endpoint.
@@ -32,7 +33,7 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            IEnumerable<CarData> cars = this.LogicContact.GetFullNamePricesLogic();
+            IEnumerable<CarData> cars = this.LogicContact.ListFullNamePricesLogic();
             try
             {
                 CarData selected = this.SelectCar(cars.ToList());
@@ -50,9 +51,14 @@ namespace CarShop.Console.MenuItems
 
                 Console.ReadLine();
             }
-            catch (Exception e)
+            catch (InvalidParameterException e)
             {
                 Console.WriteLine(e.Message);
+                Console.ReadLine();
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
                 Console.ReadLine();
             }
         }
@@ -79,7 +85,7 @@ namespace CarShop.Console.MenuItems
             }
             else
             {
-                throw new Exception("Incorrect id was selected");
+                throw new InvalidParameterException("Incorrect id was selected");
             }
         }
     }

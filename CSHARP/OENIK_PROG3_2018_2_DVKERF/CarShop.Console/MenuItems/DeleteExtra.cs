@@ -48,7 +48,7 @@ namespace CarShop.Console.MenuItems
 
         private void DisplayOptions()
         {
-            IEnumerable<car_models> models = this.LogicContact.GetModelsLogic();
+            IEnumerable<CarModels> models = this.LogicContact.ListModelLogic();
 
             foreach (var model in models)
             {

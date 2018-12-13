@@ -60,7 +60,7 @@ namespace CarShop.Console.MenuItems
                 Console.WriteLine(e.Message);
                 Console.ReadLine();
             }
-            catch (InvalidDateFormatException e)
+            catch (InvalidParameterException e)
             {
                 Console.WriteLine(e.Message);
                 Console.ReadLine();
@@ -71,11 +71,11 @@ namespace CarShop.Console.MenuItems
 
         private void DisplayBrands()
         {
-            IEnumerable<car_brands> brands = this.LogicContact.GetBrandsLogic();
+            IEnumerable<CarBrands> brands = this.LogicContact.ListBrandLogic();
 
             foreach (var brand in brands)
             {
-                Console.WriteLine("{0} - {1}", brand.id, brand.name);
+                Console.WriteLine("{0} - {1}", brand.Id, brand.Name);
             }
         }
     }

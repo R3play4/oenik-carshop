@@ -18,7 +18,6 @@ namespace CarShop.Console
         /// <summary>
         /// Entry point -> Main Method
         /// </summary>
-        /// <param name="args">arguments</param>
         internal static void Main(/*string[] args*/)
         {
             // Initiating Menu

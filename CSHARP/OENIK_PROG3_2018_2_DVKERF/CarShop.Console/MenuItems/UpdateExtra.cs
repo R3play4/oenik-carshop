@@ -56,7 +56,7 @@ namespace CarShop.Console.MenuItems
 
         private void DisplayExtra()
         {
-            IEnumerable<extra> extras = this.LogicContact.GetExtraLogic();
+            IEnumerable<Extras> extras = this.LogicContact.ListExtraLogic();
 
             foreach (var extra in extras)
             {

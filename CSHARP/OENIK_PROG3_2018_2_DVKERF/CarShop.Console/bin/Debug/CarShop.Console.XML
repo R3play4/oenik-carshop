@@ -230,7 +230,7 @@
             Executes the menu's action
             </summary>
         </member>
-        <member name="M:CarShop.Console.MenuItems.ListBrand.DisplayBrands(System.Collections.Generic.IEnumerable{CarShop.Data.car_brands})">
+        <member name="M:CarShop.Console.MenuItems.ListBrand.DisplayBrands(System.Collections.Generic.IEnumerable{CarShop.Data.CarBrands})">
             <summary>
             Gets the brands from the logic, and displays it.
             </summary>
@@ -304,7 +304,7 @@
             Executes the menu's action
             </summary>
         </member>
-        <member name="M:CarShop.Console.MenuItems.ListModel.DisplayModels(System.Collections.Generic.IEnumerable{CarShop.Data.car_models})">
+        <member name="M:CarShop.Console.MenuItems.ListModel.DisplayModels(System.Collections.Generic.IEnumerable{CarShop.Data.CarModels})">
             <summary>
             Gets the models from the logic, and displays it.
             </summary>
@@ -370,7 +370,6 @@
             <summary>
             Entry point -> Main Method
             </summary>
-            <param name="args">arguments</param>
         </member>
         <member name="T:CarShop.Console.SubMenu">
             <summary>

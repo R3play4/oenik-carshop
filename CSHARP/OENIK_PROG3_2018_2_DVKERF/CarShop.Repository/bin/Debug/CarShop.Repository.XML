@@ -4,78 +4,78 @@
         <name>CarShop.Repository</name>
     </assembly>
     <members>
-        <member name="T:CarShop.Repository.IRepository">
+        <member name="T:CarShop.Repository.ICarRepository">
             <summary>
             Declares CRUD operations. Comunicates with Data Entities.
             </summary>
         </member>
-        <member name="M:CarShop.Repository.IRepository.GetBrandsRepo">
+        <member name="M:CarShop.Repository.ICarRepository.ListBrandsRepo">
             <summary>
             Gets an enumerable list from the db that holds car brands
             </summary>
             <returns>List of car brands</returns>
         </member>
-        <member name="M:CarShop.Repository.IRepository.GetModelsRepo">
+        <member name="M:CarShop.Repository.ICarRepository.ListModelsRepo">
             <summary>
             Gets all the models from the DB
             </summary>
             <returns>List of models</returns>
         </member>
-        <member name="M:CarShop.Repository.IRepository.GetExtraRepo">
+        <member name="M:CarShop.Repository.ICarRepository.ListExtraRepo">
             <summary>
             Gets a list of Extras from the DB
             </summary>
             <returns>List of extras</returns>
         </member>
-        <member name="M:CarShop.Repository.IRepository.GetExtraConnectionRepo">
+        <member name="M:CarShop.Repository.ICarRepository.ListExtraConnectionRepo">
             <summary>
             Gets a list of Extra-Model connection from the DB.
             </summary>
             <returns>returns extra and model connections</returns>
         </member>
-        <member name="M:CarShop.Repository.IRepository.CreateBrandRepo(CarShop.Data.car_brands)">
+        <member name="M:CarShop.Repository.ICarRepository.CreateBrandRepo(CarShop.Data.CarBrands)">
             <summary>
             Creates new brand in the database
             </summary>
             <param name="brand">name of the new brand</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.CreateModelRepo(CarShop.Data.car_models)">
+        <member name="M:CarShop.Repository.ICarRepository.CreateModelRepo(CarShop.Data.CarModels)">
             <summary>
             Creates new model in the database
             </summary>
             <param name="model">the new model that needs to be created.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.CreateExtraRepo(CarShop.Data.extra)">
+        <member name="M:CarShop.Repository.ICarRepository.CreateExtraRepo(CarShop.Data.Extras)">
             <summary>
             Creates new extra in the database
             </summary>
             <param name="newExtra">the new model that needs to be created.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.DeleteBrandRepo(CarShop.Data.car_brands)">
+        <member name="M:CarShop.Repository.ICarRepository.DeleteBrandRepo(CarShop.Data.CarBrands)">
             <summary>
             Deletes Brand from the databse.
             </summary>
             <param name="brand">brand that needs to be delted.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.DeleteModelRepo(CarShop.Data.car_models)">
+        <member name="M:CarShop.Repository.ICarRepository.DeleteModelRepo(CarShop.Data.CarModels)">
             <summary>
             Deletes Model from the databse.
             </summary>
             <param name="model">model that needs to be delted.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.DeleteExtraRepo(CarShop.Data.extra)">
+        <member name="M:CarShop.Repository.ICarRepository.DeleteExtraRepo(CarShop.Data.Extras)">
             <summary>
             Deletes Extra from the databse.
             </summary>
             <param name="extra">extra that needs to be delted.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.DeleteConnectionRepo(CarShop.Data.model_extra_connection)">
+        <member name="M:CarShop.Repository.ICarRepository.DeleteConnectionRepo(CarShop.Data.ModelExtraConnection)">
             <summary>
             Deletes Extra-Model connesction from the databse.
             </summary>
             <param name="connection">Connection that needs to be deleted.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.UpdateBrandRepo(System.Int32,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32})">
+        <member name="M:CarShop.Repository.ICarRepository.UpdateBrandRepo(System.Int32,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32})">
             <summary>
             Calls repository to update selected brand.
             </summary>
@@ -85,7 +85,7 @@
             <param name="founded">updated foundation date</param>
             <param name="revenue">updated revenue</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.UpdateModelRepo(System.Int32,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+        <member name="M:CarShop.Repository.ICarRepository.UpdateModelRepo(System.Int32,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             Gets the id of the Model that needs to be updated. Sets the new values based on the parameters.
             </summary>
@@ -96,7 +96,7 @@
             <param name="horsePower">updated horsepower</param>
             <param name="startingPrice">updated starting price.</param>
         </member>
-        <member name="M:CarShop.Repository.IRepository.UpdateExtraRepo(System.Int32,System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:CarShop.Repository.ICarRepository.UpdateExtraRepo(System.Int32,System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Gets the id of the Extra that needs to be updated. Sets the new values based on the parameters.
             </summary>
@@ -106,88 +106,88 @@
             <param name="price">updated price </param>
             <param name="newReuse">updated value of reuseable field.</param>
         </member>
-        <member name="T:CarShop.Repository.Repository">
+        <member name="T:CarShop.Repository.CarRepository">
             <summary>
             Implements CRUD operations. Comunicates with Data Entities.
             </summary>
         </member>
-        <member name="F:CarShop.Repository.Repository.database">
+        <member name="M:CarShop.Repository.CarRepository.#ctor">
             <summary>
-            database connection
+            Initializes a new instance of the <see cref="T:CarShop.Repository.CarRepository"/> class.
             </summary>
         </member>
-        <member name="M:CarShop.Repository.Repository.#ctor">
+        <member name="P:CarShop.Repository.CarRepository.DataBase">
             <summary>
-            Initializes a new instance of the <see cref="T:CarShop.Repository.Repository"/> class.
+            Gets or sets gets or Sets an instance of a Databese Entity
             </summary>
         </member>
-        <member name="M:CarShop.Repository.Repository.GetBrandsRepo">
+        <member name="M:CarShop.Repository.CarRepository.ListBrandsRepo">
             <summary>
             Gets a list of Brands from the DB
             </summary>
             <returns>List of brands</returns>
         </member>
-        <member name="M:CarShop.Repository.Repository.GetExtraRepo">
+        <member name="M:CarShop.Repository.CarRepository.ListExtraRepo">
             <summary>
             Gets list of Extras from the db
             </summary>
             <returns>List of Extras</returns>
         </member>
-        <member name="M:CarShop.Repository.Repository.GetModelsRepo">
+        <member name="M:CarShop.Repository.CarRepository.ListModelsRepo">
             <summary>
             Gets a list of models from the DB
             </summary>
             <returns>List of models</returns>
         </member>
-        <member name="M:CarShop.Repository.Repository.GetExtraConnectionRepo">
+        <member name="M:CarShop.Repository.CarRepository.ListExtraConnectionRepo">
             <summary>
             Gets a list of Extra-Model connection from the DB.
             </summary>
             <returns>returns extra and model connections</returns>
         </member>
-        <member name="M:CarShop.Repository.Repository.CreateBrandRepo(CarShop.Data.car_brands)">
+        <member name="M:CarShop.Repository.CarRepository.CreateBrandRepo(CarShop.Data.CarBrands)">
             <summary>
             Creates new brand in the Database based on the parameter.
             </summary>
             <param name="brand">new brand parameter.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.CreateModelRepo(CarShop.Data.car_models)">
+        <member name="M:CarShop.Repository.CarRepository.CreateModelRepo(CarShop.Data.CarModels)">
             <summary>
             Creates new model in the Database based on the parameter.
             </summary>
             <param name="model">new model that needs to be created.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.CreateExtraRepo(CarShop.Data.extra)">
+        <member name="M:CarShop.Repository.CarRepository.CreateExtraRepo(CarShop.Data.Extras)">
             <summary>
             Creates new extra in the Database based on the parameter.
             </summary>
             <param name="newExtra">new extra that needs to be created.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.DeleteBrandRepo(CarShop.Data.car_brands)">
+        <member name="M:CarShop.Repository.CarRepository.DeleteBrandRepo(CarShop.Data.CarBrands)">
             <summary>
             Deletes Brand from the databse.
             </summary>
             <param name="brand">brand that needs to be delted.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.DeleteModelRepo(CarShop.Data.car_models)">
+        <member name="M:CarShop.Repository.CarRepository.DeleteModelRepo(CarShop.Data.CarModels)">
             <summary>
             Deletes Model from the databse.
             </summary>
             <param name="model">model that needs to be delted.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.DeleteExtraRepo(CarShop.Data.extra)">
+        <member name="M:CarShop.Repository.CarRepository.DeleteExtraRepo(CarShop.Data.Extras)">
             <summary>
             Deletes Extra from the databse.
             </summary>
             <param name="extra">extra that needs to be delted.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.DeleteConnectionRepo(CarShop.Data.model_extra_connection)">
+        <member name="M:CarShop.Repository.CarRepository.DeleteConnectionRepo(CarShop.Data.ModelExtraConnection)">
             <summary>
             Deletes Extra-Model connesction from the databse.
             </summary>
             <param name="connection">Connection that needs to be deleted.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.UpdateBrandRepo(System.Int32,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32})">
+        <member name="M:CarShop.Repository.CarRepository.UpdateBrandRepo(System.Int32,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32})">
             <summary>
             Calls repository to update selected brand.
             </summary>
@@ -197,7 +197,7 @@
             <param name="founded">updated foundation date</param>
             <param name="revenue">updated revenue</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.UpdateModelRepo(System.Int32,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+        <member name="M:CarShop.Repository.CarRepository.UpdateModelRepo(System.Int32,System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             Gets the id of the Model that needs to be updated. Sets the new values based on the parameters.
             </summary>
@@ -208,7 +208,7 @@
             <param name="horsePower">updated horsepower</param>
             <param name="startingPrice">updated starting price.</param>
         </member>
-        <member name="M:CarShop.Repository.Repository.UpdateExtraRepo(System.Int32,System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:CarShop.Repository.CarRepository.UpdateExtraRepo(System.Int32,System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Gets the id of the Extra that needs to be updated. Sets the new values based on the parameters.
             </summary>
@@ -217,11 +217,6 @@
             <param name="name">updated name of the extra</param>
             <param name="price">updated price </param>
             <param name="newReuse">updated value of reuseable field.</param>
-        </member>
-        <member name="M:CarShop.Repository.Repository.Dispose">
-            <summary>
-            Dispose es the Entity context
-            </summary>
         </member>
     </members>
 </doc>

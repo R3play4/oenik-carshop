@@ -31,7 +31,7 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            IEnumerable<object> connections = this.LogicContact.GetExtraModelLogic();
+            IEnumerable<object> connections = this.LogicContact.ListExtraModelLogic();
             this.DisplayExtraModel(connections);
             Console.ReadLine();
         }

@@ -25,13 +25,13 @@ namespace CarShop.Console
         {
             this.Name = name;
             this.Command = command;
-            this.LogicContact = new Logic();
+            this.LogicContact = new CarLogic();
         }
 
         /// <summary>
         /// Gets LogicContact which will be used by children MenuItem-s to call logic methods.
         /// </summary>
-        public ILogic LogicContact { get; private set; }
+        public ICarLogic LogicContact { get; private set; }
 
         /// <summary>
         /// Gets name of the MenuItem

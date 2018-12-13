@@ -7,28 +7,49 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 namespace CarShop.Data
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities'
     public partial class CarShopDBaseEntities : DbContext
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities'
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.CarShopDBaseEntities()'
         public CarShopDBaseEntities()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.CarShopDBaseEntities()'
             : base("name=CarShopDBaseEntities")
         {
         }
     
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.OnModelCreating(DbModelBuilder)'
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.OnModelCreating(DbModelBuilder)'
         {
             throw new UnintentionalCodeFirstException();
         }
-    
-        public virtual DbSet<car_brands> car_brands { get; set; }
-        public virtual DbSet<car_models> car_models { get; set; }
-        public virtual DbSet<extra> extras { get; set; }
-        public virtual DbSet<model_extra_connection> model_extra_connection { get; set; }
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.car_brands'
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "car")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "brands")]
+        public virtual DbSet<CarBrands> car_brands { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.car_brands'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.car_models'
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "models")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "car")]
+        public virtual DbSet<CarModels> car_models { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.car_models'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.extras'
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "extras")]
+        public virtual DbSet<Extras> extras { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.extras'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.model_extra_connection'
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "model")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "extra")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "connection")]
+        public virtual DbSet<ModelExtraConnection> model_extra_connection { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'CarShopDBaseEntities.model_extra_connection'
     }
 }

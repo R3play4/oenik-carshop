@@ -48,7 +48,7 @@ namespace CarShop.Console.MenuItems
 
         private void DisplayOptions()
         {
-            IEnumerable<object> connections = this.LogicContact.GetExtraModelLogic();
+            IEnumerable<object> connections = this.LogicContact.ListExtraModelLogic();
 
             foreach (var con in connections)
             {
@@ -58,7 +58,7 @@ namespace CarShop.Console.MenuItems
 
         private int ChooseConnection()
         {
-            IEnumerable<object> modelsExtra = this.LogicContact.GetExtraModelLogic();
+            IEnumerable<object> modelsExtra = this.LogicContact.ListExtraModelLogic();
 
             foreach (var item in modelsExtra)
             {
@@ -72,7 +72,7 @@ namespace CarShop.Console.MenuItems
             {
                 selected = int.Parse(Console.ReadLine());
             }
-            catch (Exception e)
+            catch (FormatException e)
             {
                 Console.WriteLine(e.Message);
             }

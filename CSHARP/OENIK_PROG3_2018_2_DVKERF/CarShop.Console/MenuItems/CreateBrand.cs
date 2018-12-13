@@ -56,7 +56,7 @@ namespace CarShop.Console.MenuItems
                 Console.WriteLine(e.Message);
                 Console.ReadLine();
             }
-            catch (InvalidDateFormatException e)
+            catch (InvalidParameterException e)
             {
                 Console.WriteLine(e.Message);
                 Console.ReadLine();

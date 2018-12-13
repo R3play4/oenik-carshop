@@ -94,6 +94,7 @@
     <Compile Include="extra.cs">
       <DependentUpon>CarShopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="model_extra_connection.cs">
       <DependentUpon>CarShopModel.tt</DependentUpon>
     </Compile>

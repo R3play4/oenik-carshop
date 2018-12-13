@@ -4,54 +4,54 @@
         <name>CarShop.Logic</name>
     </assembly>
     <members>
-        <member name="T:CarShop.Logic.ILogic">
+        <member name="T:CarShop.Logic.ICarLogic">
             <summary>
             Interface for CRUD operations. Communicates with Repository.
             </summary>
         </member>
-        <member name="M:CarShop.Logic.ILogic.GetBrandsLogic">
+        <member name="M:CarShop.Logic.ICarLogic.ListBrandLogic">
             <summary>
             Gets brand list from Repository
             </summary>
             <returns>List of Brands</returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.GetModelsLogic">
+        <member name="M:CarShop.Logic.ICarLogic.ListModelLogic">
             <summary>
             Gets Models from Repository
             </summary>
             <returns>Reutrns list of models from the repository.</returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.GetExtraLogic">
+        <member name="M:CarShop.Logic.ICarLogic.ListExtraLogic">
             <summary>
             Gets Extras from the repository
             </summary>
             <returns>Returns a list of models from the repository </returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.GetExtraModelLogic">
+        <member name="M:CarShop.Logic.ICarLogic.ListExtraModelLogic">
             <summary>
             Gets the connection between the extra and the model from the repository.
             </summary>
             <returns>Returns a list of Extra and Model conencitons.</returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.GetCountryBrandLogic">
+        <member name="M:CarShop.Logic.ICarLogic.ListCountryBrandLogic">
             <summary>
             Get Countries and Brands from the repository. Joins Brands and Modles table.
             </summary>
             <returns>Returns a list of objects from Brands and Models table. </returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.GetConnectionLogic">
+        <member name="M:CarShop.Logic.ICarLogic.ListConnectionLogic">
             <summary>
             Gets connections from extra model connecition table
             </summary>
             <returns>returns extra model connections</returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.GetFullNamePricesLogic">
+        <member name="M:CarShop.Logic.ICarLogic.ListFullNamePricesLogic">
             <summary>
             Joins car brands and car models and create a List of CarData Objects
             </summary>
             <returns>List of Car Data objects</returns>
         </member>
-        <member name="M:CarShop.Logic.ILogic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Logic.ICarLogic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Checks the parameters of the new brand and forwards it to the repository if everything is correct.
             </summary>
@@ -61,178 +61,18 @@
             <param name="foundationDate">new date </param>
             <param name="revenue">new reveneu </param>
         </member>
-        <member name="M:CarShop.Logic.ILogic.CreateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Checks the parameters of the new model and forwards it to the repository if everything is correct.
-            </summary>
-            <param name="id">new id of the brand of the model</param>
-            <param name="name">new name</param>
-            <param name="startDate">new production start date</param>
-            <param name="engineSize">new engine size</param>
-            <param name="horsepower">new horspower</param>
-            <param name="price">new price</param>
-        </member>
-        <member name="M:CarShop.Logic.ILogic.CreateExtraLogic(System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Checks the parameters of the new extra and forwards it to the repository if everything is correct.
-            </summary>
-            <param name="categoryName">new categpory name for the extra</param>
-            <param name="extraName"> nam eof the new extra</param>
-            <param name="color">color of the extra</param>
-            <param name="price">new price </param>
-            <param name="reusable">value of the reusable field of the new extra</param>
-        </member>
-        <member name="M:CarShop.Logic.ILogic.DeleteBrand(System.String)">
-            <summary>
-            Checks if the Brand that needs to be deleted is proper. Searches based on Brand Id.
-            </summary>
-            <param name="selection">Id of the brand that needs to be deleted</param>
-        </member>
-        <member name="M:CarShop.Logic.ILogic.DeleteModel(System.String)">
-            <summary>
-            Checks if the Model that needs to be deleted is proper. Searches based on Model Id.
-            </summary>
-            <param name="selection">Id of the model that needs to be deleted.</param>
-        </member>
-        <member name="M:CarShop.Logic.ILogic.DeleteExtra(System.String)">
-            <summary>
-            Checks if the Extra that needs to be deleted is proper. Searches based on Extra Id.
-            </summary>
-            <param name="selection">Id of the extra that needs to be deleted.</param>
-        </member>
-        <member name="M:CarShop.Logic.ILogic.DeleteConnection(System.String)">
-            <summary>
-            Checks if the Extra-Model connection that needs to be deleted is proper.
-            </summary>
-            <param name="selection">Id of the connection that needs to be deleted.</param>
-        </member>
-        <member name="M:CarShop.Logic.ILogic.UpdateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Checks if the values that will be updated are properly set.
-            </summary>
-            <param name="id">Id of the brand that needs to be updated.</param>
-            <param name="name">Updated name</param>
-            <param name="country">Updated country</param>
-            <param name="founded">new foundation date</param>
-            <param name="revenue">new revenu</param>
-        </member>
-        <member name="M:CarShop.Logic.ILogic.UpdateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Checks if the values that will be updated are properly set.
-            </summary>
-            <param name="selected">Id of the model that will be updated.</param>
-            <param name="name">updated name</param>
-            <param name="productionStart">updated production start date</param>
-            <param name="engineSizem">Updated engine size</param>
-            <param name="horsePower">Updated horsepower</param>
-            <param name="startingPrice">Updated starting price</param>
-        </member>
-        <member name="M:CarShop.Logic.ILogic.UpdateExtraLogic(System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Checks if the values that will be updated are properly set.
-            </summary>
-            <param name="selected">Id of the Extra that will be updated.</param>
-            <param name="catname">Updated category name</param>
-            <param name="name">updated extra name</param>
-            <param name="price">updated price </param>
-            <param name="newReuse">updated ruse field.</param>
-        </member>
-        <member name="T:CarShop.Logic.InvalidDateFormatException">
-            <summary>
-            If invalid date will be provided for one of the CRUD methods this exception will be thrown.
-            </summary>
-        </member>
-        <member name="M:CarShop.Logic.InvalidDateFormatException.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:CarShop.Logic.InvalidDateFormatException"/> class.
-            </summary>
-            <param name="message">Message that will be presented to the user.</param>
-        </member>
-        <member name="T:CarShop.Logic.Logic">
-            <summary>
-            Implements ILogic CRUD operations
-            </summary>
-        </member>
-        <member name="F:CarShop.Logic.Logic.repository">
-            <summary>
-            This will enable to communication with the Repository .dll
-            </summary>
-        </member>
-        <member name="M:CarShop.Logic.Logic.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:CarShop.Logic.Logic"/> class.
-            </summary>
-        </member>
-        <member name="M:CarShop.Logic.Logic.SetRepositoryInterface(CarShop.Repository.IRepository)">
-            <summary>
-            Sets the Repository property of the class. This will be used for mocking.
-            </summary>
-            <param name="intf">Repositary interface</param>
-        </member>
-        <member name="M:CarShop.Logic.Logic.GetBrandsLogic">
-            <summary>
-            Gets list of car brands from repo
-            </summary>
-            <returns>Enumerable list of car brands that was received from the repository </returns>
-        </member>
-        <member name="M:CarShop.Logic.Logic.GetExtraLogic">
-            <summary>
-            Gets list of extras from the repo
-            </summary>
-            <returns>List of extras from the repo</returns>
-        </member>
-        <member name="M:CarShop.Logic.Logic.GetModelsLogic">
-            <summary>
-            Gets a list of models from the repo
-            </summary>
-            <returns>List of models from the repo</returns>
-        </member>
-        <member name="M:CarShop.Logic.Logic.GetConnectionLogic">
-            <summary>
-            Gets extra model connections from table. Only the ids will be returened. (No Join)
-            </summary>
-            <returns>return content of model extra table</returns>
-        </member>
-        <member name="M:CarShop.Logic.Logic.GetExtraModelLogic">
-            <summary>
-            Gets the connection between the extra and the model from the repository.
-            </summary>
-            <returns>Returns a list of Extra and Model conencitons.</returns>
-        </member>
-        <member name="M:CarShop.Logic.Logic.GetFullNamePricesLogic">
-            <summary>
-            Joins car brands and car models and create a List of CarData Objects
-            </summary>
-            <returns>List of Car Data objects</returns>
-        </member>
-        <member name="M:CarShop.Logic.Logic.GetCountryBrandLogic">
-            <summary>
-            Get Countries and Brands from the repository. Joins Brands and Modles table.
-            </summary>
-            <returns>Returns a list of objects from Brands and Models table. </returns>
-        </member>
-        <member name="M:CarShop.Logic.Logic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Checks the parameters of the new brand and forwards it to the repository if everything is correct.
-            </summary>
-            <param name="name">new name</param>
-            <param name="country">new country</param>
-            <param name="url">new url it can be null</param>
-            <param name="date">new date </param>
-            <param name="revenue">new reveneu </param>
-        </member>
-        <member name="M:CarShop.Logic.Logic.CreateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Logic.ICarLogic.CreateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Checks the parameters of the new model and forwards it to the repository if everything is correct.
             </summary>
             <param name="brandId">new id of the brand of the model</param>
             <param name="name">new name</param>
-            <param name="start_date">new production start date</param>
-            <param name="engine_size">new engine size</param>
-            <param name="horsepower">new horspower</param>
+            <param name="startDate">new production start date</param>
+            <param name="engineSize">new engine size</param>
+            <param name="horsePower">new horspower</param>
             <param name="price">new price</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.CreateExtraLogic(System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Logic.ICarLogic.CreateExtraLogic(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Checks the parameters of the new extra and forwards it to the repository if everything is correct.
             </summary>
@@ -242,31 +82,31 @@
             <param name="price">new price </param>
             <param name="reusable">value of the reusable field of the new extra</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.DeleteBrand(System.String)">
+        <member name="M:CarShop.Logic.ICarLogic.DeleteBrand(System.String)">
             <summary>
             Checks if the Brand that needs to be deleted is proper. Searches based on Brand Id.
             </summary>
             <param name="selection">Id of the brand that needs to be deleted</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.DeleteModel(System.String)">
+        <member name="M:CarShop.Logic.ICarLogic.DeleteModel(System.String)">
             <summary>
             Checks if the Model that needs to be deleted is proper. Searches based on Model Id.
             </summary>
             <param name="selection">Id of the model that needs to be deleted.</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.DeleteConnection(System.String)">
-            <summary>
-            Checks if the Extra-Model connection that needs to be deleted is proper.
-            </summary>
-            <param name="selection">Id of the connection that needs to be deleted.</param>
-        </member>
-        <member name="M:CarShop.Logic.Logic.DeleteExtra(System.String)">
+        <member name="M:CarShop.Logic.ICarLogic.DeleteExtra(System.String)">
             <summary>
             Checks if the Extra that needs to be deleted is proper. Searches based on Extra Id.
             </summary>
             <param name="selection">Id of the extra that needs to be deleted.</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.UpdateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Logic.ICarLogic.DeleteConnection(System.String)">
+            <summary>
+            Checks if the Extra-Model connection that needs to be deleted is proper.
+            </summary>
+            <param name="selection">Id of the connection that needs to be deleted.</param>
+        </member>
+        <member name="M:CarShop.Logic.ICarLogic.UpdateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Checks if the values that will be updated are properly set.
             </summary>
@@ -274,9 +114,9 @@
             <param name="name">Updated name</param>
             <param name="country">Updated country</param>
             <param name="founded">new foundation date</param>
-            <param name="revenue">new revenu</param>m>
+            <param name="revenue">new revenu</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.UpdateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Logic.ICarLogic.UpdateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Checks if the values that will be updated are properly set.
             </summary>
@@ -287,12 +127,172 @@
             <param name="horsePower">Updated horsepower</param>
             <param name="startingPrice">Updated starting price</param>
         </member>
-        <member name="M:CarShop.Logic.Logic.UpdateExtraLogic(System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:CarShop.Logic.ICarLogic.UpdateExtraLogic(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Checks if the values that will be updated are properly set.
             </summary>
             <param name="selected">Id of the Extra that will be updated.</param>
-            <param name="catname">Updated category name</param>
+            <param name="catName">Updated category name</param>
+            <param name="name">updated extra name</param>
+            <param name="price">updated price </param>
+            <param name="newReuse">updated ruse field.</param>
+        </member>
+        <member name="T:CarShop.Logic.InvalidParameterException">
+            <summary>
+            If invalid parameter will be provided for one of the CRUD methods this exception will be thrown.
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.InvalidParameterException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Logic.InvalidParameterException"/> class.
+            </summary>
+            <param name="message">Message that will be presented to the user.</param>
+        </member>
+        <member name="T:CarShop.Logic.CarLogic">
+            <summary>
+            Implements ILogic CRUD operations
+            </summary>
+        </member>
+        <member name="F:CarShop.Logic.CarLogic.repository">
+            <summary>
+            This will enable to communication with the Repository .dll
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarShop.Logic.CarLogic"/> class.
+            </summary>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.SetRepositoryInterface(CarShop.Repository.ICarRepository)">
+            <summary>
+            Sets the Repository property of the class. This will be used for mocking.
+            </summary>
+            <param name="intf">Repositary interface</param>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.ListBrandLogic">
+            <summary>
+            Gets list of car brands from repo
+            </summary>
+            <returns>Enumerable list of car brands that was received from the repository </returns>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.ListExtraLogic">
+            <summary>
+            Gets list of extras from the repo
+            </summary>
+            <returns>List of extras from the repo</returns>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.ListModelLogic">
+            <summary>
+            Gets a list of models from the repo
+            </summary>
+            <returns>List of models from the repo</returns>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.ListConnectionLogic">
+            <summary>
+            Gets extra model connections from table. Only the ids will be returened. (No Join)
+            </summary>
+            <returns>return content of model extra table</returns>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.ListExtraModelLogic">
+            <summary>
+            Gets the connection between the extra and the model from the repository.
+            </summary>
+            <returns>Returns a list of Extra and Model conencitons.</returns>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.ListFullNamePricesLogic">
+            <summary>
+            Joins car brands and car models and create a List of CarData Objects
+            </summary>
+            <returns>List of Car Data objects</returns>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.ListCountryBrandLogic">
+            <summary>
+            Get Countries and Brands from the repository. Joins Brands and Modles table.
+            </summary>
+            <returns>Returns a list of objects from Brands and Models table. </returns>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.CreateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Checks the parameters of the new brand and forwards it to the repository if everything is correct.
+            </summary>
+            <param name="name">new name</param>
+            <param name="country">new country</param>
+            <param name="url">new url it can be null</param>
+            <param name="foundationDate">new date </param>
+            <param name="revenue">new reveneu </param>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.CreateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Checks the parameters of the new model and forwards it to the repository if everything is correct.
+            </summary>
+            <param name="brandId">new id of the brand of the model</param>
+            <param name="name">new name</param>
+            <param name="startDate">new production start date</param>
+            <param name="engineSize">new engine size</param>
+            <param name="horsePower">new horspower</param>
+            <param name="price">new price</param>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.CreateExtraLogic(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Checks the parameters of the new extra and forwards it to the repository if everything is correct.
+            </summary>
+            <param name="categoryName">new categpory name for the extra</param>
+            <param name="extraName"> nam eof the new extra</param>
+            <param name="color">color of the extra</param>
+            <param name="price">new price </param>
+            <param name="reusable">value of the reusable field of the new extra</param>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.DeleteBrand(System.String)">
+            <summary>
+            Checks if the Brand that needs to be deleted is proper. Searches based on Brand Id.
+            </summary>
+            <param name="selection">Id of the brand that needs to be deleted</param>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.DeleteModel(System.String)">
+            <summary>
+            Checks if the Model that needs to be deleted is proper. Searches based on Model Id.
+            </summary>
+            <param name="selection">Id of the model that needs to be deleted.</param>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.DeleteConnection(System.String)">
+            <summary>
+            Checks if the Extra-Model connection that needs to be deleted is proper.
+            </summary>
+            <param name="selection">Id of the connection that needs to be deleted.</param>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.DeleteExtra(System.String)">
+            <summary>
+            Checks if the Extra that needs to be deleted is proper. Searches based on Extra Id.
+            </summary>
+            <param name="selection">Id of the extra that needs to be deleted.</param>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.UpdateBrandLogic(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Checks if the values that will be updated are properly set.
+            </summary>
+            <param name="newId">Id of the brand that needs to be updated.</param>
+            <param name="name">Updated name</param>
+            <param name="country">Updated country</param>
+            <param name="founded">new foundation date</param>
+            <param name="revenue">new revenu</param>m>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.UpdateModelLogic(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Checks if the values that will be updated are properly set.
+            </summary>
+            <param name="selected">Id of the model that will be updated.</param>
+            <param name="name">updated name</param>
+            <param name="productionStart">updated production start date</param>
+            <param name="engineSize">Updated engine size</param>
+            <param name="horsePower">Updated horsepower</param>
+            <param name="startingPrice">Updated starting price</param>
+        </member>
+        <member name="M:CarShop.Logic.CarLogic.UpdateExtraLogic(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Checks if the values that will be updated are properly set.
+            </summary>
+            <param name="selected">Id of the Extra that will be updated.</param>
+            <param name="catName">Updated category name</param>
             <param name="name">updated extra name</param>
             <param name="price">updated price </param>
             <param name="newReuse">updated ruse field.</param>
