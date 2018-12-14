@@ -41,9 +41,9 @@ namespace CarShop.Logic
         /// Gets list of car brands from repo
         /// </summary>
         /// <returns>Enumerable list of car brands that was received from the repository </returns>
-        public IEnumerable<CarBrands> ListBrandLogic()
+        public IEnumerable<car_brands> ListBrandLogic()
         {
-            IEnumerable<CarBrands> brands = this.repository.ListBrandsRepo();
+            IEnumerable<car_brands> brands = this.repository.ListBrandsRepo();
             return brands;
         }
 
@@ -51,9 +51,9 @@ namespace CarShop.Logic
         /// Gets list of extras from the repo
         /// </summary>
         /// <returns>List of extras from the repo</returns>
-        public IEnumerable<Extras> ListExtraLogic()
+        public IEnumerable<extra> ListExtraLogic()
         {
-            IEnumerable<Extras> extras = this.repository.ListExtraRepo();
+            IEnumerable<extra> extras = this.repository.ListExtraRepo();
             return extras;
         }
 
@@ -61,9 +61,9 @@ namespace CarShop.Logic
         /// Gets a list of models from the repo
         /// </summary>
         /// <returns>List of models from the repo</returns>
-        public IEnumerable<CarModels> ListModelLogic()
+        public IEnumerable<car_models> ListModelLogic()
         {
-            IEnumerable<CarModels> models = this.repository.ListModelsRepo();
+            IEnumerable<car_models> models = this.repository.ListModelsRepo();
             return models;
         }
 
@@ -71,7 +71,7 @@ namespace CarShop.Logic
         /// Gets extra model connections from table. Only the ids will be returened. (No Join)
         /// </summary>
         /// <returns>return content of model extra table</returns>
-        public IEnumerable<ModelExtraConnection> ListConnectionLogic()
+        public IEnumerable<model_extra_connection> ListConnectionLogic()
         {
             return this.repository.ListExtraConnectionRepo();
         }
@@ -82,14 +82,14 @@ namespace CarShop.Logic
         /// <returns>Returns a list of Extra and Model conencitons.</returns>
         public IEnumerable<object> ListExtraModelLogic()
         {
-            IEnumerable<CarModels> models = this.repository.ListModelsRepo();
-            IEnumerable<Extras> extras = this.repository.ListExtraRepo();
-            IEnumerable<ModelExtraConnection> connections = this.repository.ListExtraConnectionRepo();
+            IEnumerable<car_models> models = this.repository.ListModelsRepo();
+            IEnumerable<extra> extras = this.repository.ListExtraRepo();
+            IEnumerable<model_extra_connection> connections = this.repository.ListExtraConnectionRepo();
 
             var result = from con in connections
-                         join mod in models on con.ModelId equals mod.id
-                         join ext in extras on con.ExtraId equals ext.id
-                         select new { ID = con.Id, Model = mod.name, Extra = ext.name };
+                         join mod in models on con.model_id equals mod.id
+                         join ext in extras on con.extra_id equals ext.id
+                         select new { ID = con.id, Model = mod.name, Extra = ext.name };
             return result;
         }
 
@@ -99,12 +99,12 @@ namespace CarShop.Logic
         /// <returns>List of Car Data objects</returns>
         public IEnumerable<CarData> ListFullNamePricesLogic()
         {
-            IEnumerable<CarBrands> brands = this.repository.ListBrandsRepo();
-            IEnumerable<CarModels> models = this.repository.ListModelsRepo();
+            IEnumerable<car_brands> brands = this.repository.ListBrandsRepo();
+            IEnumerable<car_models> models = this.repository.ListModelsRepo();
 
             IEnumerable<CarData> result = from br in brands
-                                          join mod in models on br.Id equals mod.brand_id
-                                          select new CarData(mod.id, br.Name + " " + mod.name, mod.starting_price);
+                                          join mod in models on br.id equals mod.brand_id
+                                          select new CarData(mod.id, br.name + " " + mod.name, mod.starting_price);
 
             return result;
         }
@@ -115,12 +115,12 @@ namespace CarShop.Logic
         /// <returns>Returns a list of objects from Brands and Models table. </returns>
         public IEnumerable<object> ListCountryBrandLogic()
         {
-            IEnumerable<CarBrands> brands = this.repository.ListBrandsRepo();
-            IEnumerable<CarModels> models = this.repository.ListModelsRepo();
+            IEnumerable<car_brands> brands = this.repository.ListBrandsRepo();
+            IEnumerable<car_models> models = this.repository.ListModelsRepo();
 
             var result = from br in brands
-                         join mod in models on br.Id equals mod.brand_id
-                         select new { Country = br.Country, FullName = br.Name + " " + mod.name };
+                         join mod in models on br.id equals mod.brand_id
+                         select new { Country = br.country, FullName = br.name + " " + mod.name };
 
             return result;
         }
@@ -135,7 +135,7 @@ namespace CarShop.Logic
         /// <param name="revenue">new reveneu </param>
         public void CreateBrandLogic(string name, string country, string url, string foundationDate, string revenue)
         {
-            CarBrands newBrand = new CarBrands();
+            car_brands newBrand = new car_brands();
             int newRevenue = this.SetIntValue(revenue);
             DateTime newDate = this.SetDate(foundationDate);
 
@@ -145,11 +145,11 @@ namespace CarShop.Logic
             }
             else
             {
-                newBrand.Name = name;
-                newBrand.Country = country;
-                newBrand.Url = url;
-                newBrand.Founded = newDate;
-                newBrand.YearlyRevenue = newRevenue;
+                newBrand.name = name;
+                newBrand.country = country;
+                newBrand.url = url;
+                newBrand.founded = newDate;
+                newBrand.yearly_revenue = newRevenue;
                 this.repository.CreateBrandRepo(newBrand);
             }
         }
@@ -165,7 +165,7 @@ namespace CarShop.Logic
         /// <param name="price">new price</param>
         public void CreateModelLogic(string brandId, string name, string startDate, string engineSize, string horsePower, string price)
         {
-            CarModels newModel = new CarModels();
+            car_models newModel = new car_models();
             int newBrandId;
             DateTime newDate = this.SetDate(startDate);
             int newEngine = this.SetIntValue(engineSize);
@@ -198,7 +198,7 @@ namespace CarShop.Logic
         /// <param name="reusable">value of the reusable field of the new extra</param>
         public void CreateExtraLogic(string categoryName, string extraName, string color, string price, string reusable)
         {
-            Extras newExtra = new Extras();
+            extra newExtra = new extra();
             int newPrice = this.SetIntValue(price);
             int reuseAble = this.SetIntValue(reusable);
 
@@ -223,14 +223,14 @@ namespace CarShop.Logic
         /// <param name="selection">Id of the brand that needs to be deleted</param>
         public void DeleteBrand(string selection)
         {
-            IEnumerable<CarBrands> brands = this.repository.ListBrandsRepo();
+            IEnumerable<car_brands> brands = this.repository.ListBrandsRepo();
 
             IEnumerable<int> brand_ids = brands
-                .Select(b => b.Id);
+                .Select(b => b.id);
 
             if (this.IsStringNumber(selection) && brand_ids.Contains(int.Parse(selection)))
             {
-                CarBrands toBeDeleted = brands.Where(b => b.Id == int.Parse(selection)).First();
+                car_brands toBeDeleted = brands.Where(b => b.id == int.Parse(selection)).First();
                 this.repository.DeleteBrandRepo(toBeDeleted);
             }
             else
@@ -252,14 +252,14 @@ namespace CarShop.Logic
         /// <param name="selection">Id of the model that needs to be deleted.</param>
         public void DeleteModel(string selection)
         {
-            IEnumerable<CarModels> models = this.repository.ListModelsRepo();
+            IEnumerable<car_models> models = this.repository.ListModelsRepo();
 
             IEnumerable<int> model_ids = models
                 .Select(m => m.id);
 
             if (this.IsStringNumber(selection) && model_ids.Contains(int.Parse(selection)))
             {
-                CarModels toBeDeleted = models.Where(m => m.id == int.Parse(selection)).First();
+                car_models toBeDeleted = models.Where(m => m.id == int.Parse(selection)).First();
                 this.repository.DeleteModelRepo(toBeDeleted);
             }
             else
@@ -281,14 +281,14 @@ namespace CarShop.Logic
         /// <param name="selection">Id of the connection that needs to be deleted.</param>
         public void DeleteConnection(string selection)
         {
-            IEnumerable<ModelExtraConnection> connections = this.repository.ListExtraConnectionRepo();
+            IEnumerable<model_extra_connection> connections = this.repository.ListExtraConnectionRepo();
 
             IEnumerable<int> model_ids = connections
-                .Select(c => c.Id);
+                .Select(c => c.id);
 
             if (this.IsStringNumber(selection) && model_ids.Contains(int.Parse(selection)))
             {
-                ModelExtraConnection toBeDeleted = connections.Where(m => m.Id == int.Parse(selection)).First();
+                model_extra_connection toBeDeleted = connections.Where(m => m.id == int.Parse(selection)).First();
                 this.repository.DeleteConnectionRepo(toBeDeleted);
             }
             else
@@ -310,12 +310,12 @@ namespace CarShop.Logic
         /// <param name="selection">Id of the extra that needs to be deleted.</param>
         public void DeleteExtra(string selection)
         {
-            IEnumerable<Extras> extras = this.repository.ListExtraRepo();
+            IEnumerable<extra> extras = this.repository.ListExtraRepo();
             IEnumerable<int> extra_ids = extras.Select(x => x.id);
 
             if (this.IsStringNumber(selection) && extra_ids.Contains(int.Parse(selection)))
             {
-                Extras toBeDeleted = extras.Where(x => x.id == int.Parse(selection)).First();
+                extra toBeDeleted = extras.Where(x => x.id == int.Parse(selection)).First();
                 this.repository.DeleteExtraRepo(toBeDeleted);
             }
             else
@@ -489,7 +489,7 @@ namespace CarShop.Logic
         {
             IEnumerable<int> brands_id = this.repository
                 .ListBrandsRepo()
-                .Select(b => b.Id);
+                .Select(b => b.id);
 
             return brands_id.Contains(id);
         }
@@ -507,7 +507,7 @@ namespace CarShop.Logic
         {
             IEnumerable<int> extras_id = this.repository
                 .ListBrandsRepo()
-                .Select(b => b.Id);
+                .Select(b => b.id);
 
             return extras_id.Contains(id);
         }
@@ -516,7 +516,7 @@ namespace CarShop.Logic
         {
             IEnumerable<int> connections = this.repository
                 .ListExtraConnectionRepo()
-                .Select(e => e.Id);
+                .Select(e => e.id);
 
             return connections.Contains(id);
         }

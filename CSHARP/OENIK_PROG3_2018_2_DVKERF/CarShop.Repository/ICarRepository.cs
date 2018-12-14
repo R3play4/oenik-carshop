@@ -20,67 +20,67 @@ namespace CarShop.Repository
         /// Gets an enumerable list from the db that holds car brands
         /// </summary>
         /// <returns>List of car brands</returns>
-        IEnumerable<CarBrands> ListBrandsRepo();
+        IEnumerable<car_brands> ListBrandsRepo();
 
         /// <summary>
         /// Gets all the models from the DB
         /// </summary>
         /// <returns>List of models</returns>
-        IEnumerable<CarModels> ListModelsRepo();
+        IEnumerable<car_models> ListModelsRepo();
 
         /// <summary>
         /// Gets a list of Extras from the DB
         /// </summary>
         /// <returns>List of extras</returns>
-        IEnumerable<Extras> ListExtraRepo();
+        IEnumerable<extra> ListExtraRepo();
 
         /// <summary>
         /// Gets a list of Extra-Model connection from the DB.
         /// </summary>
         /// <returns>returns extra and model connections</returns>
-        IEnumerable<ModelExtraConnection> ListExtraConnectionRepo();
+        IEnumerable<model_extra_connection> ListExtraConnectionRepo();
 
         /// <summary>
         /// Creates new brand in the database
         /// </summary>
         /// <param name="brand">name of the new brand</param>
-        void CreateBrandRepo(CarBrands brand);
+        void CreateBrandRepo(car_brands brand);
 
         /// <summary>
         /// Creates new model in the database
         /// </summary>
         /// <param name="model">the new model that needs to be created.</param>
-        void CreateModelRepo(CarModels model);
+        void CreateModelRepo(car_models model);
 
         /// <summary>
         /// Creates new extra in the database
         /// </summary>
         /// <param name="newExtra">the new model that needs to be created.</param>
-        void CreateExtraRepo(Extras newExtra);
+        void CreateExtraRepo(extra newExtra);
 
         /// <summary>
         /// Deletes Brand from the databse.
         /// </summary>
         /// <param name="brand">brand that needs to be delted.</param>
-        void DeleteBrandRepo(CarBrands brand);
+        void DeleteBrandRepo(car_brands brand);
 
         /// <summary>
         /// Deletes Model from the databse.
         /// </summary>
         /// <param name="model">model that needs to be delted.</param>
-        void DeleteModelRepo(CarModels model);
+        void DeleteModelRepo(car_models model);
 
         /// <summary>
         /// Deletes Extra from the databse.
         /// </summary>
         /// <param name="extra">extra that needs to be delted.</param>
-        void DeleteExtraRepo(Extras extra);
+        void DeleteExtraRepo(extra extra);
 
         /// <summary>
         /// Deletes Extra-Model connesction from the databse.
         /// </summary>
         /// <param name="connection">Connection that needs to be deleted.</param>
-        void DeleteConnectionRepo(ModelExtraConnection connection);
+        void DeleteConnectionRepo(model_extra_connection connection);
 
         /// <summary>
         /// Calls repository to update selected brand.

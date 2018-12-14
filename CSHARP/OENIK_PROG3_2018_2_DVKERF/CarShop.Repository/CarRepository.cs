@@ -34,7 +34,7 @@ namespace CarShop.Repository
         /// Gets a list of Brands from the DB
         /// </summary>
         /// <returns>List of brands</returns>
-        public IEnumerable<CarBrands> ListBrandsRepo()
+        public IEnumerable<car_brands> ListBrandsRepo()
         {
             return this.DataBase.car_brands;
         }
@@ -43,7 +43,7 @@ namespace CarShop.Repository
         /// Gets list of Extras from the db
         /// </summary>
         /// <returns>List of Extras</returns>
-        public IEnumerable<Extras> ListExtraRepo()
+        public IEnumerable<extra> ListExtraRepo()
         {
             return this.DataBase.extras;
         }
@@ -52,7 +52,7 @@ namespace CarShop.Repository
         /// Gets a list of models from the DB
         /// </summary>
         /// <returns>List of models</returns>
-        public IEnumerable<CarModels> ListModelsRepo()
+        public IEnumerable<car_models> ListModelsRepo()
         {
             return this.DataBase.car_models;
         }
@@ -61,7 +61,7 @@ namespace CarShop.Repository
         /// Gets a list of Extra-Model connection from the DB.
         /// </summary>
         /// <returns>returns extra and model connections</returns>
-        public IEnumerable<ModelExtraConnection> ListExtraConnectionRepo()
+        public IEnumerable<model_extra_connection> ListExtraConnectionRepo()
         {
             return this.DataBase.model_extra_connection;
         }
@@ -70,10 +70,10 @@ namespace CarShop.Repository
         /// Creates new brand in the Database based on the parameter.
         /// </summary>
         /// <param name="brand">new brand parameter.</param>
-        public void CreateBrandRepo(CarBrands brand)
+        public void CreateBrandRepo(car_brands brand)
         {
-                int last_id = this.DataBase.car_brands.Max(i => i.Id);
-                brand.Id = last_id + 1;
+                int last_id = this.DataBase.car_brands.Max(i => i.id);
+                brand.id = last_id + 1;
                 this.DataBase.car_brands.Add(brand);
                 this.DataBase.SaveChanges();
         }
@@ -82,7 +82,7 @@ namespace CarShop.Repository
         /// Creates new model in the Database based on the parameter.
         /// </summary>
         /// <param name="model">new model that needs to be created.</param>
-        public void CreateModelRepo(CarModels model)
+        public void CreateModelRepo(car_models model)
         {
             int last_id = this.DataBase.car_models.Max(i => i.id);
             model.id = last_id + 1;
@@ -94,7 +94,7 @@ namespace CarShop.Repository
         /// Creates new extra in the Database based on the parameter.
         /// </summary>
         /// <param name="newExtra">new extra that needs to be created.</param>
-        public void CreateExtraRepo(Extras newExtra)
+        public void CreateExtraRepo(extra newExtra)
         {
             int last_id = this.DataBase.extras.Max(i => i.id);
             newExtra.id = last_id + 1;
@@ -106,7 +106,7 @@ namespace CarShop.Repository
         /// Deletes Brand from the databse.
         /// </summary>
         /// <param name="brand">brand that needs to be delted.</param>
-        public void DeleteBrandRepo(CarBrands brand)
+        public void DeleteBrandRepo(car_brands brand)
         {
             try
             {
@@ -124,7 +124,7 @@ namespace CarShop.Repository
         /// Deletes Model from the databse.
         /// </summary>
         /// <param name="model">model that needs to be delted.</param>
-        public void DeleteModelRepo(CarModels model)
+        public void DeleteModelRepo(car_models model)
         {
             try
             {
@@ -142,7 +142,7 @@ namespace CarShop.Repository
         /// Deletes Extra from the databse.
         /// </summary>
         /// <param name="extra">extra that needs to be delted.</param>
-        public void DeleteExtraRepo(Extras extra)
+        public void DeleteExtraRepo(extra extra)
         {
             try
             {
@@ -160,7 +160,7 @@ namespace CarShop.Repository
         /// Deletes Extra-Model connesction from the databse.
         /// </summary>
         /// <param name="connection">Connection that needs to be deleted.</param>
-        public void DeleteConnectionRepo(ModelExtraConnection connection)
+        public void DeleteConnectionRepo(model_extra_connection connection)
         {
             try
             {
@@ -185,27 +185,27 @@ namespace CarShop.Repository
         public void UpdateBrandRepo(int id, string name, string country, DateTime? founded, int? revenue)
         {
             // returns the selected brand
-            CarBrands brand = this.DataBase.car_brands
-                .Where(b => b.Id == id).First();
+            car_brands brand = this.DataBase.car_brands
+                .Where(b => b.id == id).First();
 
             if (name != string.Empty)
             {
-                brand.Name = name;
+                brand.name = name;
             }
 
             if (country != string.Empty)
             {
-                brand.Country = country;
+                brand.country = country;
             }
 
             if (founded != default(DateTime))
             {
-                brand.Founded = founded;
+                brand.founded = founded;
             }
 
             if (revenue != default(int))
             {
-                brand.YearlyRevenue = revenue;
+                brand.yearly_revenue = revenue;
             }
 
             Console.ReadLine();
@@ -223,7 +223,7 @@ namespace CarShop.Repository
         /// <param name="startingPrice">updated starting price.</param>
         public void UpdateModelRepo(int selected, string name, DateTime? productionStart, int? engineSize, int? horsePower, int? startingPrice)
         {
-            CarModels model = this.DataBase.car_models
+            car_models model = this.DataBase.car_models
                 .Where(m => m.id == selected).First();
 
             if (name != string.Empty)
@@ -264,7 +264,7 @@ namespace CarShop.Repository
         /// <param name="newReuse">updated value of reuseable field.</param>
         public void UpdateExtraRepo(int selected, string catname, string name, int price, int newReuse)
         {
-            Extras extra = this.DataBase.extras
+            extra extra = this.DataBase.extras
                 .Where(e => e.id == selected).First();
 
             if (catname != string.Empty)

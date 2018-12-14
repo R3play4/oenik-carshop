@@ -68,11 +68,11 @@ namespace CarShop.Console.MenuItems
 
         private void DisplayBrands()
         {
-            IEnumerable<CarBrands> brands = this.LogicContact.ListBrandLogic();
+            IEnumerable<car_brands> brands = this.LogicContact.ListBrandLogic();
 
             foreach (var brand in brands)
             {
-                Console.WriteLine("{0} - {1}", brand.Id, brand.Name);
+                Console.WriteLine("{0} - {1}", brand.id, brand.name);
             }
         }
     }

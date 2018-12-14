@@ -7,6 +7,7 @@ namespace CarShop.Console.MenuItems
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net;
     using System.Text;
     using System.Threading.Tasks;
     using System.Xml.Linq;
@@ -59,6 +60,11 @@ namespace CarShop.Console.MenuItems
             catch (IndexOutOfRangeException ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.ReadLine();
+            }
+            catch (WebException w)
+            {
+                Console.WriteLine(w.Message);
                 Console.ReadLine();
             }
         }

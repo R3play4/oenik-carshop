@@ -31,12 +31,12 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            IEnumerable<Extras> extras = this.LogicContact.ListExtraLogic();
+            IEnumerable<extra> extras = this.LogicContact.ListExtraLogic();
             this.DisplayExtras(extras);
             Console.ReadLine();
         }
 
-        private void DisplayExtras(IEnumerable<Extras> extras)
+        private void DisplayExtras(IEnumerable<extra> extras)
         {
             var result = extras.Select(b => new
             {

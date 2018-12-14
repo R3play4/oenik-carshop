@@ -71,7 +71,7 @@ namespace CarShop.Console.MenuItems
 
         private void DisplayModels()
         {
-            IEnumerable<CarModels> models = this.LogicContact.ListModelLogic();
+            IEnumerable<car_models> models = this.LogicContact.ListModelLogic();
 
             foreach (var model in models)
             {
@@ -81,11 +81,11 @@ namespace CarShop.Console.MenuItems
 
         private void DisplayBrand()
         {
-            IEnumerable<CarBrands> brands = this.LogicContact.ListBrandLogic();
+            IEnumerable<car_brands> brands = this.LogicContact.ListBrandLogic();
 
             foreach (var item in brands)
             {
-                Console.WriteLine("{0} - {1}", item.Id, item.Name);
+                Console.WriteLine("{0} - {1}", item.id, item.name);
             }
         }
     }

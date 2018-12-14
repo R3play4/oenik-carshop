@@ -30,33 +30,33 @@ namespace CarShop.Logic.Tests
         {
             this.mockedRepository = new Mock<ICarRepository>();
 
-            CarBrands brand1 = new CarBrands() { Id = 1, Name = "Ferari", Url = "valami", Country = "hungary" };
-            CarBrands brand2 = new CarBrands() { Id = 2, Name = "Lambo", Url = "semmi", Country = "italy" };
-            CarBrands brand3 = new CarBrands() { Id = 3, Name = "Peugeot", Url = "halad", Country = "france" };
+            car_brands brand1 = new car_brands() { id = 1, name = "Ferari", url = "valami", country = "hungary" };
+            car_brands brand2 = new car_brands() { id = 2, name = "Lambo", url = "semmi", country = "italy" };
+            car_brands brand3 = new car_brands() { id = 3, name = "Peugeot", url = "halad", country = "france" };
 
             this.mockedRepository
                 .Setup(m => m.ListBrandsRepo())
                 .Returns(new[] { brand1, brand2, brand3 });
 
-            CarModels model1 = new CarModels() { id = 1, brand_id = 2, name = "MurceLago", horsepower = 300 };
-            CarModels model2 = new CarModels() { id = 2, brand_id = 1, name = "Testarosa", horsepower = 120 };
-            CarModels model3 = new CarModels() { id = 3, brand_id = 3, name = "406", horsepower = 60 };
+            car_models model1 = new car_models() { id = 1, brand_id = 2, name = "MurceLago", horsepower = 300 };
+            car_models model2 = new car_models() { id = 2, brand_id = 1, name = "Testarosa", horsepower = 120 };
+            car_models model3 = new car_models() { id = 3, brand_id = 3, name = "406", horsepower = 60 };
 
             this.mockedRepository
                 .Setup(m => m.ListModelsRepo())
                 .Returns(new[] { model1, model2, model3 });
 
-            Extras extra1 = new Extras() { id = 1, name = "turbo", category_name = "Engine", price = 20 };
-            Extras extra2 = new Extras() { id = 2, name = "air conditioning", category_name = "Interior", price = 20 };
-            Extras extra3 = new Extras() { id = 3, name = "dark windows", category_name = "Exterior", price = 20 };
+            extra extra1 = new extra() { id = 1, name = "turbo", category_name = "Engine", price = 20 };
+            extra extra2 = new extra() { id = 2, name = "air conditioning", category_name = "Interior", price = 20 };
+            extra extra3 = new extra() { id = 3, name = "dark windows", category_name = "Exterior", price = 20 };
 
             this.mockedRepository
                 .Setup(m => m.ListExtraRepo())
                 .Returns(new[] { extra1, extra2, extra3 });
 
-            ModelExtraConnection connection1 = new ModelExtraConnection() { Id = 1, ExtraId = 1, ModelId = 1 };
-            ModelExtraConnection connection2 = new ModelExtraConnection() { Id = 2, ExtraId = 1, ModelId = 3 };
-            ModelExtraConnection connection3 = new ModelExtraConnection() { Id = 3, ExtraId = 2, ModelId = 4 };
+            model_extra_connection connection1 = new model_extra_connection() { id = 1, extra_id = 1, model_id = 1 };
+            model_extra_connection connection2 = new model_extra_connection() { id = 2, extra_id = 1, model_id = 3 };
+            model_extra_connection connection3 = new model_extra_connection() { id = 3, extra_id = 2, model_id = 4 };
 
             this.mockedRepository
                 .Setup(m => m.ListExtraConnectionRepo())
@@ -78,7 +78,7 @@ namespace CarShop.Logic.Tests
 
             // Assert
             Assert.That(result.Count(), Is.EqualTo(3));
-            Assert.That(result.SingleOrDefault(x => x.Name == "Ferari"), Is.Not.Null);
+            Assert.That(result.SingleOrDefault(x => x.name == "Ferari"), Is.Not.Null);
         }
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace CarShop.Logic.Tests
             var result = logic.ListConnectionLogic();
 
             Assert.That(result.Count(), Is.EqualTo(3));
-            Assert.That(result.SingleOrDefault(x => x.Id == 3), Is.Not.Null);
+            Assert.That(result.SingleOrDefault(x => x.id == 3), Is.Not.Null);
         }
 
         /// <summary>
@@ -205,7 +205,7 @@ namespace CarShop.Logic.Tests
             Assert.Throws(typeof(InvalidParameterException), () => logic.DeleteBrand(selection));
 
             this.mockedRepository.Verify(
-                m => m.DeleteBrandRepo(It.IsAny<CarBrands>()), Times.Never);
+                m => m.DeleteBrandRepo(It.IsAny<car_brands>()), Times.Never);
         }
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace CarShop.Logic.Tests
             logic.DeleteBrand(selection);
 
             // Assert (Verify)
-            this.mockedRepository.Verify(m => m.DeleteBrandRepo(It.IsAny<CarBrands>()), Times.AtLeastOnce);
+            this.mockedRepository.Verify(m => m.DeleteBrandRepo(It.IsAny<car_brands>()), Times.AtLeastOnce);
         }
 
         /// <summary>
@@ -258,7 +258,7 @@ namespace CarShop.Logic.Tests
             // this.mockedRepository.Setup(m => m.DeleteModelRepo(It.IsAny<car_models>()));
             logic.SetRepositoryInterface(this.mockedRepository.Object);
             logic.DeleteModel(selection);
-            this.mockedRepository.Verify(m => m.DeleteModelRepo(It.IsAny<CarModels>()), Times.Once);
+            this.mockedRepository.Verify(m => m.DeleteModelRepo(It.IsAny<car_models>()), Times.Once);
         }
 
         /// <summary>
@@ -287,7 +287,7 @@ namespace CarShop.Logic.Tests
             // this.mockedRepository.Setup(m => m.DeleteModelRepo(It.IsAny<car_models>()));
             logic.SetRepositoryInterface(this.mockedRepository.Object);
             logic.DeleteModel(selection);
-            this.mockedRepository.Verify(m => m.DeleteExtraRepo(It.IsAny<Extras>()), Times.Once);
+            this.mockedRepository.Verify(m => m.DeleteExtraRepo(It.IsAny<extra>()), Times.Once);
         }
 
         /// <summary>

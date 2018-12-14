@@ -20,19 +20,19 @@ namespace CarShop.Logic
         /// Gets brand list from Repository
         /// </summary>
         /// <returns>List of Brands</returns>
-        IEnumerable<CarBrands> ListBrandLogic();
+        IEnumerable<car_brands> ListBrandLogic();
 
         /// <summary>
         /// Gets Models from Repository
         /// </summary>
         /// <returns>Reutrns list of models from the repository.</returns>
-        IEnumerable<CarModels> ListModelLogic();
+        IEnumerable<car_models> ListModelLogic();
 
         /// <summary>
         /// Gets Extras from the repository
         /// </summary>
         /// <returns>Returns a list of models from the repository </returns>
-        IEnumerable<Extras> ListExtraLogic();
+        IEnumerable<extra> ListExtraLogic();
 
         /// <summary>
         /// Gets the connection between the extra and the model from the repository.
@@ -50,7 +50,7 @@ namespace CarShop.Logic
         /// Gets connections from extra model connecition table
         /// </summary>
         /// <returns>returns extra model connections</returns>
-        IEnumerable<ModelExtraConnection> ListConnectionLogic();
+        IEnumerable<model_extra_connection> ListConnectionLogic();
 
         /// <summary>
         /// Joins car brands and car models and create a List of CarData Objects

@@ -31,7 +31,7 @@ namespace CarShop.Console.MenuItems
         /// </summary>
         public override void ExecuteMenuAction()
         {
-            IEnumerable<CarBrands> brands = this.LogicContact.ListBrandLogic();
+            IEnumerable<car_brands> brands = this.LogicContact.ListBrandLogic();
             this.DisplayBrands(brands);
             Console.ReadLine();
         }
@@ -40,15 +40,15 @@ namespace CarShop.Console.MenuItems
         /// Gets the brands from the logic, and displays it.
         /// </summary>
         /// <param name="brands">brands that was received from the logic layer and neds to be displayed</param>
-        private void DisplayBrands(IEnumerable<CarBrands> brands)
+        private void DisplayBrands(IEnumerable<car_brands> brands)
         {
             var result = brands.Select(b => new
             {
-                Id = b.Id,
-                Name = b.Name,
-                Country = b.Country,
-                Founded = b.Founded.ToString().Substring(0, 10), // cuts of HH:MM:mm
-                Revenue = b.YearlyRevenue
+                Id = b.id,
+                Name = b.name,
+                Country = b.country,
+                Founded = b.founded.ToString().Substring(0, 10), // cuts of HH:MM:mm
+                Revenue = b.yearly_revenue
             });
 
             foreach (var item in result)
