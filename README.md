@@ -32,6 +32,8 @@ EntityFramework
 NUnit
 Moq
 
+Application can be tested via Visual Studio 2015/2017
+
 	
 
 	
