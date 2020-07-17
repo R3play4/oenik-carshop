@@ -1,6 +1,7 @@
 # OENIK_PROG3_2018_2_DVKERF
 
 University Home Assignment. 
+To Try: Open the SLN via Visual Studio. Set CarShop.Console as Start Up project. The Java Endpoint would only work with Glassfish. 
 Task description: 
 	Create an Appliation for a Car Shop. The application have to be able to exceute basic CRUD operations.
 	The application have to be organized into 3 layers. View, Logic and Repository.
