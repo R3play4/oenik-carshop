@@ -31,10 +31,7 @@ Each layer can only communicate with the layer directly below it via an Interfac
 Layers can only use events to communicate with layers above them.
 
 ###### Technologies: 
-MSSQL
-EntityFramework
-NUnit
-Moq
+MSSQL, EntityFramework, NUnit, Moq
 
 
 	
